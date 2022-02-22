@@ -11,7 +11,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = OrderModel::paginate(5);
+        $orders = OrderModel::paginate(10);
         return view('backend.orders.index',compact('orders'));
     }
 

@@ -13,7 +13,7 @@ class ListOrderController extends Controller
 
     public function index()
     {
-        $lists = ListOrderModel::paginate(5);
+        $lists = ListOrderModel::paginate(10);
         return view('backend.listorders.index',compact('lists'));
     }
 

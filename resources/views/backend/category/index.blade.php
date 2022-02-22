@@ -20,11 +20,6 @@
                     <h1>Quản Lý hãng</h1>
                     <div class="clear"></div>
                 </div>
-                @if (Session::has('success'))
-                <h5 class="text-success">
-                    <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('success') }}
-                </h5>
-                @endif
                 <div class="block-fluid">
                     <a href="{{route('categoryCreate')}}" class="btn btn-add">Thêm hãng</a>
                     @include('commons.alert')

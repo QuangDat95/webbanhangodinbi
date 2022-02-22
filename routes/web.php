@@ -24,3 +24,4 @@ Route::group(['prefix' => 'admin'],function(){
 });
 Route::view('/categoryCreate','backend.category.create')->name('categoryCreate');
 Route::view('/orderCreate','backend.orders.create')->name('orderCreate');
+
