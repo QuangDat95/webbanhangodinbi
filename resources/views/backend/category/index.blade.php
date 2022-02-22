@@ -46,8 +46,10 @@
                                     <form action="{{route('category.destroy',$category->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('category.edit', $category->id)}}" class="btn btn-primary">Sửa</a>
-                                        <input type="submit" class="btn btn-danger" value="Xóa" onClick="return confirm('Bạn có muốn xóa loại sản phẩm này?');">
+                                        <a href="{{ route('category.edit', $category->id)}}"
+                                            class="btn btn-primary">Sửa</a>
+                                        <input type="submit" class="btn btn-danger" value="Xóa"
+                                            onClick="return confirm('Bạn có muốn xóa loại sản phẩm này?');">
                                     </form>
                                 </td>
                             </tr>
@@ -56,7 +58,7 @@
                         </tbody>
                     </table>
                     <div class="dataTables_paginate">
-                    {{($categories->links())}}
+                        {{($categories->links())}}
                     </div>
                 </div>
             </div>
@@ -64,4 +66,5 @@
     </div>
 </div>
 @endsection
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">

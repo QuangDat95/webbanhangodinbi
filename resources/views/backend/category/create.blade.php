@@ -21,9 +21,10 @@
                         <div class="row-form">
                             <div class="span3">Tên loại sản phẩm:</div>
                             <div class="span9">
-                                <input type="text" name="name"  placeholder="Nhập vào tên loại sản phẩm" autocomplete="off"/>
+                                <input type="text" name="name" placeholder="Nhập vào tên loại sản phẩm"
+                                    autocomplete="off" />
                                 <div style="color:red">
-                                {{ $errors->first('name') }}
+                                    {{ $errors->first('name') }}
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -41,4 +42,5 @@
     </div>
 </div>
 @endsection
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">

@@ -26,12 +26,12 @@
             </a>
         </li>
         <li>
-            <a href="">
-                <span class="isw-list"></span><span class="text">Đơn hàng</span>
+            <a href="{{route('order.index')}}">
+                <span class="isw-list"></span><span class="text">Khách mua hàng</span>
             </a>
         </li>
         <li>
-            <a href="">
+            <a href="{{route('listorder.index')}}">
                 <span class="isw-list"></span><span class="text">Danh sách đơn hàng</span>
             </a>
         </li>

@@ -22,7 +22,8 @@
                         <div class="row-form">
                             <div class="span3">Tên loại sản phẩm:</div>
                             <div class="span9">
-                                <input type="text" name="name" value="{{$category->name}}" placeholder="Nhập vào tên loại sản phẩm" />
+                                <input type="text" name="name" value="{{$category->name}}"
+                                    placeholder="Nhập vào tên loại sản phẩm" />
                             </div>
                             <div class="clear"></div>
                         </div>

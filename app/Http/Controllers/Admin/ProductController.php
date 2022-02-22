@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
-use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ProductRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -35,7 +33,7 @@ class ProductController extends Controller
         }
         $product->description = $request->description;
         $product->save();
-        return redirect()->route('product.index')->with('flash_message','Lưu thành công!');
+        return redirect()->route('product.index')->with('flash_message','Thêm mới thành công!');
     }
 
     public function edit($id)

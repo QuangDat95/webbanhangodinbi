@@ -43,7 +43,7 @@
                         <div class="row-form">
                             <div class="span3">Giá sản phẩm:</div>
                             <div class="span9">
-                                <input type="text" name="price" placeholder="Nhập vào giá sản phẩm" autocomplete="off" onChange="this.value = this.value.replace(/,/g, '.')"/>
+                                <input type="text" name="price" placeholder="Nhập vào giá sản phẩm" autocomplete="off"/>
                                 <div style="color:red">
                                 {{ $errors->first('price') }}
                                 </div>
