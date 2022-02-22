@@ -7,6 +7,7 @@ use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
+	
     public function index()
     {
         $categories = CategoryModel::paginate(10);
