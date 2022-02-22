@@ -14,6 +14,7 @@
                     <div class="isw-grid"></div>
                     <h1>Chỉnh Sửa Sản Phẩm</h1>
                     <div class="clear"></div>
+                    @include('commons.error')
                 </div>
                 <div class="block-fluid">
                     <form action="{{route('product.update',$product->id)}}" method="POST" enctype= "multipart/form-data">
