@@ -22,9 +22,9 @@ Route::group(['prefix' => 'admin'],function(){
     Route::resource('product',ProductController::class);
     Route::resource('order',OrderController::class);
     Route::resource('listorder',ListOrderController::class);
-    Route::get('login',LoginController::class,'getLogin');
-    Route::post('login',LoginController::class,'postLogin');
-    Route::get('logout',LoginController::class,'getLogout');
+    Route::get('login',[LoginController::class,'getLogin'])->name('getLogin');
+    Route::post('login',[LoginController::class,'postLogin'])->name('postLogin');
+    Route::get('logout',[LogoutController::class,'getLogout'])->name('getLogout');
 });
 Route::view('/categoryCreate','backend.category.create')->name('categoryCreate');
 Route::view('/orderCreate','backend.orders.create')->name('orderCreate');

@@ -11,7 +11,7 @@
         </div>
         <ul class="control">
             <li><span class="icon-cog"></span> <a href="">Cập nhật Quản lý</a></li>
-            <li><span class="icon-share-alt"></span> <a href="#">Đăng xuất</a></li>
+            <li><span class="icon-share-alt"></span> <a href="{{route('getLogout')}}">Đăng xuất</a></li>
         </ul>
     </div>
     <ul class="navigation">
