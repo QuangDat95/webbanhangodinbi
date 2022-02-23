@@ -14,6 +14,6 @@ class WebsiteController extends Controller
     public function index()
     {
         $products = ProductModel::all();
-        return view('frontend.', compact('sanphams'));
+        return view('frontend.', compact('products'));
     }
 }

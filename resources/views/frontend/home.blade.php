@@ -1,4 +1,7 @@
 @extends('frontend.index')
+@section('title')
+Trang chủ
+@endsection
 @section('content')
 <div class="section">
 			<div class="container">
