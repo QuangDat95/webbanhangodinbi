@@ -14,7 +14,6 @@
                     <div class="isw-grid"></div>
                     <h1>Chỉnh Sửa Sản Phẩm</h1>
                     <div class="clear"></div>
-                    @include('commons.error')
                 </div>
                 <div class="block-fluid">
                     <form action="{{route('product.update',$product->id)}}" method="POST" enctype= "multipart/form-data">
@@ -24,6 +23,9 @@
                             <div class="span3">Tên sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="name" placeholder="Nhập vào tên sản phẩm" value="{{$product->name}}"/>
+                                <div style="color:red">
+                                    {{ $errors->first('name') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -44,6 +46,9 @@
                             <div class="span3">Giá sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="price" placeholder="Nhập vào giá sản phẩm" value="{{$product->price}}"/>
+                                <div style="color:red">
+                                    {{ $errors->first('price') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -59,6 +64,9 @@
                             <div class="span3">Mô tả:</div>
                             <div class="span9">
                                 <textarea type="text" name="description" placeholder="Nhập vào tên sản phẩm">{{$product->description}}</textarea>
+                                <div style="color:red">
+                                    {{ $errors->first('description') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>

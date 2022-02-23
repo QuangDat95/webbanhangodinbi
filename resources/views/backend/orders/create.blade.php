@@ -15,6 +15,7 @@
                     <h1>Thêm khách Hàng</h1>
                     <div class="clear"></div>
                 </div>
+                @include('commons.error')
                 <div class="block-fluid">
                     <form action="{{route('order.store')}}" method="POST">
                         @csrf
@@ -22,7 +23,10 @@
                             <div class="span3">Tên khách hàng:</div>
                             <div class="span9">
                                 <input type="text" name="name" placeholder="Nhập vào tên khách hàng"
-                                    autocomplete="off" />
+                                    autocomplete="off" value="{{old('name')}}"/>
+                                <div style="color:red">
+                                    {{ $errors->first('name') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -37,14 +41,20 @@
                             <div class="span3">Số điện thoại:</div>
                             <div class="span9">
                                 <input type="text" name="phone" placeholder="Nhập vào số điện thoại"
-                                    autocomplete="off" />
+                                    autocomplete="off" value="{{old('phone')}}"/>
+                                <div style="color:red">
+                                    {{ $errors->first('phone') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="row-form">
                             <div class="span3">Địa chỉ:</div>
                             <div class="span9">
-                                <input type="text" name="address" placeholder="Nhập vào địa chỉ" autocomplete="off">
+                                <input type="text" name="address" placeholder="Nhập vào địa chỉ" autocomplete="off" value="{{old('address')}}">
+                                <div style="color:red">
+                                    {{ $errors->first('address') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>

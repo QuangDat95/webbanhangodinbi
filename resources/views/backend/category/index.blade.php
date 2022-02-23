@@ -20,9 +20,9 @@
                     <h1>Quản Lý hãng</h1>
                     <div class="clear"></div>
                 </div>
+                @include('commons.alert')
                 <div class="block-fluid">
                     <a href="{{route('categoryCreate')}}" class="btn btn-add">Thêm hãng</a>
-                    @include('commons.alert')
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
                         <thead>
                             <tr>

@@ -14,7 +14,7 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50',
+            'name' => 'required|unique:products|max:50',
             'price' => 'required',
             'description' => 'required'
         ];
@@ -24,6 +24,7 @@ class ProductRequest extends FormRequest
         return [
             'name.required' => 'Tên không được để trống',
             'name.max' => 'Tên không được quá 50 ký tự',
+            'name.unique' => 'Tên đã tồn tại',
             'price.required' => 'Giá không được để trống',
             'description.required' => 'Nội dung không được để trống'
         ];

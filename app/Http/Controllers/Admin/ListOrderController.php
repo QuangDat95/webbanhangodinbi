@@ -10,7 +10,6 @@ use App\Models\ProductModel;
 
 class ListOrderController extends Controller
 {
-
     public function index()
     {
         $lists = ListOrderModel::paginate(10);

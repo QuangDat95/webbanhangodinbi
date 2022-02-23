@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProductModel;
 use App\Models\CategoryModel;
 use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -43,7 +44,7 @@ class ProductController extends Controller
         return view('backend.product.edit',compact('product','categories'));
     }
 
-    public function update(ProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $product = ProductModel::find($id);
         $product->name = $request->input('name');

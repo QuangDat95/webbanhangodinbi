@@ -16,14 +16,15 @@
                     <div class="clear"></div>
                 </div>
                 <div class="block-fluid">
-                    <form action="{{route('product.store')}}" method="POST" enctype= "multipart/form-data">
+                    <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row-form">
                             <div class="span3">Tên sản phẩm:</div>
                             <div class="span9">
-                                <input type="text" name="name" placeholder="Nhập vào tên sản phẩm" autocomplete="off"/>
+                                <input type="text" name="name" placeholder="Nhập vào tên sản phẩm" autocomplete="off"
+                                    value="{{old('name')}}" />
                                 <div style="color:red">
-                                {{ $errors->first('name') }}
+                                    {{ $errors->first('name') }}
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -43,9 +44,10 @@
                         <div class="row-form">
                             <div class="span3">Giá sản phẩm:</div>
                             <div class="span9">
-                                <input type="text" name="price" placeholder="Nhập vào giá sản phẩm" autocomplete="off"/>
+                                <input type="text" name="price" placeholder="Nhập vào giá sản phẩm"
+                                    autocomplete="off" value="{{old('price')}}"/>
                                 <div style="color:red">
-                                {{ $errors->first('price') }}
+                                    {{ $errors->first('price') }}
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -53,16 +55,16 @@
                         <div class="row-form">
                             <div class="span3">Hình ảnh:</div>
                             <div class="span9">
-                                <input type="file" name="image"/>
+                                <input type="file" name="image" />
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="row-form">
                             <div class="span3">Mô tả:</div>
                             <div class="span9">
-                                <textarea type="text" name="description" placeholder="Nhập vào tên sản phẩm"></textarea>
+                                <textarea type="text" name="description" placeholder="Nhập vào tên sản phẩm">{{old('description')}}</textarea>
                                 <div style="color:red">
-                                {{ $errors->first('description') }}
+                                    {{ $errors->first('description') }}
                                 </div>
                             </div>
                             <div class="clear"></div>
@@ -84,4 +86,5 @@
 CKEDITOR.replace('description');
 </script>
 @endsection
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">

@@ -15,6 +15,7 @@
                     <h1>Thêm Loại Sản Phẩm</h1>
                     <div class="clear"></div>
                 </div>
+                @include('commons.error')
                 <div class="block-fluid">
                     <form action="{{route('category.update',$category->id)}}" method="POST">
                         @csrf
@@ -24,6 +25,9 @@
                             <div class="span9">
                                 <input type="text" name="name" value="{{$category->name}}"
                                     placeholder="Nhập vào tên loại sản phẩm" />
+                                    <div style="color:red">
+                                    {{ $errors->first('name') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>

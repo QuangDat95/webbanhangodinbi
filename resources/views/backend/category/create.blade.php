@@ -22,7 +22,7 @@
                             <div class="span3">Tên loại sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="name" placeholder="Nhập vào tên loại sản phẩm"
-                                    autocomplete="off" />
+                                    autocomplete="off" value="{{old('name')}}"/>
                                 <div style="color:red">
                                     {{ $errors->first('name') }}
                                 </div>

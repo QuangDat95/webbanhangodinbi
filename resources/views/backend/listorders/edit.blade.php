@@ -14,8 +14,8 @@
                     <div class="isw-grid"></div>
                     <h1>Sửa Đơn Hàng</h1>
                     <div class="clear"></div>
-                    @include('commons.error')
                 </div>
+                @include('commons.error')
                 <div class="block-fluid">
                     <form action="{{route('listorder.update',$list->id)}}" method="POST" enctype= "multipart/form-data">
                         @csrf
@@ -23,14 +23,15 @@
                         <div class="row-form">
                             <div class="span3">Khách Hàng</div>
                             <div class="span9">
-                                <select name="order_id">
+                                <!-- <select name="order_id" readonly>
                                     <option value=""></option>
                                     @foreach($orders as $order)
                                     <option value="{{$order->id}}"
                                     <?php if($order->id == $list->order->id){ echo "selected";} ?>
                                     >{{$order->name}}</option>
                                     @endforeach
-                                </select>
+                                </select> -->
+                                {{$order->name}}
                             </div>
                             <div class="clear"></div>
                         </div>

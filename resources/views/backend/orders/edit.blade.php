@@ -16,6 +16,7 @@
                     @include('commons.error')
                     <div class="clear"></div>
                 </div>
+                @include('commons.error')
                 <div class="block-fluid">
                     <form action="{{route('order.update',$order->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -25,6 +26,9 @@
                             <div class="span9">
                                 <input type="text" name="name" value="{{$order->name}}"
                                     placeholder="Nhập vào tên khách hàng" />
+                                <div style="color:red">
+                                    {{ $errors->first('name') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -41,6 +45,9 @@
                             <div class="span9">
                                 <input type="text" name="phone" value="{{$order->phone}}"
                                     placeholder="Nhập vào số điện thoại" />
+                                <div style="color:red">
+                                    {{ $errors->first('phone') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -49,6 +56,9 @@
                             <div class="span9">
                                 <input type="text" name="address" value="{{$order->address}}"
                                     placeholder="Nhập vào địa chỉ">
+                                <div style="color:red">
+                                    {{ $errors->first('address') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
