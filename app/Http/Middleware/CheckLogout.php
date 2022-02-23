@@ -11,8 +11,8 @@ class CheckLogout
     public function handle(Request $request, Closure $next)
     {
         if(!Auth::check()){
-            return redirect('/dashboard/login');
+            return $next($request);
         }
-        return $next($request);
+        return redirect('/dashboard/login');
     }
 }

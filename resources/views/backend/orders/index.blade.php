@@ -49,7 +49,7 @@
                                         @method('DELETE')
                                         <a href="{{ route('order.edit', $order->id)}}" class="btn btn-primary">Sửa</a>
                                         <input type="submit" class="btn btn-danger" value="Xóa"
-                                            onClick="return confirm('Bạn có muốn xóa sản phẩm này?');">
+                                            onClick="return confirm('Bạn có muốn xóa khách hàng này?');">
                                         <a href="{{ route('order.show', $order->id)}}" class="btn btn-info">Chi tiết đơn
                                             hàng</a>
                                     </form>
