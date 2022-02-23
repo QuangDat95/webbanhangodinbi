@@ -52,13 +52,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</button>
 	</div>
 @endif
+@include('commons.error')
 <div class="log-w3">
 <div class="w3layouts-main">
 	<h1>Đăng nhập</h1>
 		<form action="{{route('postLogin')}}" method="post">
             @csrf
-			<input type="email" class="ggg" name="email" placeholder="Nhập email" required="" autocomplete="off">
-			<input type="password" class="ggg" name="password" placeholder="Mật khẩu" required="" autocomplete="off">
+			<input type="email" class="ggg" name="email" placeholder="Nhập email" required autocomplete="off">
+			<input type="password" class="ggg" name="password" placeholder="Mật khẩu" required autocomplete="off" maxlength="6">
 			<!--<span><input type="checkbox" />Ghi nhớ đăng nhập</span>-->
 			<!--<h6><a href="#">Forgot Password?</a></h6>-->
 				<div class="clearfix"></div>

@@ -22,7 +22,6 @@
                 </div>
                 @include('commons.alert')
                 <div class="block-fluid">
-                    <a href="{{route('orderCreate')}}" class="btn btn-add">Thêm khách mua hàng</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
                         <thead>
                             <tr>

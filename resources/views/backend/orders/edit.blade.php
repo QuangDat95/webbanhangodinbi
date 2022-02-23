@@ -3,7 +3,7 @@
 <div class="content">
     <div class="breadLine">
         <ul class="breadcrumb">
-            <li><a href="{{route('order.index')}}">Đơn hàng</a> <span class="divider">></span></li>
+            <li><a href="{{route('order.index')}}">Danh sách khách hàng</a> <span class="divider"></span></li>
             <li class="active">Thêm</li>
         </ul>
     </div>
@@ -12,7 +12,7 @@
             <div class="span12">
                 <div class="head">
                     <div class="isw-grid"></div>
-                    <h1>Thêm Đơn Hàng</h1>
+                    <h1>Hiệu chỉnh TT khách hàng</h1>
                     @include('commons.error')
                     <div class="clear"></div>
                 </div>

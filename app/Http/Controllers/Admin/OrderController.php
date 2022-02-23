@@ -15,17 +15,6 @@ class OrderController extends Controller
         return view('backend.orders.index',compact('orders'));
     }
 
-    public function store(OrderRequest $req)
-    {
-        $order = new OrderModel();
-        $order->name = $req->name;
-        $order->buy_date = $req->buy_date;
-        $order->phone = $req->phone;
-        $order->address = $req->address;
-        $order->save();
-        return redirect()->route('order.index')->with('flash_message','Lưu thành công!');
-    }
-
     public function show($id)
     {
         $order = OrderModel::find($id);
