@@ -3,7 +3,9 @@
 <div class="alert alert-danger">
 <ul>
 @foreach($errors->all() as $error)
-<li style="list-style-type: none;"><p><span>{{ $error }}</span></p></li>
+<div class="alert alert-success">
+        <strong>{{ $error }}</strong>
+    </div>
 @endforeach
 </ul>
 </div>

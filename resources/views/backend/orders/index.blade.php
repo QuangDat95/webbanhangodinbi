@@ -23,6 +23,7 @@
                 @include('commons.alert')
                 <div class="block-fluid">
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
+                        @if(count($orders)>0)
                         <thead>
                             <tr>
                                 <th class="sorting"><a href="#">ID</a></th>
@@ -35,7 +36,7 @@
                         </thead>
                         <tbody>
                             <!-- START LOOP-->
-                            @if(count($orders)>0)
+
                             @foreach($orders as $order)
                             <tr>
                                 <td>{{$order->id}}</td>

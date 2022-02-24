@@ -24,6 +24,7 @@
                 <div class="block-fluid">
                     <a href="{{route('product.create')}}" class="btn btn-add">Thêm Sản phẩm</a>
                     <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
+                    @if(count($products)>0)
                         <thead>
                             <tr>
                                 <th class="sorting"><a href="#">ID</a></th>
@@ -31,12 +32,12 @@
                                 <th class="sorting"><a href="#">Hãng</a></th>
                                 <th class="sorting"><a href="#">Giá sản phẩm</a></th>
                                 <th class="sorting"><a href="#">Hình ảnh</a></th>
+                                <th class="sorting"><a href="#">Tính năng</a></th>
                                 <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- START LOOP-->
-                            @if(count($products)>0)
                             @foreach($products as $product)
                             <tr>
                                 <td>{{$product->id}}</td>
@@ -44,6 +45,13 @@
                                 <td>{{$product->category->name}}</td>
                                 <td>{{number_format($product->price)}}<sup>đ</sup></td>
                                 <td><img src="{{ Storage::url($product->image) }}" alt="{{$product->image}}" style="height:2.5cm"></img></td>
+                                <td>
+                                <?php
+                                foreach($product->features as $feature){
+                                    echo $feature->name."<br>";
+                                }
+                                ?>
+                                </td>
                                 <td>
                                     <form action="{{route('product.destroy',$product->id)}}" method="post">
                                         @csrf

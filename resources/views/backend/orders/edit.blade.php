@@ -64,6 +64,8 @@
                         </div>
                         <div class="row-form">
                             <button class="btn btn-success" type="submit">Lưu</button>
+                            <button class="btn btn-danger"
+                                            onclick="window.history.go(-1); return false;">Hủy</button>
                             <div class="clear"></div>
                         </div>
                     </form>

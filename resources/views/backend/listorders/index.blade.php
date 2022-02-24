@@ -22,6 +22,7 @@
                 @include('commons.alert')
                 <div class="block-fluid">
                     <table class="table table-hover">
+                        @if(count($lists)>0)
                         <thead>
                             <tr>
                                 <th>Tên Khách hàng</th>
@@ -33,7 +34,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if(count($lists)>0)
                             @foreach($lists as $list)
                             <tr>
                                 <td>{{$list->order->name}}</td>

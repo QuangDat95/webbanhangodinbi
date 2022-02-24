@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = ProductModel::paginate(10);
+        $products = ProductModel::orderBy('id','desc')->paginate(8);
         return view('backend.product.index',compact('products'));
     }
     public function create()
