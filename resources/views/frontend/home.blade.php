@@ -16,15 +16,15 @@ Trang chủ
 							<div class="products-tabs">
 								<div id="tab1" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">                    
-                                    @foreach($sanphams as $sanpham)
+                                    @foreach($products as $product)
 										<div class="product">
-                                        <a href="{{route('chitiet',$sanpham->id)}}"><div class="product-img">
-												<img src="{{ Storage::url($sanpham->hinh_anh) }}">
+                                        <a href="{{route('properties',$product->id)}}"><div class="product-img">
+												<img src="{{ Storage::url($product->image) }}">
 											</div></a>
 											<div class="product-body">
-												<h5 class="product-category">{{$sanpham->the_loai->the_loai}}</h5>
-												<h3 class="product-name"><a href="{{route('chitiet',$sanpham->id)}}">{{$sanpham->ten_sp}}</a></h3>
-                                                <h4 class="product-price"><strong>{{number_format($sanpham->gia_sp)}}</strong><sup>vnđ</sup></h4>		
+												<h5 class="product-category">{{$product->category->name}}</h5>
+												<h3 class="product-name"><a href="{{route('properties',$product->id)}}">{{$product->name}}</a></h3>
+                                                <h4 class="product-price"><strong>{{number_format($product->price)}}</strong><sup>vnđ</sup></h4>		
 											</div>
 										</div>
                                     @endforeach

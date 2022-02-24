@@ -9,7 +9,7 @@
 					<div class="col-md-12">
 						<h3 class="breadcrumb-header">Thanh toán</h3>
 						<ul class="breadcrumb-tree">
-							<li><a href="#">Trang chủ</a></li>
+							<li><a href="{{route('home')}}">Trang chủ</a></li>
 							<li class="active">Thanh toán</li>
 						</ul>
 					</div>
@@ -34,13 +34,13 @@
 								<h3 class="title">Địa chỉ nhận hàng</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="Ten_khach_hang" placeholder="Nhập tên">
+								<input class="input" type="text" name="name" placeholder="Nhập tên" autocomplete="off">
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="dia_chi" placeholder="Nhập địa chỉ">
+								<input class="input" type="text" name="address" placeholder="Nhập địa chỉ" autocomplete="off">
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="so_dt" placeholder="Nhập số điện thoại">
+								<input class="input" type="tel" name="phone" placeholder="Nhập số điện thoại" autocomplete="off">
 							</div>
 						</div>
 					</div>
@@ -57,18 +57,18 @@
 							<div class="order-products">
 								@foreach(Session::get('cart')->products as $key => $value)
 								<div class="order-col">
-									<div><strong>{{$value["quanty"]}}x{{$value["productInfo"]->ten_sp}}</strong></div>
-									<div>{{$value["price"]}}</div>
+									<div><strong>{{$value["amount"]}} x {{$value["productInfo"]->name}}</strong></div>
+									<div><strong>{{$value["price"]}}<sup>đ</sup></strong></div>
 								</div>
 								@endforeach
 							</div>
 							<div class="order-col">
-								<div>Phí ship</div>
+								<div style="font-weight:bold">Phí ship</div>
 								<div><strong>Miễn phí</strong></div>
 							</div>
 							<div class="order-col">
 								<div><strong>TỔNG</strong></div>
-								<div><strong class="order-total">{{number_format(Session::get('cart')->totalPrice)}}</strong></div>
+								<div><strong class="order-total">{{number_format(Session::get('cart')->totalPrice)}}<sup>đ</sup></strong></div>
 							</div>
 						</div>	
 						<button type="submit" class="primary-btn order-submit">Đặt hàng</button>

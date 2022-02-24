@@ -28,17 +28,17 @@
                     <tr>
                         <td style="width:100px">
                             <a href="#">
-                                <img src="{{ Storage::url($item['productInfo']->hinh_anh) }}" style="width:100%">
+                                <img src="{{ Storage::url($item['productInfo']->image) }}" style="width:100%">
                             </a>
                         </td>
                         <td class="product-name">
-                            <a href="{{route('chitiet',$item['productInfo']->id)}}">{{$item['productInfo']->ten_sp}}</a>
+                            <a href="{{route('properties',$item['productInfo']->id)}}">{{$item['productInfo']->name}}</a>
                         </td>
                         <td class="product-price">
-                            <span class="unit-amount"><strong>{{number_format($item["productInfo"]->gia_sp)}}</strong><sup>vnđ</sup></span>
+                            <span class="unit-amount"><strong>{{number_format($item["productInfo"]->price)}}</strong><sup>vnđ</sup></span>
                         </td>
                         <td>
-                            <input onchange="saveItemListCart('{{$productid}}')" id="change_item_input_{{$productid}}" type="number" value="{{$item['quanty']}}" />
+                            <input onchange="saveItemListCart('{{$productid}}')" id="change_item_input_{{$productid}}" type="number" value="{{$item['amount']}}" />
                         </td>
                         <td>
                             <strong>{{number_format($item["price"])}}</strong><sup>vnđ</sup>
@@ -70,7 +70,6 @@
     function RenderListCart(response) {
         $('#list-cart').empty();
         $('#list-cart').html(response);
-        window.location.reload();
     }
 
     function deleteListCart(id) {
@@ -81,6 +80,7 @@
             RenderListCart(response);
             alertify.success('Đã xoá sản phẩm thành công!');
         });
+        window.location.reload();
     }
 
     function saveItemListCart(id) {

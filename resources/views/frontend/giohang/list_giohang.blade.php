@@ -20,10 +20,10 @@
                 </a>
             </td>
             <td class="product-name">
-                <a href="{{route('chitiet',$item['productInfo']->id)}}">{{$item['productInfo']->ten_sp}}</a>
+                <a href="{{route('chitiet',$item['productInfo']->id)}}">{{$item['productInfo']->name}}</a>
             </td>
             <td class="product-price">
-                <span class="unit-amount"><strong>{{number_format($item["productInfo"]->gia_sp)}}</strong><sup>vnđ</sup></span>
+                <span class="unit-amount"><strong>{{number_format($item["productInfo"]->price)}}</strong><sup>vnđ</sup></span>
             </td>
             <td>
                 <input onchange="saveItemListCart('{{$productid}}')" id="change_item_input_{{$productid}}" type="number" value="{{$item['quanty']}}" />

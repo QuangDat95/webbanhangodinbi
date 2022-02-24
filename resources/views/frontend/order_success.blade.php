@@ -16,7 +16,7 @@
 					<div class="order-products">
 					@foreach(Session::get('cart')->products as $key => $value)
 							<div class="order-col">
-								<div><strong>{{$value["quanty"]}}</strong>x<strong>{{$value["productInfo"]->ten_sp}}</strong></div>
+								<div><strong>{{$value["amount"]}}</strong>x<strong>{{$value["productInfo"]->name}}</strong></div>
 								<div><strong>{{number_format($value["price"])}}</strong><sup>đ</sup></div>
 							</div>
 					@endforeach

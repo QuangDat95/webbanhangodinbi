@@ -43,7 +43,7 @@
 				</ul>
 				<ul class="header-links pull-right">
 					<!-- <li><a href="#"><i class="fa fa-dollar"></i>VND</a></li> -->
-					<li><a href="{{route('theloai.index')}}"><i class="fa fa-user-o"></i>Quản lý</a></li>
+					<li><a href="{{route('category.index')}}"><i class="fa fa-user-o"></i>Quản lý</a></li>
 				</ul>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="#" class="logo">
-								<img src="{{URL::asset('img/tao-logo-shop-quan-ao-fs.jpg')}}" style="height:80px">
+								<img src="{{URL::asset('img/sb-blog-programming_800x450.jpg')}}" style="height:80px">
 							</a>
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 									<i class="fa fa-shopping-cart"></i>
 									<span>Giỏ hàng</span>
 									@if(Session::has('cart') != null)
-									<div class="qty" id="total-quanty-show">{{Session::get('cart')->totalQuanty}}</div>
+									<div class="qty" id="total-quanty-show">{{Session::get('cart')->totalamount}}</div>
 									@else
 									<div class="qty" id="total-quanty-show">0</div>
 									@endif
@@ -96,17 +96,17 @@
 										@foreach(Session('cart')->products as $item)
 										<div class="product-widget">
 											<div class="product-img">
-												<img src="{{Storage::url($item['productInfo']->hinh_anh)}}" />
+												<img src="{{Storage::url($item['productInfo']->image)}}" />
 											</div>
 											<div class="product-body">
-												<h3 class="product-name"><a href="{{route('chitiet',$item['productInfo']->id)}}">{{$item['productInfo']->ten_sp}}</a></h3>
-												<h4 class="product-price"><span class="qty">{{$item["quanty"]}}x</span>{{number_format($item["productInfo"]->gia_sp)}}<sup>đ</sup></h4>
+												<h3 class="product-name"><a href="{{route('properties',$item['productInfo']->id)}}">{{$item['productInfo']->name}}</a></h3>
+												<h4 class="product-price"><span class="qty">{{$item["amount"]}}x</span>{{number_format($item["productInfo"]->price)}}<sup>đ</sup></h4>
 											</div>
 										</div>
 										@endforeach
 									</div>
 									<div class="cart-summary">
-										<strong>{{Session::get('cart')->totalQuanty}} sản phẩm đã chọn</strong>
+										<strong>{{Session::get('cart')->totalamount}} sản phẩm đã chọn</strong>
 										<br>
 										<h5>Tổng tiền: {{number_format(Session::get('cart')->totalPrice)}}<sup>đ</sup></h5>
 									</div>
@@ -149,13 +149,12 @@
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
 					<li><a href="{{route('home')}}">Trang chủ</a></li>
-					<li><a href="{{route('dell')}}">DELL</a></li>
-					<li><a href="{{route('asus')}}">ASUS</a></li>
-					<li><a href="{{route('hp')}}">HP</a></li>
-					<li><a href="{{route('lenovo')}}">LENOVO</a></li>
-					<li><a href="{{route('macbook')}}">MACBOOK</a></li>
-					<li><a href="{{route('acer')}}">ACER</a></li>
-					<li><a href="{{route('lienhe')}}">Liên hệ</a></li>
+					<li><a href="">DELL</a></li>
+					<li><a href="">ASUS</a></li>
+					<li><a href="">HP</a></li>
+					<li><a href="">LENOVO</a></li>
+					<li><a href="">ACER</a></li>
+					<li><a href="">Liên hệ</a></li>
 				</ul>
 				<!-- /NAV -->
 			</div>

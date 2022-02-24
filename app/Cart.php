@@ -23,9 +23,9 @@ class Cart{
             }
         }
         $newProduct["amount"]++;
-        $newProduct["price"] = $newProduct["amount"] * $product->gia_sp;
+        $newProduct["price"] = $newProduct["amount"] * $product->price;
         $this->products[$id] = $newProduct;
-        $this->totalPrice += $product->gia_sp;
+        $this->totalPrice += $product->price;
         $this->totalamount++;
     }
 
@@ -40,7 +40,7 @@ class Cart{
         $this->totalPrice -= $this->products[$id]["price"];
 
         $this->products[$id]["amount"] = $amount;
-        $this->products[$id]["price"] = $amount * $this->products[$id]["productInfo"]->gia_sp;
+        $this->products[$id]["price"] = $amount * $this->products[$id]["productInfo"]->price;
 
         $this->totalamount += $this->products[$id]["amount"];
         $this->totalPrice += $this->products[$id]["price"];
