@@ -44,11 +44,27 @@
                         <div class="row-form">
                             <div class="span3">Giá sản phẩm:</div>
                             <div class="span9">
-                                <input type="text" name="price" placeholder="Nhập vào giá sản phẩm"
-                                    autocomplete="off" value="{{old('price')}}"/>
+                                <input type="text" name="price" placeholder="Nhập vào giá sản phẩm" autocomplete="off"
+                                    value="{{old('price')}}" />
                                 <div style="color:red">
                                     {{ $errors->first('price') }}
                                 </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="row-form">
+                            <div class="span3">Tính năng:</div>
+                            <div class="span9">
+                                <?php foreach( $features as $feature ):?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="<?=$feature->id;?>"
+                                        id="feature_<?= $feature->id; ?>" name="features[]">
+                                    <label class="form-check-label" for="feature_<?= $feature->id; ?>"
+                                        style="padding-left:20px">
+                                        <?= $feature->name; ?>
+                                    </label>
+                                </div>
+                                <?php endforeach;?>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -62,7 +78,8 @@
                         <div class="row-form">
                             <div class="span3">Mô tả:</div>
                             <div class="span9">
-                                <textarea type="text" name="description" placeholder="Nhập vào tên sản phẩm">{{old('description')}}</textarea>
+                                <textarea type="text" name="description"
+                                    placeholder="Nhập vào tên sản phẩm">{{old('description')}}</textarea>
                                 <div style="color:red">
                                     {{ $errors->first('description') }}
                                 </div>

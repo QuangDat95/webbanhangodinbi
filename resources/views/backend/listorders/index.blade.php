@@ -33,6 +33,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if(count($lists)>0)
                             @foreach($lists as $list)
                             <tr>
                                 <td>{{$list->order->name}}</td>
@@ -52,7 +53,15 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="6">
+                                    <h4 style="color:green;text-align:center">Không có đơn hàng nào</h4>
+                                </td>
+                            </tr>
+                            @endif
                         </tbody>
+
                     </table>
                     <div class="dataTables_paginate">
                         {{($lists->links())}}

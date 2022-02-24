@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\CategoryModel;
+use App\Models\FeatureModel;
 class ProductModel extends Model
 {
     use HasFactory;
@@ -13,4 +14,7 @@ class ProductModel extends Model
     public function category(){
         return $this->belongsTo(CategoryModel::class,'category_id','id');
     }
+    public function features(){
+        return $this->belongsToMany(FeatureModel::class,'product_feature','product_id','feature_id');
+    } 
 }
