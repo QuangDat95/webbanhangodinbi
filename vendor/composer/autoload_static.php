@@ -558,6 +558,7 @@ class ComposerStaticInitc8991a47c27d991579e09e20637fa05e
         'App\\Http\\Requests\\ProductRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProductRequest.php',
         'App\\Http\\Requests\\loginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/loginRequest.php',
         'App\\Models\\CategoryModel' => __DIR__ . '/../..' . '/app/Models/CategoryModel.php',
+        'App\\Models\\FeatureModel' => __DIR__ . '/../..' . '/app/Models/FeatureModel.php',
         'App\\Models\\ListOrderModel' => __DIR__ . '/../..' . '/app/Models/ListOrderModel.php',
         'App\\Models\\OrderModel' => __DIR__ . '/../..' . '/app/Models/OrderModel.php',
         'App\\Models\\ProductModel' => __DIR__ . '/../..' . '/app/Models/ProductModel.php',

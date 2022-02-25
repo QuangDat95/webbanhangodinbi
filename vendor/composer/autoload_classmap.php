@@ -33,6 +33,7 @@ return array(
     'App\\Http\\Requests\\ProductRequest' => $baseDir . '/app/Http/Requests/ProductRequest.php',
     'App\\Http\\Requests\\loginRequest' => $baseDir . '/app/Http/Requests/loginRequest.php',
     'App\\Models\\CategoryModel' => $baseDir . '/app/Models/CategoryModel.php',
+    'App\\Models\\FeatureModel' => $baseDir . '/app/Models/FeatureModel.php',
     'App\\Models\\ListOrderModel' => $baseDir . '/app/Models/ListOrderModel.php',
     'App\\Models\\OrderModel' => $baseDir . '/app/Models/OrderModel.php',
     'App\\Models\\ProductModel' => $baseDir . '/app/Models/ProductModel.php',

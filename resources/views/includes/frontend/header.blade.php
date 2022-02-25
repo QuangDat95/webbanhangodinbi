@@ -148,12 +148,12 @@
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-					<li><a href="javascript:void(0)"><div id="home">Trang chủ</div></a></li>
-					<li><a href="{{route('dell')}}"><div id="dell">DELL</div></a></li>
-					<li><a href="{{route('asus')}}">ASUS</a></li>
-					<li><a href="">HP</a></li>
-					<li><a href="">LENOVO</a></li>
-					<li><a href="">ACER</a></li>
+					<li><a href="">Trang chủ</a></li>
+					<li><a href="dell">DELL</a></li>
+					<li><a href="asus">ASUS</a></li>
+					<li><a href="hp">HP</a></li>
+					<li><a href="lenovo">LENOVO</a></li>
+					<li><a href="acer">ACER</a></li>
 					<li><a href="">Liên hệ</a></li>
 				</ul>
 				<!-- /NAV -->

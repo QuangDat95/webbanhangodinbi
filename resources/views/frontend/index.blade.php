@@ -1,5 +1,3 @@
 @include('includes.frontend.header')
-<div id="content">
-    @yield('content')
-</div>
+@yield('content')
 @include('includes.frontend.footer')

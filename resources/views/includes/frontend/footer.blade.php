@@ -48,10 +48,3 @@
 </body>
 </html>
 <script src="{{asset('js/jquery.min.js')}}"></script>
-<script>
-$(document).ready(function() {
-    $('#home').click(function() {
-		$('#content').load("{{route('home')}}")
-    });
-});
-</script>

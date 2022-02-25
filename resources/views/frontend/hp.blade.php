@@ -12,15 +12,15 @@ Hp
 			<div id="aside" class="col-md-3">
 				<div class="aside">
 					<h3 class="aside-title">Hàng bán chạy</h3>
-					@foreach ($banchays as $banchay)
+					@foreach ($sellests as $sellest)
 					<div class="product-widget">
 						<div class="product-img">
-							<img src="{{Storage::url($banchay->san_pham->hinh_anh)}}" alt="">
+							<img src="{{Storage::url($sellest->product->image)}}" alt="">
 						</div>
 						<div class="product-body">
 							<p class="product-category"></p>
-							<h3 class="product-name"><a href="{{route('chitiet',$banchay->san_pham->id)}}">{{$banchay->san_pham->ten_sp}}</a></h3>
-							<h4 class="product-price">{{number_format($banchay->san_pham->gia_sp)}}<sup>đ</sup></h4>
+							<h3 class="product-name"><a href="{{route('properties',$sellest->product->id)}}">{{$sellest->product->name}}</a></h3>
+							<h4 class="product-price">{{number_format($sellest->product->price)}}<sup>đ</sup></h4>
 						</div>
 					</div>
 					@endforeach
@@ -32,25 +32,25 @@ Hp
 			<div id="store" class="col-md-9">
 				<div class="store-filter clearfix">
 					<div style="float:left">
-						{{$sanphams->links()}}
+						{{$products->links()}}
 					</div>
 				</div>
 
 				<!-- store products -->
 				<div class="row" id="option_change">
 					<!-- product -->
-					@foreach($sanphams as $sanpham)
+					@foreach($products as $product)
 					<div class="col-md-4 col-xs-6">
 						<div class="product">
-							<a href="{{route('chitiet',$sanpham->id)}}">
+							<a href="{{route('properties',$product->id)}}">
 								<div class="product-img">
-									<img src="{{Storage::url($sanpham->hinh_anh)}}" alt="{{$sanpham->hinh_anh}}">
+									<img src="{{Storage::url($product->image)}}" alt="{{$product->image}}">
 								</div>
 							</a>
 							<div class="product-body">
-								<p class="product-category">{{$sanpham->the_loai->the_loai}}</p>
-								<h3 class="product-name"><a href="{{route('chitiet',$sanpham->id)}}">{{$sanpham->ten_sp}}</a></h3>
-								<h4 class="product-price">{{number_format($sanpham->gia_sp)}}<sup>đ</sup></h4>
+								<p class="product-category">{{$product->category->name}}</p>
+								<h3 class="product-name"><a href="{{route('properties',$product->id)}}">{{$product->name}}</a></h3>
+								<h4 class="product-price">{{number_format($product->price)}}<sup>đ</sup></h4>
 							</div>
 						</div>
 					</div>
@@ -60,7 +60,7 @@ Hp
 				<!-- /store products -->
 				<!-- store bottom filter -->
 				<div class="store-filter clearfix">
-					{{$sanphams->links()}}
+					{{$products->links()}}
 				</div>
 				<!-- /store bottom filter -->
 			</div>

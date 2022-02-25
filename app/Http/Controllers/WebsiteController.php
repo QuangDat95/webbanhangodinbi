@@ -96,7 +96,7 @@ class WebsiteController extends Controller
     public function returnHome()
     {
         Session::forget('cart');
-        return redirect()->route('home');
+        return redirect('/');
     }
 
     public function dell()
@@ -119,6 +119,35 @@ class WebsiteController extends Controller
         return view('frontend.asus', compact('products', 'sellests'));
     }
 
+    public function hp()
+    {
+        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        ->select('products.*')
+        ->where('category.name', '=', 'HP')
+        ->paginate(6);
+        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
+        return view('frontend.hp', compact('products', 'sellests'));
+    }
+
+    public function lenovo()
+    {
+        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        ->select('products.*')
+        ->where('category.name', '=', 'LENOVO')
+        ->paginate(6);
+        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
+        return view('frontend.lenovo', compact('products', 'sellests'));
+    }
+
+    public function acer()
+    {
+        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        ->select('products.*')
+        ->where('category.name', '=', 'ACER')
+        ->paginate(6);
+        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
+        return view('frontend.acer', compact('products', 'sellests'));
+    }
     public function lienhe()
     {
         return view('frontend.contact');
