@@ -23,37 +23,21 @@
                         <div class="row-form">
                             <div class="span3">Khách Hàng</div>
                             <div class="span9">
-                                <!-- <select name="order_id" readonly>
-                                    <option value=""></option>
-                                    @foreach($orders as $order)
-                                    <option value="{{$order->id}}"
-                                    <?php if($order->id == $list->order->id){ echo "selected";} ?>
-                                    >{{$order->name}}</option>
-                                    @endforeach
-                                </select> -->
-                                {{$order->name}}
+                                {{$list->order->name}}
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="row-form">
                             <div class="span3">Sản Phẩm</div>
                             <div class="span9">
-                                <!-- <select name="product_id">
-                                    <option value=""></option>
-                                    @foreach($products as $product)
-                                    <option value="{{$product->id}}"
-                                    <?php if($product->id == $list->product->id){ echo "selected";} ?>
-                                    >{{$product->name}}</option>
-                                    @endforeach
-                                </select> -->
-                                {{$product->name}}
+                                {{$list->product->name}}
                             </div>
                             <div class="clear"></div>
                         </div>
                         <div class="row-form">
                             <div class="span3">Số Lượng</div>
                             <div class="span9">
-                                <input type="text" name="amount" value="{{$list->amount}}" placeholder="Nhập số lượng sản phẩm" />
+                                <input type="text" name="amount" value="{{$list->amount}}" placeholder="Nhập số lượng sản phẩm" required/>
                             </div>
                             <div class="clear"></div>
                         </div>

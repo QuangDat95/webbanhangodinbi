@@ -18,6 +18,7 @@ Route::group(['middleware' => 'CheckLogin'],function(){
     Route::view('/orderCreate','backend.orders.create')->name('orderCreate');
 });
 
+
 Route::get('/dashboard/login',[LoginController::class,'getLogin'])->name('getLogin');
 Route::post('/dashboard/login',[LoginController::class,'postLogin'])->name('postLogin');
 Route::get('/dashboard/logout',[LogoutController::class,'getLogout'])->name('getLogout');
@@ -32,8 +33,9 @@ Route::post('saveOrder',[WebsiteController::class,'Checkout'])->name('saveOrder'
 Route::get('orderSuccess',[WebsiteController::class,'orderSuccess'])->name('orderSuccess');
 Route::get('returnHome',[WebsiteController::class,'returnHome'])->name('returnHome');
 Route::get('saveItemListCart/{id}/{amount}',[WebsiteController::class,'saveItemListCart']);
-Route::get('dell',[WebsiteController::class,'dell']);
-Route::get('asus',[WebsiteController::class,'asus']);
-Route::get('hp',[WebsiteController::class,'hp']);
-Route::get('lenovo',[WebsiteController::class,'lenovo']);
-Route::get('acer',[WebsiteController::class,'acer']);
+Route::get('dell',[WebsiteController::class,'dell'])->name('dell');
+Route::get('asus',[WebsiteController::class,'asus'])->name('asus');
+Route::get('hp',[WebsiteController::class,'hp'])->name('hp');
+Route::get('lenovo',[WebsiteController::class,'lenovo'])->name('lenovo');
+Route::get('acer',[WebsiteController::class,'acer'])->name('acer');
+Route::get('lienhe',[WebsiteController::class,'lienhe'])->name('lienhe');

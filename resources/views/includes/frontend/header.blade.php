@@ -37,7 +37,7 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-left">
-					<li><a href=""><i class="fa fa-phone"></i> +(84)18001061</a></li>
+					<li><a href="tel:18001061"><i class="fa fa-phone"></i>+(84)18001061</a></li>
 					<li><a href=""><i class="fa fa-envelope-o"></i> fashionshe@email.com</a></li>
 					<li><a href="https://goo.gl/maps/J2GV7fng5oFAJFKf8"><i class="fa fa-map-marker"></i>61 Lê Thế Hiếu-Phường 1-Đông Hà-Quảng Trị</a></li>
 				</ul>
@@ -148,13 +148,13 @@
 			<div id="responsive-nav">
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
-					<li><a href="">Trang chủ</a></li>
-					<li><a href="dell">DELL</a></li>
-					<li><a href="asus">ASUS</a></li>
-					<li><a href="hp">HP</a></li>
-					<li><a href="lenovo">LENOVO</a></li>
-					<li><a href="acer">ACER</a></li>
-					<li><a href="">Liên hệ</a></li>
+					<li><a href="{{route('home')}}">Trang chủ</a></li>
+					<li><a href="{{route('dell')}}">DELL</a></li>
+					<li><a href="{{route('asus')}}">ASUS</a></li>
+					<li><a href="{{route('hp')}}">HP</a></li>
+					<li><a href="{{route('lenovo')}}">LENOVO</a></li>
+					<li><a href="{{route('acer')}}">ACER</a></li>
+					<li><a href="{{route('lienhe')}}">Liên hệ</a></li>
 				</ul>
 				<!-- /NAV -->
 			</div>

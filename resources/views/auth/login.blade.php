@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--<h6><a href="#">Forgot Password?</a></h6>-->
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng nhập" name="login">
-				<h3 style="text-align:center;" ><a href="#">Về trang chủ</a></h3>
+				<h3 style="text-align:center;" ><a href="{{route('home')}}">Về trang chủ</a></h3>
 		</form>
 		<!--<p>Don't Have an Account ?<a href="registration.html">Create an account</a></p>-->
 </div>

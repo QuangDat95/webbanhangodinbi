@@ -561,6 +561,7 @@ class ComposerStaticInitc8991a47c27d991579e09e20637fa05e
         'App\\Models\\FeatureModel' => __DIR__ . '/../..' . '/app/Models/FeatureModel.php',
         'App\\Models\\ListOrderModel' => __DIR__ . '/../..' . '/app/Models/ListOrderModel.php',
         'App\\Models\\OrderModel' => __DIR__ . '/../..' . '/app/Models/OrderModel.php',
+        'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\ProductModel' => __DIR__ . '/../..' . '/app/Models/ProductModel.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

@@ -66,7 +66,7 @@
                             <!-- END LOOP-->
                         </tbody>
                     </table>
-                    <div class="dataTables_paginate">
+                    <div style="float:right">
                         {{($orders->links())}}
                     </div>
                 </div>

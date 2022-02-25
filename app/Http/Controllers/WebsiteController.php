@@ -12,12 +12,6 @@ use Illuminate\Support\Facades\DB;
 use App\Cart;
 class WebsiteController extends Controller
 {
-    public function index()
-    {
-        $products = ProductModel::all();
-        return view('frontend.home', compact('products'));
-    }
-
     public function properties($id)
     {
         $product = ProductModel::find($id);
@@ -99,6 +93,12 @@ class WebsiteController extends Controller
         return redirect('/');
     }
 
+    public function index()
+    {
+        $products = ProductModel::all();
+        return view('frontend.home', compact('products'));
+    }
+
     public function dell()
     {
         $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
@@ -125,7 +125,7 @@ class WebsiteController extends Controller
         ->select('products.*')
         ->where('category.name', '=', 'HP')
         ->paginate(6);
-        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
+        $sellests = ListOrderModel::orderByDESC('listorders.amount')->limit(5)->get();
         return view('frontend.hp', compact('products', 'sellests'));
     }
 

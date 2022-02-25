@@ -18,18 +18,14 @@ class ListOrderController extends Controller
 
     public function edit($id)
     {
-        $orders = OrderModel::all();
-        $products = ProductModel::all();
         $list = ListOrderModel::find($id);
-        return view('backend.listorders.edit',compact('orders','products','list'));
+        return view('backend.listorders.edit',compact('list'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
         $list = ListOrderModel::find($id);
-        // $list->order_id = $request->input('order_id');
-        // $list->product_id = $request->input('product_id');
-        $list->amount = $request->input('amount');
+        $list->amount = $request->amount;
         $list->save();
         return redirect()->route('listorder.index')->with('flash_message','Cập nhật thành công!');
     }

@@ -24,7 +24,7 @@
                             <div class="span3">Tên loại sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="name" value="{{$category->name}}"
-                                    placeholder="Nhập vào tên loại sản phẩm" />
+                                    placeholder="Nhập vào tên loại sản phẩm" required/>
                                     <div style="color:red">
                                     {{ $errors->first('name') }}
                                 </div>

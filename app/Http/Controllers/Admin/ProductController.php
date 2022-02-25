@@ -23,20 +23,22 @@ class ProductController extends Controller
         return view('backend.product.create',compact('categories','features'));
     }
 
-    public function store(ProductRequest $request)
+    public function store(ProductRequest $req)
     {
+        // $data = $req->only('name','category_id');
+        // ProductModel::create($data);
         $product = new ProductModel();
-        $product->name = $request->name;
-        $product->category_id = $request->category_id;
-        $product->price = $request->price;
-        if ($request->hasFile('image')) {
-            $file = $request->image;
+        $product->name = $req->name;
+        $product->category_id = $req->category_id;
+        $product->price = $req->price;
+        if ($req->hasFile('image')) {
+            $file = $req->image;
             $path = $file->store('image','public');
             $product->image = $path;
         }
-        $product->description = $request->description;
+        $product->description = $req->description;
         $product->save();
-        $product->features()->attach( $request->features );
+        $product->features()->attach( $req->features );
         return redirect()->route('product.index')->with('flash_message','Thêm mới thành công!');
     }
 
@@ -48,27 +50,27 @@ class ProductController extends Controller
         return view('backend.product.edit',compact('product','categories','features'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
         $product = ProductModel::find($id);
-        $product->name = $request->input('name');
-        $product->category_id = $request->input('category_id');
-        $product->price = $request->input('price');
-        if ($request->hasFile('image')) {
+        $product->name = $req->name;
+        $product->category_id = $req->category_id;
+        $product->price = $req->price;
+        if ($req->hasFile('image')) {
             $currentFile = $product->image;
             if ($currentFile) {
                 Storage::delete('/public/' . $currentFile);
             }
-            $file = $request->image;
+            $file = $req->image;
             $path = $file->store('image', 'public');
             $product->image = $path;
         }
-        $product->description = $request->input('description');
+        $product->description = $req->description;
         $product->save();
         //xóa toàn bộ kết quả của sản phẩm đó ở bảng trung gian
         $product->features()->detach();
         //lưu dữ liệu vào bảng trung gian
-        $product->features()->attach( $request->features );
+        $product->features()->attach( $req->features );
         return redirect()->route('product.index')->with('flash_message','Cập nhật thành công!');
     }
 

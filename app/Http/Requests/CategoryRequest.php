@@ -14,13 +14,12 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20|unique:category',
+            'name' => 'max:20|unique:category',
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'Hãng không được để trống',
             'name.max' => 'Nội dung hãng không được quá 20 ký tự',
             'name.unique' => 'Đã tồn tại hãng này'
         ];

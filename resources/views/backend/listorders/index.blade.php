@@ -63,7 +63,7 @@
                         </tbody>
 
                     </table>
-                    <div class="dataTables_paginate">
+                    <div style="float:right">
                         {{($lists->links())}}
                     </div>
                 </div>

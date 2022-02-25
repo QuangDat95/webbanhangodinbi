@@ -23,7 +23,7 @@
                             <div class="span3">Tên sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="name" placeholder="Nhập vào tên sản phẩm"
-                                    value="{{$product->name}}" />
+                                    value="{{$product->name}}" required />
                                 <div style="color:red">
                                     {{ $errors->first('name') }}
                                 </div>
@@ -47,7 +47,7 @@
                             <div class="span3">Giá sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="price" placeholder="Nhập vào giá sản phẩm"
-                                    value="{{$product->price}}" />
+                                    value="{{$product->price}}" required />
                                 <div style="color:red">
                                     {{ $errors->first('price') }}
                                 </div>
@@ -65,7 +65,8 @@
                                     <input class="form-check-input" type="checkbox" value="<?= $feature->id; ?>"
                                         id="feature_<?= $feature->id; ?>" name="features[]"
                                         <?php if(in_array($feature->id,$checked_tags)): ?> checked <?php endif; ?>>
-                                    <label class="form-check-label" for="feature_<?= $feature->id; ?>" style="padding-left:20px">
+                                    <label class="form-check-label" for="feature_<?= $feature->id; ?>"
+                                        style="padding-left:20px">
                                         <?= $feature->name; ?>
                                     </label>
                                 </div>
@@ -94,8 +95,7 @@
                         </div>
                         <div class="row-form">
                             <button class="btn btn-success" type="submit">Lưu</button>
-                            <button class="btn btn-danger"
-                                            onclick="window.history.go(-1); return false;">Hủy</button>
+                            <button class="btn btn-danger" onclick="window.history.go(-1); return false;">Hủy</button>
                             <div class="clear"></div>
                         </div>
                     </form>

@@ -25,7 +25,7 @@
                             <div class="span3">Tên khách hàng:</div>
                             <div class="span9">
                                 <input type="text" name="name" value="{{$order->name}}"
-                                    placeholder="Nhập vào tên khách hàng" />
+                                    placeholder="Nhập vào tên khách hàng" required />
                                 <div style="color:red">
                                     {{ $errors->first('name') }}
                                 </div>
@@ -44,7 +44,7 @@
                             <div class="span3">Số điện thoại:</div>
                             <div class="span9">
                                 <input type="text" name="phone" value="{{$order->phone}}"
-                                    placeholder="Nhập vào số điện thoại" />
+                                    placeholder="Nhập vào số điện thoại" required />
                                 <div style="color:red">
                                     {{ $errors->first('phone') }}
                                 </div>
@@ -55,7 +55,7 @@
                             <div class="span3">Địa chỉ:</div>
                             <div class="span9">
                                 <input type="text" name="address" value="{{$order->address}}"
-                                    placeholder="Nhập vào địa chỉ">
+                                    placeholder="Nhập vào địa chỉ" required maxlength="255">
                                 <div style="color:red">
                                     {{ $errors->first('address') }}
                                 </div>
@@ -64,8 +64,7 @@
                         </div>
                         <div class="row-form">
                             <button class="btn btn-success" type="submit">Lưu</button>
-                            <button class="btn btn-danger"
-                                            onclick="window.history.go(-1); return false;">Hủy</button>
+                            <button class="btn btn-danger" onclick="window.history.go(-1); return false;">Hủy</button>
                             <div class="clear"></div>
                         </div>
                     </form>

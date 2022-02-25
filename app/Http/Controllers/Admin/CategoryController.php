@@ -19,10 +19,10 @@ class CategoryController extends Controller
             return view('backend.category.index',compact('categories'));
         }
     
-        public function store(CategoryRequest $request)
+        public function store(CategoryRequest $req)
         {
             $category = new CategoryModel();
-            $category->name = $request->name;
+            $category->name = $req->name;
             $category->save();
             return redirect()->route('category.index')->with('flash_message','Thêm mới thành công!');
         }
@@ -33,10 +33,10 @@ class CategoryController extends Controller
             return view('backend.category.edit',compact('category'));
         }
     
-        public function update(Request $request, $id)
+        public function update(Request $req, $id)
         {
             $category = CategoryModel::find($id);
-            $category->name = $request->input('name');
+            $category->name = $req->name;
             $category->save();
             return redirect()->route('category.index')->with('flash_message','Cập nhật thành công!');
         }

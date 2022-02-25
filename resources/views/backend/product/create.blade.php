@@ -22,7 +22,7 @@
                             <div class="span3">Tên sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="name" placeholder="Nhập vào tên sản phẩm" autocomplete="off"
-                                    value="{{old('name')}}" />
+                                    value="{{old('name')}}" required />
                                 <div style="color:red">
                                     {{ $errors->first('name') }}
                                 </div>
@@ -45,7 +45,7 @@
                             <div class="span3">Giá sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="price" placeholder="Nhập vào giá sản phẩm" autocomplete="off"
-                                    value="{{old('price')}}" />
+                                    value="{{old('price')}}" required />
                                 <div style="color:red">
                                     {{ $errors->first('price') }}
                                 </div>
@@ -88,8 +88,7 @@
                         </div>
                         <div class="row-form">
                             <button class="btn btn-success" type="submit">Lưu</button>
-                            <button class="btn btn-danger"
-                                            onclick="window.history.go(-1); return false;">Hủy</button>
+                            <button class="btn btn-danger" onclick="window.history.go(-1); return false;">Hủy</button>
                             <div class="clear"></div>
                         </div>
                     </form>

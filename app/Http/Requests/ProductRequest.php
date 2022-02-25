@@ -14,18 +14,15 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:products|max:50',
-            'price' => 'required',
+            'name' => 'unique:products|max:50',
             'description' => 'required'
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'Tên không được để trống',
             'name.max' => 'Tên không được quá 50 ký tự',
-            'name.unique' => 'Tên đã tồn tại',
-            'price.required' => 'Giá không được để trống',
+            'name.unique' => 'Tên sản phẩm đã tồn tại',
             'description.required' => 'Nội dung không được để trống'
         ];
     }
