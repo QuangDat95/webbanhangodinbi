@@ -32,3 +32,5 @@ Route::post('saveOrder',[WebsiteController::class,'Checkout'])->name('saveOrder'
 Route::get('orderSuccess',[WebsiteController::class,'orderSuccess'])->name('orderSuccess');
 Route::get('returnHome',[WebsiteController::class,'returnHome'])->name('returnHome');
 Route::get('saveItemListCart/{id}/{amount}',[WebsiteController::class,'saveItemListCart']);
+Route::get('dell',[WebsiteController::class,'dell'])->name('dell');
+Route::get('asus',[WebsiteController::class,'asus'])->name('asus');

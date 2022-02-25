@@ -106,11 +106,21 @@ class WebsiteController extends Controller
         ->where('category.name', '=', 'DELL')
         ->paginate(6);
         $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
-        return view('frontend.dell', compact('products', 'banchays'));
+        return view('frontend.dell', compact('products', 'sellests'));
+    }
+
+    public function asus()
+    {
+        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        ->select('products.*')
+        ->where('category.name', '=', 'ASUS')
+        ->paginate(6);
+        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
+        return view('frontend.asus', compact('products', 'sellests'));
     }
 
     public function lienhe()
     {
-        return view('frontend.lienhe');
+        return view('frontend.contact');
     }
 }

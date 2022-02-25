@@ -1,4 +1,7 @@
 @extends('frontend.index')
+@section('title')
+Hp
+@endsection
 @section('content')
 <div class="section">
 	<!-- container -->

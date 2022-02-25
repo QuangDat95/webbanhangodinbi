@@ -38,14 +38,15 @@
                         <div class="row-form">
                             <div class="span3">Sản Phẩm</div>
                             <div class="span9">
-                                <select name="product_id">
+                                <!-- <select name="product_id">
                                     <option value=""></option>
                                     @foreach($products as $product)
                                     <option value="{{$product->id}}"
                                     <?php if($product->id == $list->product->id){ echo "selected";} ?>
                                     >{{$product->name}}</option>
                                     @endforeach
-                                </select>
+                                </select> -->
+                                {{$product->name}}
                             </div>
                             <div class="clear"></div>
                         </div>

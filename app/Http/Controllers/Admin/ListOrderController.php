@@ -27,8 +27,8 @@ class ListOrderController extends Controller
     public function update(Request $request, $id)
     {
         $list = ListOrderModel::find($id);
-        $list->order_id = $request->input('order_id');
-        $list->product_id = $request->input('product_id');
+        // $list->order_id = $request->input('order_id');
+        // $list->product_id = $request->input('product_id');
         $list->amount = $request->input('amount');
         $list->save();
         return redirect()->route('listorder.index')->with('flash_message','Cập nhật thành công!');
