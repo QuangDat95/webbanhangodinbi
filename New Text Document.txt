@@ -1,0 +1,13 @@
+chỉnh lại thư mục chứa các phần tử layout backend. ví dụ: dashboard/category/index - create - edit.blade.php
+tạo function chèn ảnh để áp dung các insert dữ liệu ngắn gọn nhất
+chỉnh lại id khi edit sang bycypt
+chỉnh lại tên của model
+chỉnh lại tên controller
+chỉnh lại tên database, tên table, tên row
+chỉnh lại tên route phù hợp
+tìm hiểu về bảo mật MA
+tìm hiểu thêm về ajax
+thử dùng back()->route()->with()
+
+
+

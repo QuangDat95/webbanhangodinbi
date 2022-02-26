@@ -9,7 +9,7 @@ use App\Models\FeatureModel;
 class ProductModel extends Model
 {
     use HasFactory;
-    // protected $table="products";
+    protected $table="products";
     protected $fillable = ['name','price','image','description','category_id'];
     public function category(){
         return $this->belongsTo(CategoryModel::class,'category_id','id');
