@@ -5,55 +5,66 @@
         <div class="row-fluid">
             <div class="span12 search">
                 <form action="" method="GET">
-                    <input type="hidden" name="controller" value="PhanLoai">
+                    <input type="hidden" name="controller" value="SanPham">
                     <input type="text" class="span11" placeholder="Nhập từ khóa" name="tu_khoa" autocomplete="off" />
                     <button class="btn span1" type="submit">Tìm</button>
                     <input type="hidden" name="action" value="search">
                 </form>
             </div>
         </div>
-        <!-- /row-fluid-->
         <div class="row-fluid">
             <div class="span12">
                 <div class="head">
                     <div class="isw-grid"></div>
-                    <h1>Quản Lý hãng</h1>
+                    <h1>Danh sách đơn hàng</h1>
                     <div class="clear"></div>
                 </div>
                 @include('commons.alert')
                 <div class="block-fluid">
-                    <a href="{{route('categoryCreate')}}" class="btn btn-add">Thêm hãng</a>
-                    <table cellpadding="0" cellspacing="0" width="100%" class="table" id="tSortable_2">
+                    <table class="table table-hover">
+                        @if(count($lists)>0)
                         <thead>
                             <tr>
-                                <th class="sorting"><a href="#">ID</a></th>
-                                <th class="sorting"><a href="#">Tên loại sản phẩm</a></th>
-                                <th>Hành động</th>
+                                <th>Tên Khách hàng</th>
+                                <th>Ngày mua</th>
+                                <td>Tên Sản Phẩm</td>
+                                <td>Hình ảnh</td>
+                                <td>Số lượng</td>
+                                <td>Hành động</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- START LOOP-->
-                            @foreach($categories as $category)
+                            @foreach($lists as $list)
                             <tr>
-                                <td>{{$category->id}}</td>
-                                <td>{{$category->name}}</td>
+                                <td>{{$list->order->name}}</td>
+                                <td>{{date('d/m/Y', strtotime($list->order->buy_date))}}</td>
+                                <td>{{$list->product->name}}</td>
+                                <td> <img src="{{Storage::url($list->product->image)}}" width="100"> </td>
+                                <td>{{$list->amount}}</td>
                                 <td>
-                                    <form action="{{route('category.destroy',$category->id)}}" method="post">
+                                    <form action="{{route('listorder.destroy',$list->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('category.edit', $category->id)}}"
+                                        <a href="{{ route('listorder.edit', $list->id)}}"
                                             class="btn btn-primary">Sửa</a>
                                         <input type="submit" class="btn btn-danger" value="Xóa"
-                                            onClick="return confirm('Bạn có muốn xóa loại sản phẩm này?');">
+                                            onClick="return confirm('Bạn có muốn xóa?');">
                                     </form>
                                 </td>
                             </tr>
                             @endforeach
-                            <!-- END LOOP-->
+                            @else
+                            <tr>
+                                <td colspan="6">
+                                    <h4 style="color:green;text-align:center">Không có đơn hàng nào</h4>
+                                </td>
+                            </tr>
+                            @endif
                         </tbody>
+
                     </table>
                     <div style="float:right">
-                        {{($categories->links())}}
+                        {{($lists->links())}}
                     </div>
                 </div>
             </div>

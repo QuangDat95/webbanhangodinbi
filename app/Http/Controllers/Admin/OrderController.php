@@ -4,23 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderRequest;
-use App\Models\OrderModel;
+use App\Models\Order;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
     public function index()
     {
-        $orders = OrderModel::paginate(10);
-        return view('backend.orders.index',compact('orders'));
+        $orders = Order::paginate(10);
+        return view('dashboards.orders.index',compact('orders'));
     }
 
     public function show($id)
     {
-        $order = OrderModel::find($id);
-        $items = DB::table('listorders')
-            ->join('orders', 'listorders.order_id', '=', 'orders.id')
-            ->join('products', 'listorders.product_id', '=', 'products.id')
+        $order = Order::find($id);
+        $items = DB::table('list_orders')
+            ->join('orders', 'list_orders.order_id', '=', 'orders.id')
+            ->join('products', 'list_orders.product_id', '=', 'products.id')
             ->where('order_id', '=', $id)
             ->get();
         $amount = 0;
@@ -29,18 +29,18 @@ class OrderController extends Controller
             $amount += $items[$i]->amount;
             $sum_price += $items[$i]->price * $items[$i]->amount;
         }
-        return view('backend.orders.show', compact('order', 'items','amount','sum_price'));
+        return view('dashboards.orders.show', compact('order', 'items','amount','sum_price'));
     }
 
     public function edit($id)
     {
-        $order = OrderModel::find($id);
-        return view('backend.orders.edit',compact('order'));
+        $order = Order::find($id);
+        return view('dashboards.orders.edit',compact('order'));
     }
 
     public function update(OrderRequest $req, $id)
     {
-        $order = OrderModel::find($id);
+        $order = Order::find($id);
         $order->name = $req->name;
         $order->buy_date = $req->buy_date;
         $order->address = $req->address;
@@ -51,10 +51,10 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        $order = OrderModel::find($id);
-        $items = DB::table('listorders')
-            ->join('orders', 'listorders.order_id', '=', 'orders.id')
-            ->join('products', 'listorders.product_id', '=', 'products.id')
+        $order = Order::find($id);
+        $items = DB::table('list_orders')
+            ->join('orders', 'list_orders.order_id', '=', 'orders.id')
+            ->join('products', 'list_orders.product_id', '=', 'products.id')
             ->where('order_id', '=', $id)
             ->get();
         if(count($items)>0){

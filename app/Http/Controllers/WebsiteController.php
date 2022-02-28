@@ -5,34 +5,34 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use App\Models\ProductModel;
-use App\Models\OrderModel;
-use App\Models\ListOrderModel;
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\ListOrder;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
 class WebsiteController extends Controller
 {
     public function properties($id)
     {
-        $product = ProductModel::find($id);
-        return view('frontend.properties', compact('product'));
+        $product = Product::find($id);
+        return view('layouts.properties', compact('product'));
     }
 
     public function addCart(Request $req, $id)
     {
-        $product = DB::table('products')->where('id', '=', $id)->first();
+        $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
-            $oldCart = Session::get('cart') ? Session::get('cart') : null;
+            $oldCart = Session('cart') ? Session('cart') : null;
             $newCart = new Cart($oldCart);
             $newCart->addCart($product, $id);
-            $req->Session()->put('cart', $newCart);
+            $req->session()->put('cart', $newCart);
         }
-        return view('includes.frontend.giohang');
+        return view('layouts.giohang',compact('newCart'));
     }
 
     public function getCart()
     {
-        return view('frontend.giohang.giohang');
+        return view('layouts.giohang.giohang');
     }
 
     public function deleteListCart(Request $req, $id)
@@ -45,7 +45,7 @@ class WebsiteController extends Controller
         } else {
             $req->Session()->forget('cart');
         }
-        return view('frontend.giohang.list_giohang');
+        return view('layouts.giohang.list_giohang');
     }
 
     public function saveItemListCart(Request $req, $id, $quanty)
@@ -54,22 +54,22 @@ class WebsiteController extends Controller
         $newCart = new Cart($oldCart);
         $newCart->UpdateItemCart($id, $quanty);
         $req->Session()->put('cart', $newCart);
-        return view('frontend.giohang.list_giohang');
+        return view('layouts.giohang.list_giohang');
     }
 
     public function getCheckout()
     {
-        return view('frontend.checkout');
+        return view('layouts.checkout');
     }
 
     public function orderSuccess()
     {
-        return view('frontend.order_success');
+        return view('layouts.order_success');
     }
 
     public function Checkout(Request $req)
     {
-        $order = new OrderModel();
+        $order = new Order();
         $order->name = $req->name;
         $order->buy_date = date('y-m-d');
         $order->phone = $req->phone;
@@ -78,7 +78,7 @@ class WebsiteController extends Controller
         $last_id = $order->id;
         $cart = Session::get('cart')->products;
         foreach ($cart as $ID_sp => $value) {
-            $properties_order = new ListOrderModel();
+            $properties_order = new ListOrder();
             $properties_order->order_id = $last_id;
             $properties_order->product_id = $ID_sp;
             $properties_order->amount = $value["amount"];
@@ -95,61 +95,61 @@ class WebsiteController extends Controller
 
     public function index()
     {
-        $products = ProductModel::all();
-        return view('frontend.home', compact('products'));
+        $products = Product::all();
+        return view('layouts.home', compact('products'));
     }
 
     public function dell()
     {
-        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*')
-        ->where('category.name', '=', 'DELL')
+        ->where('categories.name', '=', 'DELL')
         ->paginate(6);
-        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
-        return view('frontend.dell', compact('products', 'sellests'));
+        $sellests = ListOrder::orderBy('list_orders.amount', 'desc')->limit(5)->get();
+        return view('layouts.dell', compact('products', 'sellests'));
     }
 
     public function asus()
     {
-        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*')
-        ->where('category.name', '=', 'ASUS')
+        ->where('categories.name', '=', 'ASUS')
         ->paginate(6);
-        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
-        return view('frontend.asus', compact('products', 'sellests'));
+        $sellests = ListOrder::orderBy('list_orders.amount', 'desc')->limit(5)->get();
+        return view('layouts.asus', compact('products', 'sellests'));
     }
 
     public function hp()
     {
-        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*')
-        ->where('category.name', '=', 'HP')
+        ->where('categories.name', '=', 'HP')
         ->paginate(6);
-        $sellests = ListOrderModel::orderByDESC('listorders.amount')->limit(5)->get();
-        return view('frontend.hp', compact('products', 'sellests'));
+        $sellests = ListOrder::orderByDESC('list_orders.amount')->limit(5)->get();
+        return view('layouts.hp', compact('products', 'sellests'));
     }
 
     public function lenovo()
     {
-        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*')
-        ->where('category.name', '=', 'LENOVO')
+        ->where('categories.name', '=', 'LENOVO')
         ->paginate(6);
-        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
-        return view('frontend.lenovo', compact('products', 'sellests'));
+        $sellests = ListOrder::orderBy('list_orders.amount', 'desc')->limit(5)->get();
+        return view('layouts.lenovo', compact('products', 'sellests'));
     }
 
     public function acer()
     {
-        $products = ProductModel::join('category', 'products.category_id', '=', 'category.id')
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id')
         ->select('products.*')
-        ->where('category.name', '=', 'ACER')
+        ->where('categories.name', '=', 'ACER')
         ->paginate(6);
-        $sellests = ListOrderModel::orderBy('listorders.amount', 'desc')->limit(5)->get();
-        return view('frontend.acer', compact('products', 'sellests'));
+        $sellests = ListOrder::orderBy('list_orders.amount', 'desc')->limit(5)->get();
+        return view('layouts.acer', compact('products', 'sellests'));
     }
-    public function lienhe()
+    public function contact()
     {
-        return view('frontend.contact');
+        return view('layouts.contact');
     }
 }

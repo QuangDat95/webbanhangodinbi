@@ -5,8 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ListOrderController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\LoginLogoutController;
 use App\Http\Controllers\WebsiteController;
 
 Route::group(['middleware' => 'CheckLogin'],function(){
@@ -14,14 +13,14 @@ Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('product',ProductController::class);
     Route::resource('order',OrderController::class);
     Route::resource('listorder',ListOrderController::class);
-    Route::view('/categoryCreate','backend.category.create')->name('categoryCreate');
+    Route::view('/categoryCreate','dashboards.categories.create')->name('categoryCreate');
     Route::view('/orderCreate','backend.orders.create')->name('orderCreate');
 });
 
 
-Route::get('/dashboard/login',[LoginController::class,'getLogin'])->name('getLogin');
-Route::post('/dashboard/login',[LoginController::class,'postLogin'])->name('postLogin');
-Route::get('/dashboard/logout',[LogoutController::class,'getLogout'])->name('getLogout');
+Route::get('/dashboard/login',[LoginLogoutController::class,'getlogin'])->name('getlogin');
+Route::post('/dashboard/login',[LoginLogoutController::class,'postlogin'])->name('postlogin');
+Route::get('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->name('postlogout');
 
 Route::get('/',[WebsiteController::class,'index'])->name('home');
 Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('properties');
@@ -38,4 +37,4 @@ Route::get('asus',[WebsiteController::class,'asus'])->name('asus');
 Route::get('hp',[WebsiteController::class,'hp'])->name('hp');
 Route::get('lenovo',[WebsiteController::class,'lenovo'])->name('lenovo');
 Route::get('acer',[WebsiteController::class,'acer'])->name('acer');
-Route::get('lienhe',[WebsiteController::class,'lienhe'])->name('lienhe');
+Route::get('contact',[WebsiteController::class,'contact'])->name('contact');
