@@ -64,12 +64,14 @@ class WebsiteController extends Controller
         return view('layouts.carts.load_carts');
     }
 
-    public function saveitemlistcart(Request $req, $id, $quanty)
+    public function saveitemlistcart(Request $req)
     {
+        $id = $req->input('id');
+        $quanty = $req->input('quanty');
         $oldCart = Session::get('cart') ? Session::get('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->UpdateItemCart($id, $quanty);
-        $req->Session()->put('cart', $newCart);
+        $req->session()->put('cart', $newCart);
         return view('layouts.carts.load_carts');
     }
 

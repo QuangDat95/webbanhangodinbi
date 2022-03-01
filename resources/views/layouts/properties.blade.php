@@ -40,7 +40,7 @@
 			</div>
 			<!-- /Product details -->
 			<!-- Product tab -->
-			<div class="col-md-12" style="margin-top:-500px">
+			<div class="col-md-12">
 				<div id="product-tab">
 					<!-- product tab nav -->
 					<ul class="tab-nav">
@@ -59,4 +59,3 @@
 </div>
 <!-- /NEWSLETTER -->
 @endsection
-<script></script>

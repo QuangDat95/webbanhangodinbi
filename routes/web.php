@@ -32,7 +32,7 @@ Route::get('getcheckout',[WebsiteController::class,'getcheckout'])->name('getche
 Route::post('checkout',[WebsiteController::class,'checkout'])->name('checkout');
 Route::get('ordersuccess',[WebsiteController::class,'ordersuccess'])->name('ordersuccess');
 Route::get('returnHome',[WebsiteController::class,'returnHome'])->name('returnHome');
-Route::post('saveitemlistcart/{id}/{amount}',[WebsiteController::class,'saveitemlistcart']);
+Route::post('saveitemlistcart',[WebsiteController::class,'saveitemlistcart']);
 Route::get('dell',[WebsiteController::class,'dell'])->name('dell');
 Route::get('asus',[WebsiteController::class,'asus'])->name('asus');
 Route::get('hp',[WebsiteController::class,'hp'])->name('hp');

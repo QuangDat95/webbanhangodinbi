@@ -39,16 +39,13 @@ $('#deletelistcart').click(function()
     });
 })
 
-    // var id = $('#updateitem_cart').val();
     $('.updateitemlistcart').click(function()
     {
-        let id = $(this).attr('id-product');
-        let url = "/saveitemlistcart/";
-        // let id = $('.updateitem_cart').val();
-        let amount = $('.change_item_input_' + id).val();
-    
+        // let id = $(this).attr('id-product');
+        let url = "/saveitemlistcart";
+        // let amount = $('.change_item_input_' + id).val();
         $.ajax({
-            url: url + id + "/" + amount,
+            url: url,
             type: "POST",
             headers: csrf,
         }).done(function(response) {
@@ -58,7 +55,7 @@ $('#deletelistcart').click(function()
     });
 
 
-//function mini cart layouts.properties
+//function mini cart (layouts.properties)
 function rendercart(response) 
 {
     $('.header-ctn').empty();
