@@ -28,10 +28,10 @@ class WebsiteController extends Controller
             $newCart->addCart($product, $id);
             $req->session()->put('cart', $newCart);
         }
-        return view('layouts.giohang',compact('newCart'));
+        return view('layouts.loadheader_cart',compact('newCart'));
     }
 
-    public function deleteCart(Request $req, $id)
+    public function deletecart(Request $req, $id)
     {
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
@@ -41,13 +41,13 @@ class WebsiteController extends Controller
         } else {
             $req->session()->forget('cart');
         }
-        return view('layouts.giohang');
+        return view('layouts.loadheader_cart');
     }
 
     public function getCart()
     {
         // dd(request()->route()->getName());
-        return view('layouts.giohang.giohang');
+        return view('layouts.carts.carts');
     }
 
     public function deleteListCart(Request $req, $id)
@@ -60,7 +60,7 @@ class WebsiteController extends Controller
         } else {
             $req->session()->forget('cart');
         }
-        return view('layouts.giohang.list_giohang');
+        return view('layouts.carts.load_carts');
     }
 
     public function saveItemListCart(Request $req, $id, $quanty)
@@ -69,7 +69,7 @@ class WebsiteController extends Controller
         $newCart = new Cart($oldCart);
         $newCart->UpdateItemCart($id, $quanty);
         $req->Session()->put('cart', $newCart);
-        return view('layouts.giohang.list_giohang');
+        return view('layouts.carts.load_carts');
     }
 
     public function getCheckout()

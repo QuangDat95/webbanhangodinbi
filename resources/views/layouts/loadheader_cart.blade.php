@@ -15,7 +15,7 @@
                @foreach(Session('cart')->products as $item)
                <div class="product-widget">
                    <div class="product-img">
-                       <i class="fa fa-window-close" aria-hidden="true" data-id="{{$item['productInfo']->id}}"></i>
+                       <i class="fa fa-window-close" aria-hidden="true" data-id="{{$item['productInfo']->id}}" style="color:red"></i>
                        <img src="{{Storage::url($item['productInfo']->image)}}" />
                    </div>
                    <div class="product-body">
@@ -53,15 +53,6 @@
        </a>
    </div>
    <script>
-$('.product-img i').click(function() {
-    $.ajax({
-        url: "/deleteCart/" + $(this).data("id"),
-        type: "GET",
-    }).done(function(response) {
-        $('.header-ctn').empty();
-        $('.header-ctn').html(response);
-        alertify.success('Đã xoá sản phẩm thành công!');
-    });
-});
+
    </script>
    <!-- /Menu Toogle -->

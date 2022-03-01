@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>@yield('title')</title>
@@ -100,7 +101,7 @@
                                         <div class="product-widget">
                                             <div class="product-img">
                                                 <i class="fa fa-window-close" aria-hidden="true"
-                                                    data-id="{{$item['productInfo']->id}}"></i>
+                                                    data-id="{{$item['productInfo']->id}}" style="color:red"></i>
                                                 <img src="{{Storage::url($item['productInfo']->image)}}" />
                                             </div>
                                             <div class="product-body">
@@ -218,7 +219,7 @@
     <script src="{{asset('js/main.js')}}"></script>
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
+    <script src="{{asset('main/main.js')}}"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->
@@ -228,17 +229,9 @@
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
     <script>
-    $('.product-img i').click(function() {
-        $.ajax({
-            url: "/deleteCart/" + $(this).data("id"),
-            type: "GET",
-        }).done(function(response) {
-            $('.header-ctn').empty();
-            $('.header-ctn').html(response);
-            alertify.success('Đã xoá sản phẩm thành công!');
-        });
-    });
+ 
     </script>
+
 </body>
 
 </html>

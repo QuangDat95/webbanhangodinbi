@@ -59,17 +59,5 @@
 <!-- /NEWSLETTER -->
 @endsection
 <script>
-	function RenderCart(response) {
-		$('.header-ctn').empty();
-		$('.header-ctn').html(response);
-	}
-	function AddCart(id) {
-		$.ajax({
-			url: "/addCart/"+id,
-			type: "GET",
-		}).done(function(response) {
-			RenderCart(response);
-			alertify.success('Đã thêm sản phẩm thành công!');
-		});
-	}
+
 </script>

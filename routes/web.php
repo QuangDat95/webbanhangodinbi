@@ -27,7 +27,7 @@ Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('pro
 Route::get('addCart/{id}',[WebsiteController::class,'addCart'])->name('addCart');
 Route::get('getCart',[WebsiteController::class,'getCart'])->name('getCart');
 Route::get('deleteListCart/{id}',[WebsiteController::class,'deleteListCart']);
-Route::get('deleteCart/{id}',[WebsiteController::class,'deleteCart']);
+Route::post('deletecart/{id}',[WebsiteController::class,'deletecart']);
 Route::get('checkout',[WebsiteController::class,'getCheckout'])->name('getCheckout');
 Route::post('saveOrder',[WebsiteController::class,'Checkout'])->name('saveOrder');
 Route::get('orderSuccess',[WebsiteController::class,'orderSuccess'])->name('orderSuccess');

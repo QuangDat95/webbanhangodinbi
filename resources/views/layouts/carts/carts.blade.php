@@ -71,28 +71,5 @@
 </section>
 @endsection
 <script>
-function RenderListCart(response) {
-    $('.table-bordered').empty();
-    $('.table-bordered').html(response);
-}
 
-function deleteListCart(id) {
-    $.ajax({
-        url: "/deleteListCart/" + id,
-        type: "GET",
-    }).done(function(response) {
-        RenderListCart(response);
-        alertify.success('Đã xoá sản phẩm thành công!');
-    });
-}
-
-function saveItemListCart(id,total) {
-    $.ajax({
-        url: "/saveItemListCart/" + id + "/" + $('#change_item_input_' + id).val(),
-        type: "GET",
-    }).done(function(response) {
-        RenderListCart(response);
-        alertify.success('Đã cập nhật sản phẩm!');
-    });
-}
 </script>
