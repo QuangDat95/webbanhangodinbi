@@ -55,7 +55,6 @@ $('#deletelistcart').click(function()
             renderlistcart(response);
             alertify.success('Đã cập nhật sản phẩm!');
         });
-        alert(id);
     });
 
 
