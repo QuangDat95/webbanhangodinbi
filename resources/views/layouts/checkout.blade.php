@@ -23,7 +23,7 @@
 		<div class="section">
 			<!-- container -->
 			<div class="container">
-			<form action="{{route('saveOrder')}}" method="POST">
+			<form action="{{route('checkout')}}" method="POST">
 				@csrf
 				<!-- row -->
 				<div class="row">
@@ -55,10 +55,10 @@
 								<div><strong>TỔNG</strong></div>
 							</div>
 							<div class="order-products">
-								@foreach(Session::get('cart')->products as $key => $value)
+								@foreach(Session('cart')->products as $key => $value)
 								<div class="order-col">
 									<div><strong>{{$value["amount"]}} x {{$value["productInfo"]->name}}</strong></div>
-									<div><strong>{{$value["price"]}}<sup>đ</sup></strong></div>
+									<div><strong>{{number_format($value["price"])}}<sup>đ</sup></strong></div>
 								</div>
 								@endforeach
 							</div>
@@ -68,7 +68,7 @@
 							</div>
 							<div class="order-col">
 								<div><strong>TỔNG</strong></div>
-								<div><strong class="order-total">{{number_format(Session::get('cart')->totalPrice)}}<sup>đ</sup></strong></div>
+								<div><strong class="order-total">{{number_format(Session('cart')->totalPrice)}}<sup>đ</sup></strong></div>
 							</div>
 						</div>	
 						<button type="submit" class="primary-btn order-submit">Đặt hàng</button>

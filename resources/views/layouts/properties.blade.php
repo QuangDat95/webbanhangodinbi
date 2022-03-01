@@ -33,7 +33,8 @@
 
 					</div>
 					<div class="add-to-cart">
-						<a onclick="AddCart({{$product->id}})" href="javascript:void"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button></a>
+						<a href="javascript:void"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button></a>
+						<input type="hidden" id="add_cart" value="{{$product->id}}">
 					</div>
 				</div>
 			</div>
@@ -58,6 +59,4 @@
 </div>
 <!-- /NEWSLETTER -->
 @endsection
-<script>
-
-</script>
+<script></script>

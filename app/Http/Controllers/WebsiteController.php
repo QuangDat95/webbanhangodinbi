@@ -11,15 +11,17 @@ use App\Models\ListOrder;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
 use Illuminate\Support\Facades\Route;
+
 class WebsiteController extends Controller
 {
     public function properties($id)
     {
+        // $id_decode = base64_decode($id);
         $product = Product::find($id);
         return view('layouts.properties', compact('product'));
     }
 
-    public function addCart(Request $req, $id)
+    public function addcart(Request $req, $id)
     {
         $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
@@ -44,13 +46,12 @@ class WebsiteController extends Controller
         return view('layouts.loadheader_cart');
     }
 
-    public function getCart()
+    public function getcart()
     {
-        // dd(request()->route()->getName());
         return view('layouts.carts.carts');
     }
 
-    public function deleteListCart(Request $req, $id)
+    public function deletelistcart(Request $req, $id)
     {
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
@@ -63,7 +64,7 @@ class WebsiteController extends Controller
         return view('layouts.carts.load_carts');
     }
 
-    public function saveItemListCart(Request $req, $id, $quanty)
+    public function saveitemlistcart(Request $req, $id, $quanty)
     {
         $oldCart = Session::get('cart') ? Session::get('cart') : null;
         $newCart = new Cart($oldCart);
@@ -72,17 +73,17 @@ class WebsiteController extends Controller
         return view('layouts.carts.load_carts');
     }
 
-    public function getCheckout()
+    public function getcheckout()
     {
         return view('layouts.checkout');
     }
 
-    public function orderSuccess()
+    public function ordersuccess()
     {
         return view('layouts.order_success');
     }
 
-    public function Checkout(Request $req)
+    public function checkout(Request $req)
     {
         $order = new Order();
         $order->name = $req->name;
@@ -99,7 +100,7 @@ class WebsiteController extends Controller
             $properties_order->amount = $value["amount"];
             $properties_order->save();
         }
-        return redirect()->route('orderSuccess');
+        return redirect()->route('ordersuccess');
     }
 
     public function returnHome()

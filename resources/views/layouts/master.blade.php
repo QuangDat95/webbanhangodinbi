@@ -81,7 +81,7 @@
 
                     <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
-                        @if(request()->route()->getName() != 'getCart' && request()->route()->getName() != 'getCheckout' && request()->route()->getName() != 'orderSuccess')
+                        @if(request()->route()->getName() != 'getcart' && request()->route()->getName() != 'getcheckout' && request()->route()->getName() != 'ordersuccess')
                         <div class="header-ctn">
                             <!-- Cart -->
                             <div class="dropdown">
@@ -123,8 +123,8 @@
                                         </h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="{{route('getCart')}}">Xem giỏ hàng</a>
-                                        <a href="{{route('getCheckout')}}">Thanh toán<i
+                                        <a href="{{route('getcart')}}">Xem giỏ hàng</a>
+                                        <a href="{{route('getcheckout')}}">Thanh toán<i
                                                 class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                     @else
@@ -217,9 +217,9 @@
     <script src="{{asset('js/nouislider.min.js')}}"></script>
     <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('main/main.js')}}"></script>
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script src="{{asset('main/main.js')}}"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <!-- Default theme -->

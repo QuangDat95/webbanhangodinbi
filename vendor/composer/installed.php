@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3112c948c8706535bdcdb4887c7a4cdde5744d89',
+        'reference' => '12b6e40d5f5d745600f2305008da7d29dbec290d',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -183,6 +183,15 @@
             'aliases' => array(),
             'reference' => '8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
             'dev_requirement' => true,
+        ),
+        'hashids/hashids' => array(
+            'pretty_version' => '4.1.0',
+            'version' => '4.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../hashids/hashids',
+            'aliases' => array(),
+            'reference' => '8cab111f78e0bd9c76953b082919fc9e251761be',
+            'dev_requirement' => false,
         ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
@@ -397,7 +406,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3112c948c8706535bdcdb4887c7a4cdde5744d89',
+            'reference' => '12b6e40d5f5d745600f2305008da7d29dbec290d',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

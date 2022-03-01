@@ -36,8 +36,8 @@
                </h5>
            </div>
            <div class="cart-btns">
-               <a href="{{route('getCart')}}">Xem giỏ hàng</a>
-               <a href="{{route('getCheckout')}}">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+               <a href="{{route('getcart')}}">Xem giỏ hàng</a>
+               <a href="{{route('getcheckout')}}">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
            </div>
            @else
            <h4 style="color:green; text-align: center;">Giỏ hàng trống!</h4>
@@ -52,7 +52,5 @@
            <span>Menu</span>
        </a>
    </div>
-   <script>
-
-   </script>
    <!-- /Menu Toogle -->
+   <script src="{{asset('main/main.js')}}"></script>

@@ -24,15 +24,15 @@ Route::get('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->nam
 
 Route::get('/',[WebsiteController::class,'index'])->name('home');
 Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('properties');
-Route::get('addCart/{id}',[WebsiteController::class,'addCart'])->name('addCart');
-Route::get('getCart',[WebsiteController::class,'getCart'])->name('getCart');
-Route::get('deleteListCart/{id}',[WebsiteController::class,'deleteListCart']);
+Route::post('addcart/{id}',[WebsiteController::class,'addcart']);
+Route::get('getcart',[WebsiteController::class,'getcart'])->name('getcart');
+Route::post('deletelistcart/{id}',[WebsiteController::class,'deletelistcart']);
 Route::post('deletecart/{id}',[WebsiteController::class,'deletecart']);
-Route::get('checkout',[WebsiteController::class,'getCheckout'])->name('getCheckout');
-Route::post('saveOrder',[WebsiteController::class,'Checkout'])->name('saveOrder');
-Route::get('orderSuccess',[WebsiteController::class,'orderSuccess'])->name('orderSuccess');
+Route::get('getcheckout',[WebsiteController::class,'getcheckout'])->name('getcheckout');
+Route::post('checkout',[WebsiteController::class,'checkout'])->name('checkout');
+Route::get('ordersuccess',[WebsiteController::class,'ordersuccess'])->name('ordersuccess');
 Route::get('returnHome',[WebsiteController::class,'returnHome'])->name('returnHome');
-Route::get('saveItemListCart/{id}/{amount}',[WebsiteController::class,'saveItemListCart']);
+Route::post('saveitemlistcart/{id}/{amount}',[WebsiteController::class,'saveitemlistcart']);
 Route::get('dell',[WebsiteController::class,'dell'])->name('dell');
 Route::get('asus',[WebsiteController::class,'asus'])->name('asus');
 Route::get('hp',[WebsiteController::class,'hp'])->name('hp');

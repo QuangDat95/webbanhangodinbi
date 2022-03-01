@@ -29,13 +29,15 @@ class Cart{
         $this->totalamount++;
     }
 
-    public function deleteItemCart($id){
+    public function deleteItemCart($id)
+    {
         $this->totalamount -= $this->products[$id]["amount"];
         $this->totalPrice -= $this->products[$id]["price"];
         unset($this->products[$id]);
     }
 
-    public function UpdateItemCart($id, $amount){
+    public function UpdateItemCart($id, $amount)
+    {
         $this->totalamount -= $this->products[$id]["amount"];
         $this->totalPrice -= $this->products[$id]["price"];
 

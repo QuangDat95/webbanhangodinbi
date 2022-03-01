@@ -12,7 +12,7 @@
 					@foreach ($sellests as $sellest)
 					<div class="product-widget">
 						<div class="product-img">
-							<img src="{{Storage::url($sellest->product->image)}}" alt="">
+							<img src="{{Storage::url($sellest->product->image)}}">
 						</div>
 						<div class="product-body">
 							<p class="product-category"></p>

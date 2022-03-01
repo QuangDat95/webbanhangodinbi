@@ -26,14 +26,16 @@
                 class="unit-amount"><strong>{{number_format($item["productInfo"]->price)}}</strong><sup>vnđ</sup></span>
         </td>
         <td>
-            <input type="number" id="change_item_input_{{$productid}}" value="{{$item['amount']}}" />
-            <button class="btn btn-primary" onclick="saveItemListCart({{$productid}},{{Session('cart')->totalamount}})">Cập nhật</button>
+            <input type="number" class="change_item_input_{{$productid}}" value="{{$item['amount']}}" />
+            <button class="btn btn-primary updateitemlistcart" id-product="{{$productid}}">Cập nhật</button>
+            <input type="hidden" class="updateitem_cart" value="{{$productid}}">
         </td>
         <td>
             <strong>{{number_format($item["price"])}}</strong><sup>vnđ</sup>
         </td>
         <td>
-            <a class="btn btn-danger" onclick="deleteListCart({{$productid}})">Xóa</i></a>
+            <button class="btn btn-danger" id="deletelistcart">Xóa</button>
+            <input type="hidden" id="delete_listcart" value="{{$productid}}">
         </td>
     </tr>
     @endforeach
@@ -43,11 +45,12 @@
         </td>
         <td colspan='2'>
             <h4><span>{{number_format(Session('cart')->totalPrice)}}<sup>vnđ</sup></span></h4>
-            <a class="btn btn-warning" href="{{route('getCheckout')}}" style="color:red"><strong>Tiến hành thanh
-                    toán</strong></a>
+            <a class="btn btn-warning" href="{{route('getcheckout')}}" style="color:red"><strong>Tiến
+                    hành thanh toán</strong></a>
         </td>
     </tr>
 </tbody>
 @else
 <h1 style="color:red; text-align:center">Không có sản phẩm nào trong giỏ hàng!</h1>
 @endif
+<script src="{{asset('main/main.js')}}"></script>
