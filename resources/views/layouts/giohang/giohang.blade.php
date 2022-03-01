@@ -1,4 +1,4 @@
-@extends('frontend.index')
+@extends('layouts.master')
 @section('content')
 <section class="page-title-area page-title-bg1">
     <div class="container">
@@ -9,7 +9,7 @@
 </section>
 <section class="cart-area ptb-100">
     <div class="container">
-        <div class="cart-table table-responsive" id="list-cart">
+        <div class="cart-table table-responsive">
             <table class="table table-bordered">
                 @if(Session::has('cart') != null)
                 <thead>
@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach(Session::get('cart')->products as $item)
+                    @foreach(Session('cart')->products as $item)
                     <?php $productid = $item['productInfo']->id; ?>
                     <tr>
                         <td style="width:100px">
@@ -32,19 +32,22 @@
                             </a>
                         </td>
                         <td class="product-name">
-                            <a href="{{route('properties',$item['productInfo']->id)}}">{{$item['productInfo']->name}}</a>
+                            <a
+                                href="{{route('properties',$item['productInfo']->id)}}">{{$item['productInfo']->name}}</a>
                         </td>
                         <td class="product-price">
-                            <span class="unit-amount"><strong>{{number_format($item["productInfo"]->price)}}</strong><sup>vnđ</sup></span>
+                            <span
+                                class="unit-amount"><strong>{{number_format($item["productInfo"]->price)}}</strong><sup>vnđ</sup></span>
                         </td>
                         <td>
-                            <input onchange="saveItemListCart('{{$productid}}')" id="change_item_input_{{$productid}}" type="number" value="{{$item['amount']}}" />
+                            <input type="number" id="change_item_input_{{$productid}}" value="{{$item['amount']}}" />
+                            <button class="btn btn-primary" onclick="saveItemListCart({{$productid}},{{Session('cart')->totalamount}})">Cập nhật</button>
                         </td>
                         <td>
                             <strong>{{number_format($item["price"])}}</strong><sup>vnđ</sup>
                         </td>
                         <td>
-                            <a class="btn btn-danger" onclick="deleteListCart('{{$productid}}')">Xóa</i></a>
+                            <a class="btn btn-danger" onclick="deleteListCart({{$productid}})">Xóa</i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -53,8 +56,9 @@
                             <h4>Thành tiền</h4>
                         </td>
                         <td colspan='2'>
-                            <h4><span>{{number_format(Session::get('cart')->totalPrice)}}<sup>vnđ</sup></span></h4>
-                            <a class="btn btn-warning" href="{{route('getCheckout')}}" style="color:red"><strong>Tiến hành thanh toán</strong></a>
+                            <h4><span>{{number_format(Session('cart')->totalPrice)}}<sup>vnđ</sup></span></h4>
+                            <a class="btn btn-warning" href="{{route('getCheckout')}}" style="color:red"><strong>Tiến
+                                    hành thanh toán</strong></a>
                         </td>
                     </tr>
                 </tbody>
@@ -67,32 +71,28 @@
 </section>
 @endsection
 <script>
-    function RenderListCart(response) {
-        $('#list-cart').empty();
-        $('#list-cart').html(response);
-    }
+function RenderListCart(response) {
+    $('.table-bordered').empty();
+    $('.table-bordered').html(response);
+}
 
-    function deleteListCart(id) {
-        $.ajax({
-            url: "deleteListCart/" + id,
-            type: "GET",
-        }).done(function(response) {
-            RenderListCart(response);
-            alertify.success('Đã xoá sản phẩm thành công!');
-        });
-        window.location.reload();
-    }
+function deleteListCart(id) {
+    $.ajax({
+        url: "/deleteListCart/" + id,
+        type: "GET",
+    }).done(function(response) {
+        RenderListCart(response);
+        alertify.success('Đã xoá sản phẩm thành công!');
+    });
+}
 
-    function saveItemListCart(id) {
-        $.ajax({
-            type: "GET",
-            url: "saveItemListCart/" + id + "/" + $('#change_item_input_' + id).val(),
-            dataType: "dataType",
-            success: function(response) {
-                $('#list-cart').empty();
-                $('#list-cart').html(response);
-            }
-        });
-        window.location.reload();
-    }
+function saveItemListCart(id,total) {
+    $.ajax({
+        url: "/saveItemListCart/" + id + "/" + $('#change_item_input_' + id).val(),
+        type: "GET",
+    }).done(function(response) {
+        RenderListCart(response);
+        alertify.success('Đã cập nhật sản phẩm!');
+    });
+}
 </script>

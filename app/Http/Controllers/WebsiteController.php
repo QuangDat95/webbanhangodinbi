@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\ListOrder;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
+use Illuminate\Support\Facades\Route;
 class WebsiteController extends Controller
 {
     public function properties($id)
@@ -30,20 +31,34 @@ class WebsiteController extends Controller
         return view('layouts.giohang',compact('newCart'));
     }
 
+    public function deleteCart(Request $req, $id)
+    {
+        $oldCart = Session('cart') ? Session('cart') : null;
+        $newCart = new Cart($oldCart);
+        $newCart->deleteItemCart($id);
+        if (count($newCart->products) > 0) {
+            $req->session()->put('cart', $newCart);
+        } else {
+            $req->session()->forget('cart');
+        }
+        return view('layouts.giohang');
+    }
+
     public function getCart()
     {
+        // dd(request()->route()->getName());
         return view('layouts.giohang.giohang');
     }
 
     public function deleteListCart(Request $req, $id)
     {
-        $oldCart = Session::get('cart') ? Session::get('cart') : null;
+        $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->deleteItemCart($id);
         if (count($newCart->products) > 0) {
-            $req->Session()->put('cart', $newCart);
+            $req->session()->put('cart', $newCart);
         } else {
-            $req->Session()->forget('cart');
+            $req->session()->forget('cart');
         }
         return view('layouts.giohang.list_giohang');
     }

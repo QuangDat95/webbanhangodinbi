@@ -80,6 +80,7 @@
 
                     <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
+                        @if(request()->route()->getName() != 'getCart' && request()->route()->getName() != 'getCheckout' && request()->route()->getName() != 'orderSuccess')
                         <div class="header-ctn">
                             <!-- Cart -->
                             <div class="dropdown">
@@ -87,7 +88,7 @@
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Giỏ hàng</span>
                                     @if(Session::has('cart') != null)
-                                    <div class="qty" id="total-quanty-show">{{Session::get('cart')->totalamount}}</div>
+                                    <div class="qty" id="total-quanty-show">{{Session('cart')->totalamount}}</div>
                                     @else
                                     <div class="qty" id="total-quanty-show">0</div>
                                     @endif
@@ -98,6 +99,8 @@
                                         @foreach(Session('cart')->products as $item)
                                         <div class="product-widget">
                                             <div class="product-img">
+                                                <i class="fa fa-window-close" aria-hidden="true"
+                                                    data-id="{{$item['productInfo']->id}}"></i>
                                                 <img src="{{Storage::url($item['productInfo']->image)}}" />
                                             </div>
                                             <div class="product-body">
@@ -107,12 +110,13 @@
                                                 <h4 class="product-price"><span
                                                         class="qty">{{$item["amount"]}}x</span>{{number_format($item["productInfo"]->price)}}<sup>đ</sup>
                                                 </h4>
+
                                             </div>
                                         </div>
                                         @endforeach
                                     </div>
                                     <div class="cart-summary">
-                                        <strong>{{Session::get('cart')->totalamount}} sản phẩm đã chọn</strong>
+                                        <strong>{{Session('cart')->totalamount}} sản phẩm đã chọn</strong>
                                         <br>
                                         <h5>Tổng tiền: {{number_format(Session::get('cart')->totalPrice)}}<sup>đ</sup>
                                         </h5>
@@ -137,6 +141,7 @@
                             </div>
                             <!-- /Menu Toogle -->
                         </div>
+                        @endif
                     </div>
                     <!-- /ACCOUNT -->
                 </div>
@@ -222,7 +227,18 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css" />
     <!-- Bootstrap theme -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css" />
+    <script>
+    $('.product-img i').click(function() {
+        $.ajax({
+            url: "/deleteCart/" + $(this).data("id"),
+            type: "GET",
+        }).done(function(response) {
+            $('.header-ctn').empty();
+            $('.header-ctn').html(response);
+            alertify.success('Đã xoá sản phẩm thành công!');
+        });
+    });
+    </script>
 </body>
 
 </html>
-<script src="{{asset('js/jquery.min.js')}}"></script>
