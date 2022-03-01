@@ -66,8 +66,8 @@ class WebsiteController extends Controller
 
     public function saveitemlistcart(Request $req)
     {
-        $id = $req->input('id');
-        $quanty = $req->input('quanty');
+        $id = $req->id;
+        $quanty = $req->quanty;
         $oldCart = Session::get('cart') ? Session::get('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->UpdateItemCart($id, $quanty);

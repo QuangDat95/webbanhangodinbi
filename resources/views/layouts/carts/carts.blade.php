@@ -40,9 +40,9 @@
                                 class="unit-amount"><strong>{{number_format($item["productInfo"]->price)}}</strong><sup>vnđ</sup></span>
                         </td>
                         <td>
-                            <input type="number" class="change_item_input_{{$productid}}" name="quanty" value="{{$item['amount']}}" />
+                            <input type="number" class="change_item_input_{{$productid}}" value="{{$item['amount']}}" />
                             <button class="btn btn-primary updateitemlistcart" id-product="{{$productid}}">Cập nhật</button>
-                            <input type="hidden" class="updateitem_cart" name="id" value="{{$productid}}">
+                            <input type="hidden" class="updateitem_cart" value="{{$productid}}">
                         </td>
                         <td>
                             <strong>{{number_format($item["price"])}}</strong><sup>vnđ</sup>
