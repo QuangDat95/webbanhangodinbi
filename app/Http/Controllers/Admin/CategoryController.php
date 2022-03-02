@@ -14,10 +14,10 @@ class CategoryController extends Controller
             return view('dashboards.categories.index',compact('categories'));
         }
 
-        public function store(CategoryRequest $req)
+        public function store(CategoryRequest $request)
         {
-            $category = new Category();
-            $category->name = $req->name;
+            $data = $request->all();
+            $category = new Category($data);
             $category->save();
             return redirect()->route('category.index')->with('flash_message','Thêm mới thành công!');
         }
@@ -28,11 +28,11 @@ class CategoryController extends Controller
             return view('dashboards.categories.edit',compact('category'));
         }
 
-        public function update(Request $req, $id)
+        public function update(Request $request, $id)
         {
+            $data = $request->all();
             $category = Category::find($id);
-            $category->name = $req->name;
-            $category->save();
+            $category->update($data);
             return redirect()->route('category.index')->with('flash_message','Cập nhật thành công!');
         }
 
@@ -40,6 +40,6 @@ class CategoryController extends Controller
         {
             $category = Category::find($id);
             $category->delete();
-            return redirect()->route('category.index')->with('flash_message','Xóa thành công!');
+            return back()->with('flash_message','Xóa thành công!');
         }
 }

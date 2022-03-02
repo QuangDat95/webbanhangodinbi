@@ -10,6 +10,7 @@ use App\Models\Product;
 class ListOrder extends Model
 {
     use HasFactory;
+    public $fillable = ['amount'];
     public function order(){
         return $this->belongsTo(Order::class);
     }

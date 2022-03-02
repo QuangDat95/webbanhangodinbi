@@ -49,6 +49,6 @@
     </tr>
 </tbody>
 @else
-<h1 style="color:red; text-align:center">Không có sản phẩm nào trong giỏ hàng!</h1>
+<div style="color:red; text-align:center;padding:100px 0px 200px 0px;font-size:55px">Không có sản phẩm nào trong giỏ hàng!</div>
 @endif
 <script src="{{asset('main/main.js')}}"></script>

@@ -16,8 +16,8 @@ class WebsiteController extends Controller
 {
     public function properties($id)
     {
-        // $id_decode = base64_decode($id);
-        $product = Product::find($id);
+        $id_decode = base64_decode($id);
+        $product = Product::find($id_decode);
         return view('layouts.properties', compact('product'));
     }
 
@@ -34,8 +34,9 @@ class WebsiteController extends Controller
         return view('layouts.loadheader_cart',compact('newCart'));
     }
 
-    public function deletecart(Request $req, $id)
+    public function deletecart(Request $req)
     {
+        $id = $req->id;
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->deleteItemCart($id);

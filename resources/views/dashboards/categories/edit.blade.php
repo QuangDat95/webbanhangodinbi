@@ -24,7 +24,7 @@
                             <div class="span3">Tên loại sản phẩm:</div>
                             <div class="span9">
                                 <input type="text" name="name" value="{{$category->name}}"
-                                    placeholder="Nhập vào tên loại sản phẩm" required/>
+                                    placeholder="Nhập vào tên loại sản phẩm" maxlength="20" required/>
                                     <div style="color:red">
                                     {{ $errors->first('name') }}
                                 </div>
@@ -46,3 +46,5 @@
     </div>
 </div>
 @endsection
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">

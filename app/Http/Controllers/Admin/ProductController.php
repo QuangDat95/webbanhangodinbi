@@ -13,32 +13,28 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('id','desc')->paginate(8);
+        $products = Product::orderBy('id','desc')->paginate(5);
         return view('dashboards.products.index',compact('products'));
     }
+
     public function create()
     {
         $categories = Category::all();
         $features = Feature::all();
         return view('dashboards.products.create',compact('categories','features'));
     }
-
-    public function store(ProductRequest $req)
+    
+    public function store(ProductRequest $request)
     {
-        // $data = $req->only('name','category_id');
-        // ProductModel::create($data);
-        $product = new Product();
-        $product->name = $req->name;
-        $product->category_id = $req->category_id;
-        $product->price = $req->price;
-        if ($req->hasFile('image')) {
-            $file = $req->image;
+        $data = $request->only('name','category_id','price','description');
+        $product = new Product($data);
+        if ($request->hasFile('image')) {
+            $file = $request->image;
             $path = $file->store('image','public');
             $product->image = $path;
         }
-        $product->description = $req->description;
         $product->save();
-        $product->features()->attach( $req->features );
+        $product->features()->attach( $request->features );
         return redirect()->route('product.index')->with('flash_message','Thêm mới thành công!');
     }
 
@@ -50,27 +46,22 @@ class ProductController extends Controller
         return view('dashboards.products.edit',compact('product','categories','features'));
     }
 
-    public function update(Request $req, $id)
+    public function update(Request $request, $id)
     {
+        $data = $request->only('name','category_id','price','description');
         $product = Product::find($id);
-        $product->name = $req->name;
-        $product->category_id = $req->category_id;
-        $product->price = $req->price;
-        if ($req->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $currentFile = $product->image;
             if ($currentFile) {
                 Storage::delete('/public/' . $currentFile);
             }
-            $file = $req->image;
+            $file = $request->image;
             $path = $file->store('image', 'public');
             $product->image = $path;
         }
-        $product->description = $req->description;
-        $product->save();
-        //xóa toàn bộ kết quả của sản phẩm đó ở bảng trung gian
+        $product->update($data);
         $product->features()->detach();
-        //lưu dữ liệu vào bảng trung gian
-        $product->features()->attach( $req->features );
+        $product->features()->attach( $request->features );
         return redirect()->route('product.index')->with('flash_message','Cập nhật thành công!');
     }
 
@@ -78,6 +69,6 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        return redirect()->route('product.index')->with('flash_message','Xóa thành công!');
+        return back()->with('flash_message','Xóa thành công!');
     }
 }

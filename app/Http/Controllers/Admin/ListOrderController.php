@@ -20,18 +20,17 @@ class ListOrderController extends Controller
         return view('dashboards.listorders.edit',compact('list'));
     }
 
-    public function update(Request $req, $id)
+    public function update(Request $request, $id)
     {
+        $data = $request->only('amount');
         $list = ListOrder::find($id);
-        $list->amount = $req->amount;
-        $list->save();
+        $list->update($data);
         return redirect()->route('listorder.index')->with('flash_message','Cập nhật thành công!');
     }
 
     public function destroy($id)
     {
-        $list = ListOrder::find($id);
-        $list->delete();
-        return redirect()->route('listorder.index')->with('flash_message','Xóa thành công');
+        $list = ListOrder::find($id)->delete();
+        return back()->with('flash_message','Xóa thành công');
     }
 }

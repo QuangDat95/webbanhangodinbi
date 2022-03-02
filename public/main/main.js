@@ -2,14 +2,14 @@
 var csrf = { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") };
 $(".product-img i").click(function() 
 {
-    let deleteCartUrl = "/delete/cart/";
-    let id = $(this).data("id");
+    let deleteCartUrl = "/delete/cart";
+    let id_cart = $(this).attr("data-id");
 
     $.ajax({
-        url: deleteCartUrl + id,
+        url: deleteCartUrl,
         type: "POST",
         headers: csrf,
-        data: {id:id}
+        data: {id:id_cart}
     }).done(function (response) {
         $(".header-ctn").empty();
         $(".header-ctn").html(response);
@@ -26,17 +26,17 @@ function renderlistcart(response)
 
 $(".deletelistcart").click(function () 
 {
-    let deleteListCartUrl = "/delete/listcart";
-    let id_listcart = $(this).attr("id-list");
-    $.ajax({
-        url: deleteListCartUrl,
-        type: "POST",
-        data:{id:id_listcart},
-        headers: csrf
-    }).done(function (response) {
-        renderlistcart(response);
-        alertify.success("Đã xoá sản phẩm thành công!");
-    });
+        let deleteListCartUrl = "/delete/listcart";
+        let id_listcart = $(this).attr("id-list");
+        $.ajax({
+            url: deleteListCartUrl,
+            type: "POST",
+            data:{id:id_listcart},
+            headers: csrf
+        }).done(function (response) {
+            renderlistcart(response);
+            alertify.success("Đã xoá sản phẩm thành công!");
+        });
 });
 
 $(".updateitemlistcart").click(function() 

@@ -40,8 +40,8 @@
                             </tr>
                             @foreach($items as $key => $item)
                             <tr>
-                                <td>{{ $item->name }}</td>
-                                <td> <img src="{{Storage::url($item->image)}}" width="100"> </td>
+                                <td>{{ $item->product->name }}</td>
+                                <td> <img src="{{Storage::url($item->product->image)}}" width="100"> </td>
                                 <td>{{$item->amount}}</td>
                                 <td>{{number_format($item->price)}}<sup>đ</sup></td>
                             </tr>

@@ -25,10 +25,10 @@ Route::get('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->nam
 Route::get('/',[WebsiteController::class,'index'])->name('home');
 Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('properties');
 Route::post('addcart',[WebsiteController::class,'addcart']);
-Route::get('getcart',[WebsiteController::class,'getcart'])->name('getcart');
+Route::get('cart',[WebsiteController::class,'getcart'])->name('getcart');
 Route::post('delete/listcart',[WebsiteController::class,'deletelistcart']);
-Route::post('delete/cart/{id}',[WebsiteController::class,'deletecart']);
-Route::get('getcheckout',[WebsiteController::class,'getcheckout'])->name('getcheckout');
+Route::post('delete/cart',[WebsiteController::class,'deletecart']);
+Route::get('checkout',[WebsiteController::class,'getcheckout'])->name('getcheckout');
 Route::post('checkout',[WebsiteController::class,'checkout'])->name('checkout');
 Route::get('ordersuccess',[WebsiteController::class,'ordersuccess'])->name('ordersuccess');
 Route::get('returnHome',[WebsiteController::class,'returnHome'])->name('returnHome');

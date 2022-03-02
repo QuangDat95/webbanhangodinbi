@@ -72,6 +72,9 @@
                             <div class="span3">Hình ảnh:</div>
                             <div class="span9">
                                 <input type="file" name="image" />
+                                <div style="color:red">
+                                    {{ $errors->first('image') }}
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>
