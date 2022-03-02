@@ -39,3 +39,4 @@ Route::get('hp',[WebsiteController::class,'hp'])->name('hp');
 Route::get('lenovo',[WebsiteController::class,'lenovo'])->name('lenovo');
 Route::get('acer',[WebsiteController::class,'acer'])->name('acer');
 Route::get('contact',[WebsiteController::class,'contact'])->name('contact');
+Route::get('home',[WebsiteController::class,'home']);

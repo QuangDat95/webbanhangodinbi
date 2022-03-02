@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 
 class WebsiteController extends Controller
 {
+    public function home(){
+        return view('dashboards.categories.index1');
+    }
     public function properties($id)
     {
         $id_decode = base64_decode($id);
