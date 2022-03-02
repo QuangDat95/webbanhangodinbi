@@ -21,8 +21,9 @@ class WebsiteController extends Controller
         return view('layouts.properties', compact('product'));
     }
 
-    public function addcart(Request $req, $id)
+    public function addcart(Request $req)
     {
+        $id = $req->id;
         $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
             $oldCart = Session('cart') ? Session('cart') : null;
@@ -51,8 +52,9 @@ class WebsiteController extends Controller
         return view('layouts.carts.carts');
     }
 
-    public function deletelistcart(Request $req, $id)
+    public function deletelistcart(Request $req)
     {
+        $id = $req->id;
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->deleteItemCart($id);

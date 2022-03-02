@@ -42,14 +42,12 @@
                         <td>
                             <input type="number" class="change_item_input_{{$productid}}" value="{{$item['amount']}}" />
                             <button class="btn btn-primary updateitemlistcart" id-product="{{$productid}}">Cập nhật</button>
-                            <input type="hidden" class="updateitem_cart" value="{{$productid}}">
                         </td>
                         <td>
                             <strong>{{number_format($item["price"])}}</strong><sup>vnđ</sup>
                         </td>
                         <td>
-                            <button class="btn btn-danger" id="deletelistcart">Xóa</button>
-                            <input type="hidden" id="delete_listcart" value="{{$productid}}">
+                            <button class="btn btn-danger deletelistcart" id-list="{{$productid}}">Xóa</button>
                         </td>
                     </tr>
                     @endforeach

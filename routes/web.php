@@ -24,9 +24,9 @@ Route::get('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->nam
 
 Route::get('/',[WebsiteController::class,'index'])->name('home');
 Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('properties');
-Route::post('addcart/{id}',[WebsiteController::class,'addcart']);
+Route::post('addcart',[WebsiteController::class,'addcart']);
 Route::get('getcart',[WebsiteController::class,'getcart'])->name('getcart');
-Route::post('delete/listcart/{id}',[WebsiteController::class,'deletelistcart']);
+Route::post('delete/listcart',[WebsiteController::class,'deletelistcart']);
 Route::post('delete/cart/{id}',[WebsiteController::class,'deletecart']);
 Route::get('getcheckout',[WebsiteController::class,'getcheckout'])->name('getcheckout');
 Route::post('checkout',[WebsiteController::class,'checkout'])->name('checkout');

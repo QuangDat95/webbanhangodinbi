@@ -9,6 +9,7 @@ $(".product-img i").click(function()
         url: deleteCartUrl + id,
         type: "POST",
         headers: csrf,
+        data: {id:id}
     }).done(function (response) {
         $(".header-ctn").empty();
         $(".header-ctn").html(response);
@@ -23,15 +24,15 @@ function renderlistcart(response)
     $(".table-bordered").html(response);
 }
 
-$("#deletelistcart").click(function () 
+$(".deletelistcart").click(function () 
 {
-    let listCartDestroyUrl = "/delete/listcart/";
-    let id = $("#delete_listcart").val();
-
+    let deleteListCartUrl = "/delete/listcart";
+    let id_listcart = $(this).attr("id-list");
     $.ajax({
-        url: listCartDestroyUrl + id,
+        url: deleteListCartUrl,
         type: "POST",
-        headers: csrf,
+        data:{id:id_listcart},
+        headers: csrf
     }).done(function (response) {
         renderlistcart(response);
         alertify.success("Đã xoá sản phẩm thành công!");
@@ -48,7 +49,7 @@ $(".updateitemlistcart").click(function()
         url: updateListItemUrl,
         type: "POST",
         data: { id: id_quanty, quanty: num_quanty },
-        headers: csrf,
+        headers: csrf
     }).done(function (response) {
         renderlistcart(response);
         alertify.success("Đã cập nhật sản phẩm!");
@@ -64,13 +65,14 @@ function rendercart(response)
 
 $(".add-to-cart-btn").click(function() 
 {
-    let id = $("#add_cart").val();
-    let url = "/addcart/";
+    let id_product = $("#add_cart").val();
+    let addCartUrl = "/addcart";
 
     $.ajax({
-        url: url + id,
+        url: addCartUrl,
         type: "POST",
-        headers: csrf,
+        data: {id:id_product},
+        headers: csrf
     }).done(function (response) {
         rendercart(response);
         alertify.success("Đã thêm sản phẩm thành công!");
