@@ -13,7 +13,7 @@ Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('product',ProductController::class);
     Route::resource('order',OrderController::class);
     Route::resource('listorder',ListOrderController::class);
-    Route::view('/categoryCreate','dashboards.categories.create1')->name('categoryCreate');
+    Route::view('/categoryCreate','dashboards.categories.create')->name('categoryCreate');
     Route::view('/orderCreate','backend.orders.create')->name('orderCreate');
 });
 

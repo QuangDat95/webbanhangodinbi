@@ -1,6 +1,6 @@
 @extends('dashboards.master1')
 @section('title')
-Sửa tên hãng
+Thêm sản phẩm
 @endsection
 @section('content')
 <div class="app-content content">
@@ -11,7 +11,7 @@ Sửa tên hãng
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Thêm hãng</h2>
+                        <h2 class="content-header-title float-left mb-0">Thêm sản phẩm</h2>
                     </div>
                 </div>
             </div>
@@ -21,75 +21,79 @@ Sửa tên hãng
                 <div class="row match-height">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Horizontal Form</h4>
-                            </div>
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form form-horizontal" action="{{route('category.update',$category->id)}}" method="POST">
+                                    <form class="form form-horizontal" action="{{route('product.store')}}" method="POST">
                                         @csrf
-                                        @method('PUT')
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
-                                                            <span>Tên hãng</span>
+                                                            <span>Tên sản phẩm</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="text" id="first-name" class="form-control" maxlength="20" value="{{$category->name}}" name="name" placeholder="Nhập tên hãng" required>
+                                                            <input type="text" class="form-control" value="{{old('name')}}" name="name" placeholder="Nhập tên sản phẩm" required>
                                                             <div style="color:red">
                                                                 {{ $errors->first('name') }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-12">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label for="location1">Hãng</label>
+                                                        <select class="custom-select form-control" id="location1" name="category_id">
+                                                            <option value="new-york">-Chọn hãng-</option>
+                                                            @foreach($categories as $category)
+                                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
-                                                            <span>Email</span>
+                                                            <span>Giá sản phẩm</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="email" id="email-id" class="form-control"
-                                                                name="email-id" placeholder="Email">
+                                                            <input type="text" class="form-control" name="price" value="{{old('price')}}" placeholder="Nhập giá sản phẩm">
+                                                            <div style="color:red">
+                                                                {{ $errors->first('price') }}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div> -->
-                                                <!-- <div class="col-12">
+                                                </div>
+                                                <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
-                                                            <span>Mobile</span>
+                                                            <span>Tính năng</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="number" id="contact-info" class="form-control"
-                                                                name="contact" placeholder="Mobile">
+                                                            <?php foreach ($features as $feature) : ?>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="<?= $feature->id; ?>" id="feature_<?= $feature->id; ?>" name="features[]">
+                                                                    <label class="form-check-label" for="feature_<?= $feature->id; ?>" style="padding-left:20px">
+                                                                        <?= $feature->name; ?>
+                                                                    </label>
+                                                                </div>
+                                                            <?php endforeach; ?>
                                                         </div>
                                                     </div>
-                                                </div> -->
-                                                <!-- <div class="col-12">
+                                                </div>
+                                                <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
-                                                            <span>Password</span>
+                                                            <span>Hình ảnh</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="password" id="password" class="form-control"
-                                                                name="password" placeholder="Password">
+                                                            <input type="text" class="form-control" name="price" value="{{old('price')}}" placeholder="Nhập giá sản phẩm">
+                                                            <div style="color:red">
+                                                                {{ $errors->first('price') }}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div> -->
-                                                <!-- <div class="form-group col-md-8 offset-md-4">
-                                                    <fieldset class="checkbox">
-                                                        <div class="vs-checkbox-con vs-checkbox-primary">
-                                                            <input type="checkbox">
-                                                            <span class="vs-checkbox">
-                                                                <span class="vs-checkbox--check">
-                                                                    <i class="vs-icon feather icon-check"></i>
-                                                                </span>
-                                                            </span>
-                                                            <span class="">Remember me</span>
-                                                        </div>
-                                                    </fieldset>
-                                                </div> -->
+                                                </div>
                                                 <div class="col-md-8 offset-md-4">
                                                     <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
                                                     <button type="reset" class="btn btn-outline-warning mr-1 mb-1" onclick="window.history.go(-1); return true;">Huỷ</button>

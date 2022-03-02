@@ -1,4 +1,7 @@
 @extends('dashboards.master1')
+@section('title')
+Hãng sản phẩm
+@endsection
 @section('content')
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -9,6 +12,7 @@
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
                         <h2 class="content-header-title float-left mb-0">Các hãng laptop</h2>
+                        <a class="btn btn-primary" href="{{route('categoryCreate')}}">Thêm mới</a>
                     </div>
                     @include('commons.alert')
                 </div>

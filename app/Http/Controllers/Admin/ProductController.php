@@ -13,8 +13,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('id','desc')->paginate(5);
-        return view('dashboards.products.index',compact('products'));
+        $products = Product::all();
+        return view('dashboards.products.index1',compact('products'));
     }
 
     public function create()

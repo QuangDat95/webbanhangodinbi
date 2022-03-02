@@ -315,10 +315,10 @@
                 </li> -->
                 <!-- <li class=" navigation-header"><span>Apps</span>
                 </li> -->
-                <li class=" nav-item"><a href="app-email.html"><i class="feather icon-mail"></i><span class="menu-title"
+                <li class=" nav-item"><a href="{{route('category.index')}}"><i class="feather icon-mail"></i><span class="menu-title"
                             data-i18n="Email">Phân loại</span></a>
                 </li>
-                <li class=" nav-item"><a href="app-chat.html"><i class="feather icon-message-square"></i><span
+                <li class=" nav-item"><a href="{{route('product.index')}}"><i class="feather icon-message-square"></i><span
                             class="menu-title" data-i18n="Chat">Sản phẩm</span></a>
                 </li>
                 <li class=" nav-item"><a href="app-todo.html"><i class="feather icon-check-square"></i><span
