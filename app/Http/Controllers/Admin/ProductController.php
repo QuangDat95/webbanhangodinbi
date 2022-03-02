@@ -30,7 +30,7 @@ class ProductController extends Controller
         $product = new Product($data);
         if ($request->hasFile('image')) {
             $file = $request->image;
-            $path = $file->store('image','public');
+            $path = saveImage($file);
             $product->image = $path;
         }
         $product->save();
@@ -52,9 +52,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         if ($request->hasFile('image')) {
             $currentFile = $product->image;
-            if ($currentFile) {
-                Storage::delete('/public/' . $currentFile);
-            }
+            deleteImage($currentFile);
             $file = $request->image;
             $path = $file->store('image', 'public');
             $product->image = $path;

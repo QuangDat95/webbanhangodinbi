@@ -77,8 +77,8 @@
                         <div class="row-form">
                             <div class="span3">Hình ảnh:</div>
                             <div class="span9">
-                                <input type="file" name="image" value="{{ $product->image }}" />
-                                <img src="{{ Storage::url($product->image) }}" style="height:2.5cm"></img>
+                                <input type="file" name="image" value="{{ $product->image }}" id="image_product"/>
+                                <img src="{{ Storage::url($product->image) }}" id="change_image" style="height:2.5cm"></img>
                             </div>
                             <div class="clear"></div>
                         </div>

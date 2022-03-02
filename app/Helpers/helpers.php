@@ -1,4 +1,10 @@
 <?php
-function saveImage($image,$date_format){
-       
+function saveImage($file){
+       return $file->store('image','public');;
+}
+
+function deleteImage($file){
+    if ($file) {
+        Storage::delete('/public/' . $file);
+    }
 }
