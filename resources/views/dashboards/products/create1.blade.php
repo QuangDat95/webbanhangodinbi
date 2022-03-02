@@ -23,7 +23,7 @@ Thêm sản phẩm
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form form-horizontal" action="{{route('product.store')}}" method="POST">
+                                    <form class="form form-horizontal" action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-body">
                                             <div class="row">
@@ -41,14 +41,18 @@ Thêm sản phẩm
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="location1">Hãng</label>
-                                                        <select class="custom-select form-control" id="location1" name="category_id">
-                                                            <option value="new-york">-Chọn hãng-</option>
-                                                            @foreach($categories as $category)
-                                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                                            @endforeach
-                                                        </select>
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <span>Hãng</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control" name="category_id">
+                                                                <option value="new-york">-Chọn hãng-</option>
+                                                                @foreach($categories as $category)
+                                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
@@ -87,19 +91,32 @@ Thêm sản phẩm
                                                             <span>Hình ảnh</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control" name="price" value="{{old('price')}}" placeholder="Nhập giá sản phẩm">
+                                                            <input type="file" class="form-control" name="image" id="image_product">
+                                                            <img src="#" id="change_image" alt="ảnh ở đây" style="height:2.5cm">
                                                             <div style="color:red">
-                                                                {{ $errors->first('price') }}
+                                                                {{ $errors->first('image') }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <span>Mô tả</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <fieldset class="form-group">
+                                                                <textarea type="text" class="form-control" name="description_product" rows="3" placeholder="Nhập mô tả">{{old('description_product')}}</textarea>
+                                                            </fieldset>
+                                                            <div style="color:red">
+                                                                {{ $errors->first('description_product') }}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8 offset-md-4">
-                                                    <button type="submit" class="btn btn-primary mr-1 mb-1">Submit</button>
-                                                    <button type="reset" class="btn btn-outline-warning mr-1 mb-1" onclick="window.history.go(-1); return true;">Huỷ</button>
-                                                    <!-- <button class="btn btn-success" type="submit">Lưu</button>
-                                                    <button class="btn btn-danger"
-                                                        onclick="window.history.go(-1); return false;">Hủy</button> -->
+                                                    <button type="submit" class="btn btn-success mr-1 mb-1">Lưu</button>
+                                                    <button type="reset" class="btn btn-danger mr-1 mb-1" onclick="window.history.go(-1); return true;">Huỷ</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,4 +130,8 @@ Thêm sản phẩm
         </div>
     </div>
 </div>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace('description_product');
+</script>
 @endsection

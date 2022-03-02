@@ -15,7 +15,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'name' => 'unique:products|max:50',
-            'description' => 'required',
+            'description_product' => 'required',
             'image' => 'mimes:jpg,png,jpeg,gif,svg'
         ];
     }
@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest
         return [
             'name.max' => 'Tên không được quá 50 ký tự',
             'name.unique' => 'Tên sản phẩm đã tồn tại',
-            'description.required' => 'Nội dung không được để trống',
+            'description_product.required' => 'Nội dung không được để trống',
             'image.mimes' => 'Ảnh phải thuộc định dạng jpg,png,jpeg,gif,svg'
         ];
     }

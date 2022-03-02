@@ -59,15 +59,19 @@ Danh sách sản phẩm
                                                             @csrf
                                                             @method('DELETE')
                                                             <a href="{{ route('product.edit', $product->id)}}" class="btn btn-primary btn-sm">Sửa</a>
-                                                            <input type="submit" class="btn btn-danger btn-sm" value="Xóa" onclick="return confirm('Bạn có muốn xóa sản phẩm này?');">
+                                                            <input type="submit" class="btn btn-danger btn-sm" style="width:25px" value="Xóa" onclick="return confirm('Bạn có muốn xóa sản phẩm này?');">
                                                         </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach
                                             <tfoot>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Hãng sản phẩm</th>
+                                                    <th class="sorting"><a href="#">ID</a></th>
+                                                    <th class="sorting"><a href="#">Tên sản phẩm</a></th>
+                                                    <th class="sorting"><a href="#">Hãng</a></th>
+                                                    <th class="sorting"><a href="#">Giá sản phẩm</a></th>
+                                                    <th class="sorting"><a href="#">Hình ảnh</a></th>
+                                                    <th class="sorting"><a href="#">Tính năng</a></th>
                                                     <th>Hành động</th>
                                                 </tr>
                                             </tfoot>

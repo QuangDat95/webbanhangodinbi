@@ -22,3 +22,17 @@
     <!-- BEGIN: Page JS-->
     <script src="{{asset('app-assets/js/scripts/datatables/datatable.js')}}"></script>
     <!-- END: Page JS-->
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#change_image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image_product").change(function() {
+            readURL(this);
+        });
+    </script>

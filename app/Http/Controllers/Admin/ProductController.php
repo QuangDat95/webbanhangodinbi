@@ -13,24 +13,25 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
-        return view('dashboards.products.index1',compact('products'));
+        $products = Product::paginate(6);
+        return view('dashboards.products.index',compact('products'));
     }
 
     public function create()
     {
         $categories = Category::all();
         $features = Feature::all();
-        return view('dashboards.products.create',compact('categories','features'));
+        return view('dashboards.products.create1',compact('categories','features'));
     }
     
     public function store(ProductRequest $request)
     {
-        $data = $request->only('name','category_id','price','description');
+        $data = $request->only('name','category_id','price','description_product');
         $product = new Product($data);
         if ($request->hasFile('image')) {
             $file = $request->image;
-            $path = saveImage($file);
+            // $path = saveImage($file);
+            $path = $file->store('image', 'public');
             $product->image = $path;
         }
         $product->save();
@@ -48,7 +49,7 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->only('name','category_id','price','description');
+        $data = $request->only('name','category_id','price','description_product');
         $product = Product::find($id);
         if ($request->hasFile('image')) {
             $currentFile = $product->image;
