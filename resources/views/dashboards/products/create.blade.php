@@ -72,7 +72,7 @@
                             <div class="span3">Hình ảnh:</div>
                             <div class="span9">
                                 <input type="file" name="image" id="image_product"/>
-                                <img src="#" id="change_image" style="height:2.5cm">
+                                <img src="#" id="change_image" alt="ảnh ở đây" style="height:2.5cm">
                                 <div style="color:red">
                                     {{ $errors->first('image') }}
                                 </div>

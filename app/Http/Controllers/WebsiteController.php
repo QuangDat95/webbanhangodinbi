@@ -71,7 +71,7 @@ class WebsiteController extends Controller
     {
         $id = $req->id;
         $quanty = $req->quanty;
-        $oldCart = Session::get('cart') ? Session::get('cart') : null;
+        $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->UpdateItemCart($id, $quanty);
         $req->session()->put('cart', $newCart);
@@ -88,16 +88,14 @@ class WebsiteController extends Controller
         return view('layouts.order_success');
     }
 
-    public function checkout(Request $req)
+    public function checkout(Request $request)
     {
-        $order = new Order();
-        $order->name = $req->name;
+        $data = $request->only('name','phone','address');
+        $order = new Order($data);
         $order->buy_date = date('y-m-d');
-        $order->phone = $req->phone;
-        $order->address = $req->address;
         $order->save();
         $last_id = $order->id;
-        $cart = Session::get('cart')->products;
+        $cart = Session('cart')->products;
         foreach ($cart as $ID_sp => $value) {
             $properties_order = new ListOrder();
             $properties_order->order_id = $last_id;
@@ -111,7 +109,7 @@ class WebsiteController extends Controller
     public function returnHome()
     {
         Session::forget('cart');
-        return redirect('/');
+        return redirect()->route('home');
     }
 
     public function index()

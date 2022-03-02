@@ -65,8 +65,7 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        $product = Product::find($id);
-        $product->delete();
+        Product::find($id)->delete();
         return back()->with('flash_message','Xóa thành công!');
     }
 }

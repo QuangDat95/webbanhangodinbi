@@ -23,8 +23,7 @@ class ListOrderController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only('amount');
-        $list = ListOrder::find($id);
-        $list->update($data);
+        ListOrder::find($id)->update($data);
         return redirect()->route('listorder.index')->with('flash_message','Cập nhật thành công!');
     }
 

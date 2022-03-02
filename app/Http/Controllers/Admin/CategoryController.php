@@ -31,15 +31,13 @@ class CategoryController extends Controller
         public function update(Request $request, $id)
         {
             $data = $request->all();
-            $category = Category::find($id);
-            $category->update($data);
+            Category::find($id)->update($data);
             return redirect()->route('category.index')->with('flash_message','Cập nhật thành công!');
         }
 
         public function destroy($id)
         {
-            $category = Category::find($id);
-            $category->delete();
+            $category = Category::find($id)->delete();
             return back()->with('flash_message','Xóa thành công!');
         }
 }

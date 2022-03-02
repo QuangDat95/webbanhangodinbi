@@ -35,5 +35,10 @@
                 <span class="isw-list"></span><span class="text">Danh sách đơn hàng</span>
             </a>
         </li>
+        <li>
+            <a href="{{route('listorder.index')}}">
+                <span class="isw-list"></span><span class="text">Biểu đồ thu nhập</span>
+            </a>
+        </li>
     </ul>
 </div>

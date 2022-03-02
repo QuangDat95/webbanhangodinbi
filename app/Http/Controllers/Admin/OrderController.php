@@ -37,19 +37,17 @@ class OrderController extends Controller
     public function update(OrderRequest $request, $id)
     {
         $data = $request->all();
-        $order = Order::find($id);
-        $order->update($data);
+        Order::find($id)->update($data);
         return redirect()->route('order.index')->with('flash_message','Cập nhật thành công!');
     }
 
     public function destroy($id)
     {
-        $order = Order::find($id);
         $items = $order->list;
         if(count($items)>0){
             return redirect()->route('order.index')->with('flash_message','Khách vẫn còn đơn hàng');
         }else if(count($items) == 0){
-        $order->delete();
+            Order::find($id)->delete();
             return back()->with('flash_message','Xóa thành công');
         }
     }

@@ -63,11 +63,10 @@
                     </tr>
                 </tbody>
                 @else
-                <div style="color:red; text-align:center;padding:100px 0px 200px 0px;font-size:55px">Không có sản phẩm nào trong giỏ hàng!</div>
+                <div style="color:red; text-align:center;padding:100px 0px 200px 0px;font-size:55px;border-color:white">Không có sản phẩm nào trong giỏ hàng!</div>
                 @endif
             </table>
         </div>
     </div>
 </section>
 @endsection
-<script></script>
