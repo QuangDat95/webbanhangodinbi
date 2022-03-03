@@ -59,7 +59,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mr-auto"><a class="navbar-brand"
-                        href="../../../html/ltr/vertical-menu-template/index.html">
+                        href="{{route('category.index')}}">
                         <div class="brand-logo"></div>
                         <h3 class="brand-text mb-0">ODINBI</h3>
                     </a></li>
