@@ -18,19 +18,7 @@ Hãng sản phẩm
                 </div>
             </div>
         </div>
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Column Chart</h4>
-                </div>
-                <div class="card-content">
-                    <div class="card-body">
-                        <div id="column-chart"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="content-body">
+        <div class="content-body">
             <section id="basic-datatable">
                 <div class="row">
                     <div class="col-12">
@@ -57,8 +45,7 @@ Hãng sản phẩm
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <a style="color:green"
-                                                                href="{{ route('category.edit', $category->id)}}"><i
+                                                            <a style="color:green" href="{{ route('category.edit', $category->id)}}"><i
                                                                     class="fa fa-pencil-square"></i></a>
                                                             <button class="btn"
                                                                 onclick="return confirm('Bạn có muốn xóa hãng sản phẩm này?');"><i
@@ -91,7 +78,7 @@ Hãng sản phẩm
                     </div>
                 </div>
             </section>
-        </div> -->
+        </div>
     </div>
 </div>
 @endsection

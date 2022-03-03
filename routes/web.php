@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ListOrderController;
 use App\Http\Controllers\Auth\LoginLogoutController;
 use App\Http\Controllers\WebsiteController;
-
+use App\Http\Controllers\UserController;
 Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('category',CategoryController::class);
     Route::resource('product',ProductController::class);
@@ -16,7 +16,6 @@ Route::group(['middleware' => 'CheckLogin'],function(){
     Route::view('/categoryCreate','dashboards.categories.create')->name('categoryCreate');
     Route::view('/customerCreate','backend.customers.create')->name('customerCreate');
 });
-
 
 Route::get('/dashboard/login',[LoginLogoutController::class,'getlogin'])->name('getlogin');
 Route::post('/dashboard/login',[LoginLogoutController::class,'postlogin'])->name('postlogin');
@@ -40,3 +39,4 @@ Route::get('lenovo',[WebsiteController::class,'lenovo'])->name('lenovo');
 Route::get('acer',[WebsiteController::class,'acer'])->name('acer');
 Route::get('contact',[WebsiteController::class,'contact'])->name('contact');
 Route::get('home',[WebsiteController::class,'home']);
+Route::get('setting/account',[UserController::class,'index'])->name('settingaccount');

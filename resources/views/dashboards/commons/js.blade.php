@@ -22,7 +22,6 @@
     <!-- BEGIN: Page JS-->
     <script src="{{asset('app-assets/js/scripts/datatables/datatable.js')}}"></script>
     <script src="{{asset('app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
-    <!-- <script src="{{asset('app-assets/js/scripts/charts/chart-apex.min.js')}}"></script> -->
     <script src="{{asset('app-assets/js/scripts/charts/chart-apex.js')}}"></script>
     <!-- END: Page JS-->
     <script>
