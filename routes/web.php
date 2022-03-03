@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ListOrderController;
 use App\Http\Controllers\Auth\LoginLogoutController;
 use App\Http\Controllers\WebsiteController;
@@ -11,10 +11,10 @@ use App\Http\Controllers\WebsiteController;
 Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('category',CategoryController::class);
     Route::resource('product',ProductController::class);
-    Route::resource('order',OrderController::class);
+    Route::resource('customer',CustomerController::class);
     Route::resource('listorder',ListOrderController::class);
     Route::view('/categoryCreate','dashboards.categories.create')->name('categoryCreate');
-    Route::view('/orderCreate','backend.orders.create')->name('orderCreate');
+    Route::view('/customerCreate','backend.customers.create')->name('customerCreate');
 });
 
 

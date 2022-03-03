@@ -1,59 +1,82 @@
 @extends('dashboards.master')
+@section('title')
+Chỉnh sửa đơn hàng
+@endsection
 @section('content')
-<div class="content">
-    <div class="breadLine">
-        <ul class="breadcrumb">
-            <li><a href="{{route('listorder.index')}}">Danh sách đơn hàng</a> <span class="divider"></span></li>
-            <li class="active">Thêm</li>
-        </ul>
-    </div>
-    <div class="workplace">
-        <div class="row-fluid">
-            <div class="span12">
-                <div class="head">
-                    <div class="isw-grid"></div>
-                    <h1>Sửa Đơn Hàng</h1>
-                    <div class="clear"></div>
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-left mb-0">Chỉnh sửa đơn hàng</h2>
+                    </div>
                 </div>
                 @include('commons.error')
-                <div class="block-fluid">
-                    <form action="{{route('listorder.update',$list->id)}}" method="POST" enctype= "multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="row-form">
-                            <div class="span3">Khách Hàng</div>
-                            <div class="span9">
-                                {{$list->order->name}}
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="row-form">
-                            <div class="span3">Sản Phẩm</div>
-                            <div class="span9">
-                                {{$list->product->name}}
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="row-form">
-                            <div class="span3">Số Lượng</div>
-                            <div class="span9">
-                                <input type="text" name="amount" value="{{$list->amount}}" placeholder="Nhập số lượng sản phẩm" required/>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="row-form">
-                            <button class="btn btn-success" type="submit">Lưu</button>
-                            <button class="btn btn-danger"
-                                            onclick="window.history.go(-1); return false;">Hủy</button>
-                            <div class="clear"></div>
-                        </div>
-                    </form>
-                    <div class="clear"></div>
-                </div>
             </div>
         </div>
-        <div class="dr"><span></span></div>
+        <div class="content-body">
+            <section id="basic-horizontal-layouts">
+                <div class="row match-height">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <form class="form form-horizontal" action="{{route('listorder.update',$list->id)}}"
+                                        method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <span>Khách hàng</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            {{$list->customer->name}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <span>Sản phẩm</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            {{$list->product->name}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-4">
+                                                            <span>Số lượng</span>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <input style="color:black" class="form-control" type="text" name="amount"
+                                                                value="{{$list->amount}}"
+                                                                placeholder="Nhập số lượng sản phẩm" required />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 offset-md-4">
+                                                    <button type="submit" class="btn btn-primary mr-1 mb-1">Lưu</button>
+                                                    <button type="button" class="btn btn-outline-warning mr-1 mb-1"
+                                                        onclick="window.history.go(-1); return true;">Huỷ</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 </div>
 @endsection
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">

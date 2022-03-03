@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Product;
-use App\Models\Order;
+use App\Models\Customer;
 use App\Models\ListOrder;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
@@ -94,7 +94,7 @@ class WebsiteController extends Controller
     public function checkout(Request $request)
     {
         $data = $request->only('name','phone','address');
-        $order = new Order($data);
+        $order = new Customer($data);
         $order->buy_date = date('y-m-d');
         $order->save();
         $last_id = $order->id;

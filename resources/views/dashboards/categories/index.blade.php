@@ -1,4 +1,4 @@
-@extends('dashboards.master1')
+@extends('dashboards.master')
 @section('title')
 Hãng sản phẩm
 @endsection
@@ -27,6 +27,7 @@ Hãng sản phẩm
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
+                                            @if(count($categories)>0)
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -44,14 +45,23 @@ Hãng sản phẩm
                                                             method="post">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <a href="{{ route('category.edit', $category->id)}}"
-                                                                class="btn btn-primary">Sửa</a>
-                                                            <input type="submit" class="btn btn-danger" value="Xóa"
-                                                                onClick="return confirm('Bạn có muốn xóa loại sản phẩm này?');">
+                                                            <a style="color:green" href="{{ route('category.edit', $category->id)}}"><i
+                                                                    class="fa fa-pencil-square"></i></a>
+                                                            <button class="btn"
+                                                                onclick="return confirm('Bạn có muốn xóa hãng sản phẩm này?');"><i
+                                                                    class="fa fa-trash"></i></button>
                                                         </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach
+                                                @else
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <h4 style="color:green;text-align:center">Không có hãng nào
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                                @endif
                                             </tbody>
                                             <tfoot>
                                                 <tr>
@@ -71,6 +81,4 @@ Hãng sản phẩm
         </div>
     </div>
 </div>
-<div class="sidenav-overlay"></div>
-<div class="drag-target"></div>
 @endsection
