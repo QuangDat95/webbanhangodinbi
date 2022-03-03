@@ -10,3 +10,6 @@ dùng package có sẵn của laravel(tùy trường hợp)
 function phải viết thường
 lấy id bằng cách tạo input type hidden (nhiều cách khác nhau) để hạn chế dùng get bảo mật
 updateitemcart ko cần truyền id vs amount, sửa lại url cart/list/delete
+
+phân tích dữ liệu thu nhập:
+số lượng trong ngày, tổng tiền thu nhập trong ngày
