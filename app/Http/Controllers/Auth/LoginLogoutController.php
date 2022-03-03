@@ -15,7 +15,7 @@ class LoginLogoutController extends Controller
 		if(Auth::check()){
 			return redirect()->route('category.index');
 		}
-        return view('auth.login');
+        return view('auth.auth-login');
     }
 	public function postlogin(Request $request)
 	{
@@ -29,7 +29,7 @@ class LoginLogoutController extends Controller
 			Auth::login($user);
 			return redirect()->route('category.index');
 		}
-		return redirect()->back()->with(['flash_message'=>'Đăng nhập thất bại']);
+		return redirect()->back()->with(['error'=>'Đăng nhập thất bại, tài khoản hoặc mật khẩu không đúng']);
 	}
 	public function postlogout() {
 		Auth::logout();
