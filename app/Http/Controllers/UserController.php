@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Hash;
-use Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
     public function getchangeuser(){
@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function changepassword(Request $request){
         if($request->oldpassword == '' || $request->newpassword == '' || $request->repassword == ''){
-            Session::flash('error','Có trường đang để trống');
+            Session::flash('error','Các trường không được để trống');
             return view('dashboards.users.password_setting');
         }
         if (!Hash::check($request->oldpassword, Auth::user()->password)) {
@@ -49,8 +49,16 @@ class UserController extends Controller
             $user = User::where(["email" => $credential_email['email']])->first();
             Auth::login($user);
             return view('dashboards.users.password_setting');
-            
         }
-        
+    }
+    public function changeimage(Request $request){
+        $user = User::find(Auth::user()->id);
+        if ($request->hasFile('image')) {
+            $file = $request->nameimage;
+            $path = saveImage($file);
+            $user->image = $path;
+        }
+        $user->save();
+        return view('dashboards.users.image',compact('user'));
     }
 }

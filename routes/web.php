@@ -44,3 +44,4 @@ Route::get('setting/account/user',[UserController::class,'getchangeuser'])->name
 Route::post('setting/account/user/update',[UserController::class,'updateaccountuser']);
 Route::get('setting/account/password',[UserController::class,'getchangepassword'])->name('settingpassword');
 Route::post('setting/account/password/update',[UserController::class,'changepassword']);
+Route::post('setting/account/user/image',[UserController::class,'changeimage']);

@@ -11,6 +11,40 @@ $("#image_product").change(function () {
     readURL(this);
 });
 
+$('#account-upload').change(function(){
+    // let name =  $('#account-upload').val();
+    let nameimage = document.getElementById("account-upload").files[0].name;
+    let uploadImageUrl = "/setting/account/user/image";
+    $.ajax({
+        url: uploadImageUrl,
+        type: "POST",
+        headers:csrf,
+        data:
+        {
+            nameimage: nameimage
+        },
+        headers: csrf
+    }).done(function (response) {
+        $('.image_account').empty();
+        $('.image_account').html(response);
+        alertify.success("Cập nhật thành công!");
+    });
+});
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('.rounded').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$("#account-upload").change(function () {
+    readURL(this);
+});
+
+
 var csrf = { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") };
 
 $('.update_account').click(function () {
@@ -33,6 +67,8 @@ $('.update_account').click(function () {
     }).done(function (response) {
         $('#account-vertical-general').empty();
         $('#account-vertical-general').html(response);
+        $('.user-name-account').empty();
+        $('.user-name-account').text(account_name);
         alertify.success("Cập nhật thành công!");
     });
 });

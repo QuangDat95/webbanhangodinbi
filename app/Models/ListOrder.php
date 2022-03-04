@@ -10,7 +10,7 @@ use App\Models\Product;
 class ListOrder extends Model
 {
     use HasFactory;
-    public $fillable = ['amount'];
+    public $fillable = ['amount','customer_id','product_id'];
     public function customer(){
         return $this->belongsTo(Customer::class);
     }

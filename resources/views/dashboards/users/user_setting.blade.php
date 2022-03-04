@@ -8,7 +8,6 @@
             <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Cập nhật ảnh
                 mới</label>
             <input type="file" id="account-upload" hidden>
-            <button class="btn btn-sm btn-outline-warning ml-50">Reset</button>
         </div>
         <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG.
                 Max

@@ -101,7 +101,7 @@ class WebsiteController extends Controller
         $cart = Session('cart')->products;
         foreach ($cart as $ID_sp => $value) {
             $properties_order = new ListOrder();
-            $properties_order->order_id = $last_id;
+            $properties_order->customer_id = $last_id;
             $properties_order->product_id = $ID_sp;
             $properties_order->amount = $value["amount"];
             $properties_order->save();

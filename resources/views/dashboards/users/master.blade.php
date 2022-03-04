@@ -91,10 +91,10 @@
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="account-vertical-general"
                                             aria-labelledby="account-pill-general" aria-expanded="true">
-                                            <div class="media">
+                                            <div class="media image_account">
                                                 <a href="javascript: void(0);">
-                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-12.jpg"
-                                                        class="rounded mr-75" alt="profile image" height="64"
+                                                    <img src="{{Storage::url('Auth::user()->image')}}"
+                                                        class="rounded mr-75" alt="{{Auth::user()->image}}" height="64"
                                                         width="64">
                                                 </a>
                                                 <div class="media-body mt-75">
@@ -104,8 +104,7 @@
                                                             class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
                                                             for="account-upload">Cập nhật ảnh mới</label>
                                                         <input type="file" id="account-upload" hidden>
-                                                        <button
-                                                            class="btn btn-sm btn-outline-warning ml-50">Reset</button>
+                                                        <input type="button" value="Lưu" class="save-image-account btn btn-sm btn-outline-warning ml-50">
                                                     </div>
                                                     <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG.
                                                             Max
