@@ -2,56 +2,62 @@
 @section('content')
 <!-- BEGIN: Content-->
 <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="header-navbar-shadow"></div>
-        <div class="content-wrapper">
-            <div class="content-header row">
-                <div class="content-header-left col-md-9 col-12 mb-2">
-                    <div class="row breadcrumbs-top">
-                        <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Account Settings</h2>
-                            <div class="breadcrumb-wrapper col-12">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item"><a href="#">Pages</a>
-                                    </li>
-                                    <li class="breadcrumb-item active"> Account Settings
-                                    </li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-                    <div class="form-group breadcrum-right">
-                        <div class="dropdown">
-                            <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="feather icon-settings"></i></button>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a></div>
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-left mb-0">Account Settings</h2>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="#">Pages</a>
+                                </li>
+                                <li class="breadcrumb-item active"> Account Settings
+                                </li>
+                            </ol>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="content-body">
-                <!-- account setting page start -->
-                <section id="page-account-settings">
-                    <div class="row">
-                        <!-- left menu section -->
-                        <div class="col-md-3 mb-2 mb-md-0">
-                            <ul class="nav nav-pills flex-column mt-md-0 mt-1">
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex py-75 active" id="account-pill-general" data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
-                                        <i class="feather icon-globe mr-50 font-medium-3"></i>
-                                        General
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex py-75" id="account-pill-password" data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
-                                        <i class="feather icon-lock mr-50 font-medium-3"></i>
-                                        Change Password
-                                    </a>
-                                </li>
-                                <li class="nav-item">
+            <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+                <div class="form-group breadcrum-right">
+                    <div class="dropdown">
+                        <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="feather icon-settings"></i></button>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#">Chat</a><a
+                                class="dropdown-item" href="#">Email</a><a class="dropdown-item" href="#">Calendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            <!-- account setting page start -->
+            <section id="page-account-settings">
+                <div class="row">
+                    <!-- left menu section -->
+                    <div class="col-md-3 mb-2 mb-md-0">
+                        <ul class="nav nav-pills flex-column mt-md-0 mt-1">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex py-75 general_account active" id="account-pill-general"
+                                    data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
+                                    <i class="feather icon-globe mr-50 font-medium-3"></i>
+                                    General
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex py-75 change_pass" id="account-pill-password"
+                                    data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
+                                    <i class="feather icon-lock mr-50 font-medium-3"></i>
+                                    Change Password
+                                </a>
+                            </li>
+                            <!-- <li class="nav-item">
                                     <a class="nav-link d-flex py-75" id="account-pill-info" data-toggle="pill" href="#account-vertical-info" aria-expanded="false">
                                         <i class="feather icon-info mr-50 font-medium-3"></i>
                                         Info
@@ -74,115 +80,164 @@
                                         <i class="feather icon-message-circle mr-50 font-medium-3"></i>
                                         Notifications
                                     </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- right content section -->
-                        <div class="col-md-9">
-                            <div class="card">
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane active" id="account-vertical-general" aria-labelledby="account-pill-general" aria-expanded="true">
-                                                <div class="media">
-                                                    <a href="javascript: void(0);">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-12.jpg" class="rounded mr-75" alt="profile image" height="64" width="64">
-                                                    </a>
-                                                    <div class="media-body mt-75">
-                                                        <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
-                                                            <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Upload new photo</label>
-                                                            <input type="file" id="account-upload" hidden>
-                                                            <button class="btn btn-sm btn-outline-warning ml-50">Reset</button>
+                                </li> -->
+                        </ul>
+                    </div>
+                    <!-- right content section -->
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="account-vertical-general"
+                                            aria-labelledby="account-pill-general" aria-expanded="true">
+                                            <div class="media">
+                                                <a href="javascript: void(0);">
+                                                    <img src="../../../app-assets/images/portrait/small/avatar-s-12.jpg"
+                                                        class="rounded mr-75" alt="profile image" height="64"
+                                                        width="64">
+                                                </a>
+                                                <div class="media-body mt-75">
+                                                    <div
+                                                        class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
+                                                        <label
+                                                            class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer"
+                                                            for="account-upload">Cập nhật ảnh mới</label>
+                                                        <input type="file" id="account-upload" hidden>
+                                                        <button
+                                                            class="btn btn-sm btn-outline-warning ml-50">Reset</button>
+                                                    </div>
+                                                    <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG.
+                                                            Max
+                                                            size of
+                                                            800kB</small></p>
+                                                </div>
+                                            </div>
+                                            @include('commons.alert')
+                                            @include('commons.error')
+                                            <hr>
+                                            <form novalidate>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-username">Tên người dùng</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="account_username"
+                                                                    placeholder="Nhập tên người dùng"
+                                                                    value="{{Auth::user()->username}}" required
+                                                                    data-validation-required-message="This username field is required">
+                                                            </div>
                                                         </div>
-                                                        <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG. Max
-                                                                size of
-                                                                800kB</small></p>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-name">Họ và tên</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="account_name" placeholder="Nhập họ và tên"
+                                                                    value="{{Auth::user()->name}}" required
+                                                                    data-validation-required-message="This name field is required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-e-mail">Địa chỉ email</label>
+                                                                <input type="email" class="form-control"
+                                                                    id="account_email" placeholder="Nhập địa chỉ email"
+                                                                    readonly value="{{Auth::user()->email}}" required
+                                                                    data-validation-required-message="This email field is required">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label for="account-company">Công ty</label>
+                                                            <input type="text" class="form-control" id="account_company"
+                                                                value="{{Auth::user()->company}}"
+                                                                placeholder="Tên công ty">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label for="account-company">Địa chỉ</label>
+                                                            <input type="text" class="form-control" id="account_address"
+                                                                value="{{Auth::user()->address}}"
+                                                                placeholder="Nhập địa chỉ">
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                        <input type="button"
+                                                            class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_account"
+                                                            value="Lưu">
+                                                        <button type="reset"
+                                                            class="btn btn-outline-warning">Hủy</button>
                                                     </div>
                                                 </div>
-                                                @include('commons.alert')
-                                                <hr>
-                                                <form novalidate>
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-username">Tên người dùng</label>
-                                                                    <input type="text" class="form-control" id="account_username" placeholder="Nhập tên người dùng" value="{{Auth::user()->username}}" required data-validation-required-message="This username field is required">
-                                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade " id="account-vertical-password" role="tabpanel"
+                                            aria-labelledby="account-pill-password" aria-expanded="false">
+                                            <form novalidate>
+                                                <div class="row">
+                                                    @if(Session::has('success'))
+                                                    <div class="alert alert-success alert-dismissible" role="alert">
+                                                        <strong>{{ Session('success') }}</strong>
+                                                        <button type="button" class="close" data-dismiss="alert"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            <span class="sr-only">Close</span>
+                                                        </button>
+                                                    </div>
+                                                    @endif
+                                                    @include('commons.error')
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-old-password">Mật khẩu cũ</label>
+                                                                <input type="password" class="form-control"
+                                                                    id="account-old-password" placeholder="Mật khẩu cũ"
+                                                                    minlength="6" required>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-name">Họ và tên</label>
-                                                                    <input type="text" class="form-control" id="account_name" placeholder="Nhập họ và tên" value="{{Auth::user()->name}}" required data-validation-required-message="This name field is required">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-e-mail">Địa chỉ email</label>
-                                                                    <input type="email" class="form-control" id="account_email" placeholder="Nhập địa chỉ email" readonly value="{{Auth::user()->email}}" required data-validation-required-message="This email field is required">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="account-company">Công ty</label>
-                                                                <input type="text" class="form-control" id="account_company" value="{{Auth::user()->company}}" placeholder="Tên công ty">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label for="account-company">Địa chỉ</label>
-                                                                <input type="text" class="form-control" id="account_address" value="{{Auth::user()->address}}" placeholder="Nhập địa chỉ">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_account">Lưu</button>
-                                                            <button type="reset" class="btn btn-outline-warning">Hủy</button>
                                                         </div>
                                                     </div>
-                                                </form>
-                                            </div>
-                                            <div class="tab-pane fade " id="account-vertical-password" role="tabpanel" aria-labelledby="account-pill-password" aria-expanded="false">
-                                                <form novalidate>
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-old-password">Old Password</label>
-                                                                    <input type="password" class="form-control" id="account-old-password" required placeholder="Old Password" data-validation-required-message="This old password field is required">
-                                                                </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-new-password">Mật khẩu mới</label>
+                                                                <input type="password" id="account-new-password"
+                                                                    class="form-control" placeholder="Mật khẩu mới"
+                                                                    minlength="6" required>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-new-password">New Password</label>
-                                                                    <input type="password" name="password" id="account-new-password" class="form-control" placeholder="New Password" required data-validation-required-message="The password field is required" minlength="6">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <div class="controls">
-                                                                    <label for="account-retype-new-password">Retype New
-                                                                        Password</label>
-                                                                    <input type="password" name="con-password" class="form-control" required id="account-retype-new-password" data-validation-match-match="password" placeholder="New Password" data-validation-required-message="The Confirm password field is required" minlength="6">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Save
-                                                                changes</button>
-                                                            <button type="reset" class="btn btn-outline-warning">Cancel</button>
                                                         </div>
                                                     </div>
-                                                </form>
-                                            </div>
-                                            <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-retype-new-password">Nhập lại mật
+                                                                    khẩu mới</label>
+                                                                <input type="password" class="form-control"
+                                                                    id="account-retype-new-password"
+                                                                    placeholder="Nhạp lại mật khẩu mới" minlength="6"
+                                                                    required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                                                        <input type="button"
+                                                            class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_password"
+                                                            value="Lưu">
+                                                        <button type="reset"
+                                                            class="btn btn-outline-warning">Hủy</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- <div class="tab-pane fade" id="account-vertical-info" role="tabpanel" aria-labelledby="account-pill-info" aria-expanded="false">
                                                 <form novalidate>
                                                     <div class="row">
                                                         <div class="col-12">
@@ -272,8 +327,8 @@
                                                         </div>
                                                     </div>
                                                 </form>
-                                            </div>
-                                            <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
+                                            </div> -->
+                                        <!-- <div class="tab-pane fade " id="account-vertical-social" role="tabpanel" aria-labelledby="account-pill-social" aria-expanded="false">
                                                 <form>
                                                     <div class="row">
                                                         <div class="col-12">
@@ -319,8 +374,8 @@
                                                         </div>
                                                     </div>
                                                 </form>
-                                            </div>
-                                            <div class="tab-pane fade" id="account-vertical-connections" role="tabpanel" aria-labelledby="account-pill-connections" aria-expanded="false">
+                                            </div> -->
+                                        <!-- <div class="tab-pane fade" id="account-vertical-connections" role="tabpanel" aria-labelledby="account-pill-connections" aria-expanded="false">
                                                 <div class="row">
                                                     <div class="col-12 mb-3">
                                                         <a href="javascript: void(0);" class="btn btn-info">Connect to
@@ -347,8 +402,8 @@
                                                         <button type="reset" class="btn btn-outline-warning">Cancel</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="account-vertical-notifications" role="tabpanel" aria-labelledby="account-pill-notifications" aria-expanded="false">
+                                            </div> -->
+                                        <!-- <div class="tab-pane fade" id="account-vertical-notifications" role="tabpanel" aria-labelledby="account-pill-notifications" aria-expanded="false">
                                                 <div class="row">
                                                     <h6 class="m-1">Activity</h6>
                                                     <div class="col-12 mb-1">
@@ -404,16 +459,16 @@
                                                             changes</button>
                                                         <button type="reset" class="btn btn-outline-warning">Cancel</button>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                </div> 
+                                            </div>-->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
     </div>
+</div>
 @endsection

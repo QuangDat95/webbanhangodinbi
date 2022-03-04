@@ -44,7 +44,7 @@
                                         height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="{{route('settingaccount')}}"><i class="feather icon-user"></i>Account Settings</a>
+                                    href="{{route('settinguser')}}"><i class="feather icon-user"></i>Account Settings</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item"
                                     href="{{route('postlogout')}}"><i class="feather icon-power"></i> Logout</a>
                             </div>
@@ -78,7 +78,7 @@
     <!-- BEGIN: Footer-->
     <footer class="footer footer-static footer-light">
         <p class="clearfix blue-grey lighten-2 mb-0"><span
-                class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; <?=date('Y')?> Nguyen Quang Dat
+                class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; <?=date('d-m-Y')?> Nguyen Quang Dat
                 All rights Reserved</span>
             <button class="btn btn-primary btn-icon scroll-top" type="button"><i
                     class="feather icon-arrow-up"></i></button>

@@ -12,12 +12,13 @@ $("#image_product").change(function () {
 });
 
 var csrf = { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") };
+
 $('.update_account').click(function () {
     let account_username = $('#account_username').val();
     let account_name = $('#account_name').val();
     let account_company = $('#account_company').val();
     let account_address = $('#account_address').val();
-    let updateAccountGeneralUrl = "/setting/account/update/general";
+    let updateAccountGeneralUrl = "/setting/account/user/update";
     $.ajax({
         url: updateAccountGeneralUrl,
         type: "POST",
@@ -30,6 +31,29 @@ $('.update_account').click(function () {
         },
         headers: csrf
     }).done(function (response) {
-        console.log(response);
+        $('#account-vertical-general').empty();
+        $('#account-vertical-general').html(response);
+        alertify.success("Cập nhật thành công!");
     });
+});
+
+$('.update_password').click(function () {
+    let oldpassword = $('#account-old-password').val();
+    let newpassword = $('#account-new-password').val();
+    let repassword = $('#account-retype-new-password').val();
+    let updatePasswordUserUrl = "/setting/account/password/update";
+        $.ajax({
+            url: updatePasswordUserUrl,
+            type: "POST",
+            data:
+            {
+                oldpassword: oldpassword,
+                newpassword: newpassword,
+                repassword: repassword,
+            },
+            headers: csrf
+        }).done(function (response) {
+            $('#account-vertical-password').empty();
+            $('#account-vertical-password').html(response);
+        });
 });
