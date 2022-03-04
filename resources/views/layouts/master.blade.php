@@ -217,7 +217,7 @@
     <script src="{{asset('js/nouislider.min.js')}}"></script>
     <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
-    <script src="{{asset('main/main.js')}}"></script>
+    <script src="{{asset('main/layouts.js')}}"></script>
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <!-- CSS -->

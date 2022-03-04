@@ -19,13 +19,24 @@ class LoginLogoutController extends Controller
     }
 	public function postlogin(Request $request)
 	{
-		$credential = [
-		'email' => $request->email,
+		$credential_email = [
+		'email' => $request->user_email,
 		'password' => $request->password,
 		];
+		$credential_username = [
+			'username' => $request->user_email,
+			'password' => $request->password
+		];
 		// $remember_me = ( !empty( $request->remember_me ) )? TRUE : FALSE;
-		if(Auth::attempt($credential)){
-			$user = User::where(["email" => $credential['email']])->first();
+		if(Auth::attempt($credential_email))
+		{
+			$user = User::where(["email" => $credential_email['email']])->first();
+			Auth::login($user);
+			return redirect()->route('category.index');
+		}
+		else if(Auth::attempt($credential_username))
+		{
+			$user = User::where(["username" => $credential_username['username']])->first();
 			Auth::login($user);
 			return redirect()->route('category.index');
 		}

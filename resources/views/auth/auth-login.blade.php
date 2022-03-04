@@ -96,7 +96,7 @@
                                     <div class="card rounded-0 mb-0 px-2">
                                         <div class="card-header pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0">Login</h4>
+                                                <h4 class="mb-0">Đăng nhập</h4>
                                             </div>
                                         </div>
                                         <p class="px-2">Chào mừng bạn quay trở lại, hãy đăng nhập vào tài khoản</p>
@@ -104,16 +104,17 @@
                                             <div class="card-body pt-1">
                                                 <form action="{{route('postlogin')}}" method="POST">
                                                 @csrf
+                                                <strong>Tên người dùng hoặc email</strong>
                                                     <fieldset
                                                         class="form-label-group form-group position-relative has-icon-left">
                                                         <input type="text" class="form-control" id="user-name"
-                                                            name="email" placeholder="Username" required>
+                                                            name="user_email" placeholder="Username" required>
                                                         <div class="form-control-position">
                                                             <i class="feather icon-user"></i>
                                                         </div>
                                                         <!-- <label for="user-name">Username</label> -->
                                                     </fieldset>
-
+                                                    <strong>Mật khẩu</strong>
                                                     <fieldset class="form-label-group position-relative has-icon-left">
                                                         <input type="password" class="form-control" id="user-password"
                                                             name="password" placeholder="Password" required>
@@ -141,7 +142,7 @@
                                                                 class="card-link">Forgot Password?</a></div> -->
                                                     </div>
                                                     <a href="auth-register.html"
-                                                        class="btn btn-outline-primary float-left btn-inline">Register</a>
+                                                        class="btn btn-outline-primary float-left btn-inline">Đăng ký</a>
                                                     <input type="submit" value="Đăng nhập"
                                                         class="btn btn-primary float-right btn-inline">
                                                 </form>

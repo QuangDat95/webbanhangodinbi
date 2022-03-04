@@ -1,7 +1,9 @@
-<div class="col-lg-12">
-    @if(Session::has('flash_message'))
-    <div class="alert alert-success">
-        <strong>{{ Session::get('flash_message') }}</strong>
-    </div>
-    @endif
+@if(Session::has('flash_message'))
+<div class="alert alert-success alert-dismissible col-lg-12" role="alert">
+    <strong>{{ Session('flash_message') }}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
 </div>
+@endif

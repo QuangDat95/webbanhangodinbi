@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ListOrderController;
 use App\Http\Controllers\Auth\LoginLogoutController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\UserController;
+
 Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('category',CategoryController::class);
     Route::resource('product',ProductController::class);
@@ -40,3 +41,4 @@ Route::get('acer',[WebsiteController::class,'acer'])->name('acer');
 Route::get('contact',[WebsiteController::class,'contact'])->name('contact');
 Route::get('home',[WebsiteController::class,'home']);
 Route::get('setting/account',[UserController::class,'index'])->name('settingaccount');
+Route::post('setting/account/update/general',[UserController::class,'updateaccountgeneral']);

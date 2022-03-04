@@ -51,4 +51,4 @@
 @else
 <p style="color:red; text-align:center; padding:100px 0px 200px 0px; font-size:55px">Không có sản phẩm nào trong giỏ hàng!</p>
 @endif
-<script src="{{asset('main/main.js')}}"></script>
+<script src="asset('main/layouts.js')"></script>

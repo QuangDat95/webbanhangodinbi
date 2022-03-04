@@ -53,4 +53,4 @@
        </a>
    </div>
    <!-- /Menu Toogle -->
-   <script src="{{asset('main/main.js')}}"></script>
+   <script src="{{asset('main/layouts.js')}}"></script>

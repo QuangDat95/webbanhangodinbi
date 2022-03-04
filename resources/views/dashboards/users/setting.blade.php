@@ -99,41 +99,48 @@
                                                                 800kB</small></p>
                                                     </div>
                                                 </div>
+                                                @include('commons.alert')
                                                 <hr>
                                                 <form novalidate>
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-username">Username</label>
-                                                                    <input type="text" class="form-control" id="account-username" placeholder="Username" value="hermione007" required data-validation-required-message="This username field is required">
+                                                                    <label for="account-username">Tên người dùng</label>
+                                                                    <input type="text" class="form-control" id="account_username" placeholder="Nhập tên người dùng" value="{{Auth::user()->username}}" required data-validation-required-message="This username field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-name">Name</label>
-                                                                    <input type="text" class="form-control" id="account-name" placeholder="Name" value="Hermione Granger" required data-validation-required-message="This name field is required">
+                                                                    <label for="account-name">Họ và tên</label>
+                                                                    <input type="text" class="form-control" id="account_name" placeholder="Nhập họ và tên" value="{{Auth::user()->name}}" required data-validation-required-message="This name field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <div class="controls">
-                                                                    <label for="account-e-mail">E-mail</label>
-                                                                    <input type="email" class="form-control" id="account-e-mail" placeholder="Email" readonly value="{{Auth::user()->email}}" required data-validation-required-message="This email field is required">
+                                                                    <label for="account-e-mail">Địa chỉ email</label>
+                                                                    <input type="email" class="form-control" id="account_email" placeholder="Nhập địa chỉ email" readonly value="{{Auth::user()->email}}" required data-validation-required-message="This email field is required">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
                                                             <div class="form-group">
-                                                                <label for="account-company">Company</label>
-                                                                <input type="text" class="form-control" id="account-company" placeholder="Company name">
+                                                                <label for="account-company">Công ty</label>
+                                                                <input type="text" class="form-control" id="account_company" value="{{Auth::user()->company}}" placeholder="Tên công ty">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <label for="account-company">Địa chỉ</label>
+                                                                <input type="text" class="form-control" id="account_address" value="{{Auth::user()->address}}" placeholder="Nhập địa chỉ">
                                                             </div>
                                                         </div>
                                                         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
-                                                            <button type="submit" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0">Lưu thay đổi</button>
+                                                            <button class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_account">Lưu</button>
                                                             <button type="reset" class="btn btn-outline-warning">Hủy</button>
                                                         </div>
                                                     </div>
