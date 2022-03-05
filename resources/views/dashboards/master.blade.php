@@ -40,7 +40,7 @@
                                         {{Auth::user()->name}}
                                     </span>
                                 </div><span><img class="round"
-                                        src="{{asset('app-assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar"
+                                        src="{{Storage::url(Auth::user()->image)}}" alt="avatar"
                                         height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"

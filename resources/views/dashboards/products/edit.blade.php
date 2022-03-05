@@ -108,7 +108,7 @@ Chỉnh sửa thông tin sản phẩm
                                                         </div>
                                                         <div class="col-md-8">
                                                             <input type="file" value="{{ $product->image }}"
-                                                                name="image" id="image_product">
+                                                                name="image" id="image_product" onchange="productUrl(this)">
                                                             <img src="{{ Storage::url($product->image) }}"
                                                                 id="change_image" alt="ảnh ở đây" style="height:2.5cm">
                                                             <div style="color:red">

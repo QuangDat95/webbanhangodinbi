@@ -7,11 +7,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     public function getchangeuser(){
-
-        return view('dashboards.users.master');
+        $user = User::find(Auth::user()->id);
+        return view('dashboards.users.master',compact('user'));
     }
     public function updateaccountuser(Request $request){
         $user = User::find(Auth::user()->id);
@@ -52,14 +53,17 @@ class UserController extends Controller
         }
     }
     public function changeimage(Request $request){
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
         $user = User::find(Auth::user()->id);
-        dd($user);
-        if ($request->hasFile('image')) {
-            $file = $request->nameimage;
-            $path = saveImage($file);
+        // dd($user);
+        if ($request->hasFile('file')) {
+            $file = $request->file;
+            $path = $file->store('image','public');
             $user->image = $path;
         }
         $user->save();
-        return view('dashboards.users.image',compact('user'));
+        return response()->json('Image uploaded successfully');
     }
 }

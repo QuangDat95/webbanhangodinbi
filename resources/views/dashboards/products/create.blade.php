@@ -102,7 +102,7 @@ Thêm thông tin sản phẩm
                                                             <span>Hình ảnh</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="file" name="image" id="image_product">
+                                                            <input type="file" name="image" id="image_product" onchange="productUrl(this)">
                                                             <img src="#" id="change_image" alt="ảnh ở đây"
                                                                 style="height:2.5cm">
                                                             <div style="color:red">

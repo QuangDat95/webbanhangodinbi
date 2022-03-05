@@ -30,7 +30,7 @@ class ProductController extends Controller
         $product = new Product($data);
         if ($request->hasFile('image')) {
             $file = $request->image;
-            $path = saveImage($file);
+            $path = $file->store('image','public');
             $product->image = $path;
         }
         $product->save();

@@ -1,4 +1,4 @@
 <?php
 function saveImage($file){
-       return $file->store('image','public');;
+       return $file->store('image','public');
 }
