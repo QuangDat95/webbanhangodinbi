@@ -39,14 +39,14 @@
                                     <span class="user-name-account text-bold-600">
                                         {{Auth::user()->name}}
                                     </span>
-                                </div><span><img class="round"
+                                </div><span id="account_img_reset"><img
                                         src="{{Storage::url(Auth::user()->image)}}" alt="avatar"
                                         height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                    href="{{route('settinguser')}}"><i class="feather icon-user"></i>Account Settings</a>
+                                    href="{{route('settinguser')}}"><i class="feather icon-user"></i>Cập nhật tài khoản</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item"
-                                    href="{{route('postlogout')}}"><i class="feather icon-power"></i> Logout</a>
+                                    href="{{route('postlogout')}}"><i class="feather icon-power"></i>Đăng xuất</a>
                             </div>
                         </li>
                     </ul>

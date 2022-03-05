@@ -12,10 +12,10 @@
                         <h2 class="content-header-title float-left mb-0">Account Settings</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('category.index')}}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Pages</a>
-                                </li>
+                                <!-- <li class="breadcrumb-item"><a href="#">Pages</a>
+                                </li> -->
                                 <li class="breadcrumb-item active"> Account Settings
                                 </li>
                             </ol>
@@ -106,10 +106,10 @@
                                                                 for="account-upload">Cập nhật ảnh
                                                                 mới</label>
                                                             <!-- <input type="file" name="file" id="account-upload" hidden> -->
-                                                            <input type="file" name="file" hidden id="account-upload">
+                                                            <input type="file" name="file" hidden id="account-upload" onchange="readURL(this)">
                                                             <span class="text-danger" id="image-input-error"></span>
                                                             <button type="submit"
-                                                                class="btn btn-sm btn-outline-warning ml-50">Lưu</button>
+                                                                class="btn btn-sm btn-outline-warning ml-50 click_submit">Lưu</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -460,7 +460,7 @@
                                                             changes</button>
                                                         <button type="reset" class="btn btn-outline-warning">Cancel</button>
                                                     </div>
-                                                </div> 
+                                                </div>
                                             </div>-->
                                     </div>
                                 </div>

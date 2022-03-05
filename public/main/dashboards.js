@@ -1,3 +1,4 @@
+var csrf = { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") };
 function productUrl(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -7,34 +8,31 @@ function productUrl(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 $('#image_product').change(function () {
     ProductUrl(this);
 });
-
 
 $('#upload-image-form').submit(function(e) {
     e.preventDefault();
     let formData = new FormData(this);
     $('#image-input-error').text('');
-
+    let userImageUrl = '/setting/account/user/image';
     $.ajax({
-       type:'POST',
-       url: `/setting/account/user/image`,
+        url: userImageUrl,
+        type:'POST',
         data: formData,
         contentType: false,
         processData: false,
-        success: (response) => {
-          if (response) {
-            this.reset();
-            alert('Image has been uploaded successfully');
-          }
-        },
-        error: function(response){
-           console.log(response);
-             $('#image-input-error').text(response.responseJSON.errors.file);
+        headers:csrf
+      }).done(function(response){
+        if(response){
+          alertify.success("Cập nhật ảnh thành công!");
+          $("#account_img_reset").load(location.href + " #account_img_reset");
         }
-    });
+      });
 });
+
 function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -44,12 +42,10 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
 $("#account-upload").change(function () {
     readURL(this);
 });
-
-
-var csrf = { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") };
 
 $('.update_account').click(function () {
     let account_username = $('#account_username').val();
