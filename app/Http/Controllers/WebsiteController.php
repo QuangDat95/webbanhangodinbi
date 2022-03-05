@@ -10,7 +10,6 @@ use App\Models\Customer;
 use App\Models\ListOrder;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
-use Illuminate\Support\Facades\Route;
 
 class WebsiteController extends Controller
 {

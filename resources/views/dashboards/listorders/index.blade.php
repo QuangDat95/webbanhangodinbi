@@ -41,7 +41,7 @@ Danh sách đơn hàng
                                                 @foreach($lists as $list)
                                                 <tr>
                                                     <td>{{$list->customer->name}}</td>
-                                                    <td>{{date('d/m/Y', strtotime($list->customer->buy_date))}}</td>
+                                                    <td>{{date('d/m/Y', strtotime($list->buy_date))}}</td>
                                                     <td>{{$list->product->name}}</td>
                                                     <td> <img src="{{Storage::url($list->product->image)}}" width="100">
                                                     </td>

@@ -53,6 +53,7 @@ class UserController extends Controller
     }
     public function changeimage(Request $request){
         $user = User::find(Auth::user()->id);
+        dd($user);
         if ($request->hasFile('image')) {
             $file = $request->nameimage;
             $path = saveImage($file);

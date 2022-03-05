@@ -10,7 +10,8 @@ class ListOrderController extends Controller
 {
     public function index()
     {
-        $lists = ListOrder::paginate(10);
+        $lists = ListOrder::all();
+        // dd($lists);
         return view('dashboards.listorders.index',compact('lists'));
     }
 
