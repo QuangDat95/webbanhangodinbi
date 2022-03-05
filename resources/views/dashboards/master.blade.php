@@ -43,11 +43,14 @@
                                         src="{{Storage::url(Auth::user()->image)}}" alt="avatar"
                                         height="40" width="40"></span>
                             </a>
+                            <form method="POST" action="{{ route('postlogout') }}">
+                              @csrf
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                     href="{{route('settinguser')}}"><i class="feather icon-user"></i>Cập nhật tài khoản</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item"
-                                    href="{{route('postlogout')}}"><i class="feather icon-power"></i>Đăng xuất</a>
+                                <div class="dropdown-divider"></div>
+                                    <button class="dropdown-item" type="submit"><i class="feather icon-power"></i>Đăng xuất</button>
                             </div>
+                            </form>
                         </li>
                     </ul>
                 </div>

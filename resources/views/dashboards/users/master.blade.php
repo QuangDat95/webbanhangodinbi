@@ -9,14 +9,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Account Settings</h2>
+                        <h2 class="content-header-title float-left mb-0">Cài đặt tài khoản</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('category.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('category.index')}}">Trang chủ</a>
                                 </li>
                                 <!-- <li class="breadcrumb-item"><a href="#">Pages</a>
                                 </li> -->
-                                <li class="breadcrumb-item active"> Account Settings
+                                <li class="breadcrumb-item active">Cài đặt tài khoản
                                 </li>
                             </ol>
                         </div>
@@ -47,14 +47,14 @@
                                 <a class="nav-link d-flex py-75 general_account active" id="account-pill-general"
                                     data-toggle="pill" href="#account-vertical-general" aria-expanded="true">
                                     <i class="feather icon-globe mr-50 font-medium-3"></i>
-                                    General
+                                    Thông tin cá nhân
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex py-75 change_pass" id="account-pill-password"
                                     data-toggle="pill" href="#account-vertical-password" aria-expanded="false">
                                     <i class="feather icon-lock mr-50 font-medium-3"></i>
-                                    Change Password
+                                    Đổi mật khẩu
                                 </a>
                             </li>
                             <!-- <li class="nav-item">

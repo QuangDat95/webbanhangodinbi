@@ -20,7 +20,7 @@ Route::group(['middleware' => 'CheckLogin'],function(){
 
 Route::get('/dashboard/login',[LoginLogoutController::class,'getlogin'])->name('getlogin');
 Route::post('/dashboard/login',[LoginLogoutController::class,'postlogin'])->name('postlogin');
-Route::get('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->name('postlogout');
+Route::post('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->name('postlogout');
 
 Route::get('/',[WebsiteController::class,'index'])->name('home');
 Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('properties');
