@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use Illuminate\Support\Facades\Route;
 class LoginLogoutController extends Controller
 {
     public function getlogin()
