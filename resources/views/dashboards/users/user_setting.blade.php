@@ -58,7 +58,7 @@
         </div>
         <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
             <input type="button" class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_account" value="Lưu">
-            <button type="reset" class="btn btn-outline-warning">Hủy</button>
+            <button type="reset" class="btn btn-outline-warning cancel_update_user">Hủy</button>
         </div>
     </div>
 </form>

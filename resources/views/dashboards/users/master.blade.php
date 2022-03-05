@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
+            <!-- <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
                 <div class="form-group breadcrum-right">
                     <div class="dropdown">
                         <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button"
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="content-body">
             <!-- account setting page start -->
@@ -175,12 +175,12 @@
                                                             class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_account"
                                                             value="Lưu">
                                                         <button type="reset"
-                                                            class="btn btn-outline-warning">Hủy</button>
+                                                            class="btn btn-outline-warning cancel_update_user">Hủy</button>
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="tab-pane fade " id="account-vertical-password" role="tabpanel"
+                                        <div class="tab-pane fade account-vertical-password" id="account-vertical-password" role="tabpanel"
                                             aria-labelledby="account-pill-password" aria-expanded="false">
                                             <form novalidate>
                                                 <div class="row">
@@ -232,8 +232,6 @@
                                                         <input type="button"
                                                             class="btn btn-primary mr-sm-1 mb-1 mb-sm-0 update_password"
                                                             value="Lưu">
-                                                        <button type="reset"
-                                                            class="btn btn-outline-warning">Hủy</button>
                                                     </div>
                                                 </div>
                                             </form>

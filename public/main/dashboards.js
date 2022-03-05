@@ -47,6 +47,10 @@ $("#account-upload").change(function () {
     readURL(this);
 });
 
+$('.cancel_update_user').click(function(){
+  $('#account-vertical-general').load(location.href + " #account-vertical-general");
+});
+
 $('.update_account').click(function () {
     let account_username = $('#account_username').val();
     let account_name = $('#account_name').val();
@@ -89,7 +93,7 @@ $('.update_password').click(function () {
             },
             headers: csrf
         }).done(function (response) {
-            $('#account-vertical-password').empty();
-            $('#account-vertical-password').html(response);
+            $('.account-vertical-password').empty();
+            $('.account-vertical-password').html(response);
         });
 });
