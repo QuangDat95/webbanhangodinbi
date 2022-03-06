@@ -51,6 +51,12 @@ $('.cancel_update_user').click(function(){
   $('#account-vertical-general').load(location.href + " #account-vertical-general");
 });
 
+$('.cancel_update_password').click(function(){
+  $('#account-old-password').val('');
+  $('#account-new-password').val('');
+  $('#account-retype-new-password').val('');
+});
+
 $('.update_account').click(function () {
     let account_username = $('#account_username').val();
     let account_name = $('#account_name').val();

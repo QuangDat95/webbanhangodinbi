@@ -58,9 +58,18 @@ class UserController extends Controller
           ]);
         $user = User::find(Auth::user()->id);
         // dd($user);
+        // if ($request->hasFile('file')) {
+        //     $file = $request->file;
+        //     $path = $file->store('image','public');
+        //     $user->image = $path;
+        // }
         if ($request->hasFile('file')) {
+            $currentFile = $user->image;
+            if($currentFile){
+                Storage::delete('/public/' . $currentFile);
+            }
             $file = $request->file;
-            $path = $file->store('image','public');
+            $path = $file->store('image', 'public');
             $user->image = $path;
         }
         $user->save();
