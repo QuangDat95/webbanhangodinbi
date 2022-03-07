@@ -66,7 +66,7 @@ function rendercart(response)
 $(".add-to-cart-btn").click(function() 
 {
     let id_product = $("#add_cart").val();
-    let addCartUrl = "/addcart";
+    let addCartUrl = "/add/cart";
 
     $.ajax({
         url: addCartUrl,

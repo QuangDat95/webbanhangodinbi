@@ -1,4 +1,5 @@
-@extends('dashboards.master') @section('content')
+@extends('dashboards.master') 
+@section('content')
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>

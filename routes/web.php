@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ListOrderController;
 use App\Http\Controllers\Auth\LoginLogoutController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('category',CategoryController::class);
@@ -15,7 +16,7 @@ Route::group(['middleware' => 'CheckLogin'],function(){
     Route::resource('customer',CustomerController::class);
     Route::resource('listorder',ListOrderController::class);
     Route::view('/categoryCreate','dashboards.categories.create')->name('categoryCreate');
-    Route::view('/customerCreate','backend.customers.create')->name('customerCreate');
+    Route::get('/dashboards',[DashboardController::class,'index'])->name('dashboards');
 });
 
 Route::get('/dashboard/login',[LoginLogoutController::class,'getlogin'])->name('getlogin');
@@ -24,13 +25,13 @@ Route::post('/dashboard/logout',[LoginLogoutController::class,'postlogout'])->na
 
 Route::get('/',[WebsiteController::class,'index'])->name('home');
 Route::get('properties/{id}',[WebsiteController::class,'properties'])->name('properties');
-Route::post('addcart',[WebsiteController::class,'addcart']);
-Route::get('cart',[WebsiteController::class,'getcart'])->name('getcart');
+Route::post('add/cart',[WebsiteController::class,'addcart']);
+Route::get('list/cart',[WebsiteController::class,'getcart'])->name('getcart');
 Route::post('delete/listcart',[WebsiteController::class,'deletelistcart']);
 Route::post('delete/cart',[WebsiteController::class,'deletecart']);
 Route::get('checkout',[WebsiteController::class,'getcheckout'])->name('getcheckout');
 Route::post('checkout',[WebsiteController::class,'checkout'])->name('checkout');
-Route::get('ordersuccess',[WebsiteController::class,'ordersuccess'])->name('ordersuccess');
+Route::get('order/success',[WebsiteController::class,'ordersuccess'])->name('ordersuccess');
 Route::get('returnHome',[WebsiteController::class,'returnHome'])->name('returnHome');
 Route::post('update/listcart',[WebsiteController::class,'saveitemlistcart']);
 Route::get('dell',[WebsiteController::class,'dell'])->name('dell');

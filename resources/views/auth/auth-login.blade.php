@@ -141,26 +141,26 @@
                                                         <!-- <div class="text-right"><a href="auth-forgot-password.html"
                                                                 class="card-link">Forgot Password?</a></div> -->
                                                     </div>
-                                                    <a href="auth-register.html"
-                                                        class="btn btn-outline-primary float-left btn-inline">Đăng ký</a>
+                                                    <a href="{{route('home')}}"
+                                                        class="btn btn-success float-left btn-inline">Trang chủ</a>
                                                     <input type="submit" value="Đăng nhập"
-                                                        class="btn btn-primary float-right btn-inline">
+                                                        class="btn btn-danger float-right btn-inline">
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="login-footer">
                                             <div class="divider">
-                                                <div class="divider-text">OR</div>
+                                                <!-- <div class="divider-text">OR</div> -->
                                             </div>
                                             <div class="footer-btn d-inline">
-                                                <a href="#" class="btn btn-facebook"><span
+                                                <!-- <a href="#" class="btn btn-facebook"><span
                                                         class="fa fa-facebook"></span></a>
                                                 <a href="#" class="btn btn-twitter white"><span
                                                         class="fa fa-twitter"></span></a>
                                                 <a href="#" class="btn btn-google"><span
                                                         class="fa fa-google"></span></a>
                                                 <a href="#" class="btn btn-github"><span
-                                                        class="fa fa-github-alt"></span></a>
+                                                        class="fa fa-github-alt"></span></a> -->
                                             </div>
                                         </div>
                                     </div>

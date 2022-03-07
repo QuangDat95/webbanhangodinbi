@@ -18,34 +18,34 @@ class WebsiteController extends Controller
     }
     public function properties($id)
     {
-        $id_decode = base64_decode($id);
+        $id_decode = Decrypt($id);
         $product = Product::find($id_decode);
         return view('layouts.properties', compact('product'));
     }
 
-    public function addcart(Request $req)
+    public function addcart(Request $request)
     {
-        $id = $req->id;
+        $id = $request->id;
         $product = DB::table('products')->where('id', $id)->first();
         if ($product != null) {
             $oldCart = Session('cart') ? Session('cart') : null;
             $newCart = new Cart($oldCart);
             $newCart->addCart($product, $id);
-            $req->session()->put('cart', $newCart);
+            $request->session()->put('cart', $newCart);
         }
         return view('layouts.loadheader_cart',compact('newCart'));
     }
 
-    public function deletecart(Request $req)
+    public function deletecart(Request $request)
     {
-        $id = $req->id;
+        $id = $request->id;
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->deleteItemCart($id);
         if (count($newCart->products) > 0) {
-            $req->session()->put('cart', $newCart);
+            $request->session()->put('cart', $newCart);
         } else {
-            $req->session()->forget('cart');
+            $request->session()->forget('cart');
         }
         return view('layouts.loadheader_cart');
     }
@@ -55,28 +55,28 @@ class WebsiteController extends Controller
         return view('layouts.carts.carts');
     }
 
-    public function deletelistcart(Request $req)
+    public function deletelistcart(Request $request)
     {
-        $id = $req->id;
+        $id = $request->id;
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->deleteItemCart($id);
         if (count($newCart->products) > 0) {
-            $req->session()->put('cart', $newCart);
+            $request->session()->put('cart', $newCart);
         } else {
-            $req->session()->forget('cart');
+            $request->session()->forget('cart');
         }
         return view('layouts.carts.load_carts');
     }
 
-    public function saveitemlistcart(Request $req)
+    public function saveitemlistcart(Request $request)
     {
-        $id = $req->id;
-        $quanty = $req->quanty;
+        $id = $request->id;
+        $quanty = $request->quanty;
         $oldCart = Session('cart') ? Session('cart') : null;
         $newCart = new Cart($oldCart);
         $newCart->UpdateItemCart($id, $quanty);
-        $req->session()->put('cart', $newCart);
+        $request->session()->put('cart', $newCart);
         return view('layouts.carts.load_carts');
     }
 

@@ -21,8 +21,10 @@
     <!-- END: Theme JS-->
     <!-- BEGIN: Page JS-->
     <script src="{{asset('app-assets/js/scripts/datatables/datatable.js')}}"></script>
-    <script src="{{asset('app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('app-assets/js/scripts/charts/chart-apex.js')}}"></script>
+    <!-- <script src="{{asset('app-assets/vendors/js/charts/apexcharts.min.js')}}"></script>
+    <script src="{{asset('app-assets/js/scripts/charts/chart-apex.js')}}"></script> -->
+    @yield('js')
+    
     <!-- END: Page JS-->
     <!-- JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>

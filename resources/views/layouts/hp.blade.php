@@ -19,7 +19,7 @@ Hp
 						</div>
 						<div class="product-body">
 							<p class="product-category"></p>
-							<h3 class="product-name"><a href="{{route('properties',base64_encode($sellest->product->id))}}">{{$sellest->product->name}}</a></h3>
+							<h3 class="product-name"><a href="{{route('properties',Encrypt($sellest->product->id))}}">{{$sellest->product->name}}</a></h3>
 							<h4 class="product-price">{{number_format($sellest->product->price)}}<sup>đ</sup></h4>
 						</div>
 					</div>
@@ -42,14 +42,14 @@ Hp
 					@foreach($products as $product)
 					<div class="col-md-4 col-xs-6">
 						<div class="product">
-							<a href="{{route('properties',base64_encode($product->id))}}">
+							<a href="{{route('properties',Encrypt($product->id))}}">
 								<div class="product-img">
 									<img src="{{Storage::url($product->image)}}" alt="{{$product->image}}">
 								</div>
 							</a>
 							<div class="product-body">
 								<p class="product-category">{{$product->category->name}}</p>
-								<h3 class="product-name"><a href="{{route('properties',base64_encode($product->id))}}">{{$product->name}}</a></h3>
+								<h3 class="product-name"><a href="{{route('properties',Encrypt($product->id))}}">{{$product->name}}</a></h3>
 								<h4 class="product-price">{{number_format($product->price)}}<sup>đ</sup></h4>
 							</div>
 						</div>

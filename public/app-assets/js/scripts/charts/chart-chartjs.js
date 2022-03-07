@@ -111,7 +111,7 @@ $(window).on("load", function () {
 
 
 
-  // Bar Chart
+ // Bar Chart
   // ------------------------------------------
 
   //Get the context of the Chart canvas element we want to select
@@ -156,17 +156,20 @@ $(window).on("load", function () {
     },
     title: {
       display: true,
-      text: 'Predicted world population (millions) in 2050'
+      text: 'Biểu đồ thu nhập bình quân trong tháng'
     },
 
   };
 
   // Chart Data
   var barchartData = {
-    labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+    // labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+    labels: date,
     datasets: [{
       label: "Population (millions)",
-      data: [2478, 5267, 734, 784, 433],
+      // data: [2478, 5267, 734, 784, 433],
+      // data: ["6","3","7","9","3","4","3","5","6","7","2","2","5","1","1","4","5","9","1","5","4","7","8","12","11","3","5","7","8","17","8"],
+      data: amounts,
       backgroundColor: themeColors,
       borderColor: "transparent"
     }]

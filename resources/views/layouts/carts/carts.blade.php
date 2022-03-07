@@ -33,7 +33,7 @@
                         </td>
                         <td class="product-name">
                             <a
-                                href="{{route('properties',$item['productInfo']->id)}}">{{$item['productInfo']->name}}</a>
+                                href="{{route('properties',Encrypt($item['productInfo']->id))}}">{{$item['productInfo']->name}}</a>
                         </td>
                         <td class="product-price">
                             <span
