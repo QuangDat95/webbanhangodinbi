@@ -13,14 +13,15 @@ class DashboardController extends Controller
        $data = ListOrder::select('id','created_at')->get()->groupBy(function($data){
            return Carbon::parse($data->created_at)->format('d');
        });
-       $amount1 = DB::table('list_orders')
+       $amount1 = ListOrder::select(DB::raw('SUM(amount)'))->groupBy(DB::raw('DATE(created_at)'))->get();
+       $amount1 = $amount1->toArray();
        $dates = [];
        $amounts = [];
        foreach($data as $date => $value){
            $dates[] = $date;
        }
-       foreach($amount1 as $key => $value){
-        $amounts[] = $value["amount"];
+       foreach($amount1 as $value){
+        $amounts[] = $value["SUM(amount)"];
     }
        return view('dashboards.dashboards',compact('dates','amounts'));
     }

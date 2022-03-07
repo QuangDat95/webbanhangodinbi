@@ -150,7 +150,7 @@ $(window).on("load", function () {
           display: true,
         },
         ticks: {
-          stepSize: 1000
+          stepSize: 100
         },
       }],
     },
