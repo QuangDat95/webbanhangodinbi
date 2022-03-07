@@ -30,6 +30,8 @@ $('#upload-image-form').submit(function(e) {
           alertify.success("Cập nhật ảnh thành công!");
           $("#account_img_reset").load(location.href + " #account_img_reset");
         }
+      }).fail(function(){
+          alert("Định dạng file không phù hợp hoặc dung lượng file quá lớn");
       });
 });
 

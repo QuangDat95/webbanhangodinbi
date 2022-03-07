@@ -57,12 +57,6 @@ class UserController extends Controller
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
         $user = User::find(Auth::user()->id);
-        // dd($user);
-        // if ($request->hasFile('file')) {
-        //     $file = $request->file;
-        //     $path = $file->store('image','public');
-        //     $user->image = $path;
-        // }
         if ($request->hasFile('file')) {
             $currentFile = $user->image;
             if($currentFile){

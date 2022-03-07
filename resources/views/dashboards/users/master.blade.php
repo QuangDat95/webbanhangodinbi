@@ -103,7 +103,7 @@
                                                 </div>
                                             </div>
                                             @include('commons.alert') @include('commons.error')
-                                            <hr />
+                                            <hr/>
                                             <form novalidate>
                                                 <div class="row">
                                                     <div class="col-12">

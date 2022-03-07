@@ -8,9 +8,9 @@
             <div class="col-12 px-0 d-flex flex-sm-row flex-column justify-content-start">
                 <label class="btn btn-sm btn-primary ml-50 mb-50 mb-sm-0 cursor-pointer" for="account-upload">Cập nhật ảnh
                     mới</label>
-                <input type="file" name="file" id="account-upload" hidden>
+                <input type="file" name="file" id="account-upload" hidden onchange="readURL(this)">
                 <span class="text-danger" id="image-input-error"></span>
-                <button type="submit" class="btn btn-sm btn-outline-warning ml-50">Lưu</button>
+                <button type="submit" class="btn btn-sm btn-outline-warning ml-50 click_submit">Lưu</button>
             </div>
         </form>
     </div>
