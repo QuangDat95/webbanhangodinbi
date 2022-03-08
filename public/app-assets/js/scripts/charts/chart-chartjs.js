@@ -21,7 +21,7 @@ $(window).on("load", function () {
   var $white = '#fff';
   var $black = '#000';
 
-  var themeColors = [$primary, $success, $danger, $warning, $label_color];
+  var themeColors = [$primary, $success, $danger, grid_line_color, $primary, $success, $danger, $warning, $primary, $success, grid_line_color, $warning, $primary, $success, $danger, $warning, $primary, $success, grid_line_color, $warning, $primary, $success, $danger, $warning, $primary, $success, $danger, $warning, $primary, $success, $danger, $warning];
 
   // Line Chart
   // ------------------------------------------
@@ -61,36 +61,36 @@ $(window).on("load", function () {
     },
     title: {
       display: true,
-      text: 'World population per region (in millions)'
+      text: 'Đơn hàng bán ra theo hãng'
     }
   };
 
   // Chart Data
   var linechartData = {
-    labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
+    labels: ["01","02","03","04","05","06","07","08","09","10","11","12"],
     datasets: [{
-      label: "Africa",
-      data: [86, 114, 106, 106, 107, 111, 133, 221, 783, 2478],
+      label: "DELL",
+      // data: dell,
       borderColor: $primary,
       fill: false
     }, {
-      data: [282, 350, 411, 502, 635, 809, 947, 1402, 3700, 5267],
-      label: "Asia",
+      data: [2, 3, 4, 5, 6, 8, 9, 14, 3, 5],
+      label: "ASUS",
       borderColor: $success,
       fill: false
     }, {
-      data: [168, 170, 178, 190, 203, 276, 408, 547, 675, 734],
-      label: "Europe",
+      data: [16, 17, 1, 19, 20, 27, 4, 5, 6, 7],
+      label: "HP",
       borderColor: $danger,
       fill: false
     }, {
-      data: [40, 20, 10, 16, 24, 38, 74, 167, 508, 784],
-      label: "Latin America",
+      data: [40, 20, 10, 16, 24, 38, 74, 16, 50, 7],
+      label: "LENOVO",
       borderColor: $warning,
       fill: false
     }, {
-      data: [6, 3, 2, 2, 7, 26, 82, 172, 312, 433],
-      label: "North America",
+      data: [6, 3, 2, 2, 7, 6, 2, 12, 32, 3],
+      label: "ACER",
       borderColor: $label_color,
       fill: false
     }]
@@ -111,7 +111,7 @@ $(window).on("load", function () {
 
 
 
- // Bar Chart
+  // Bar Chart
   // ------------------------------------------
 
   //Get the context of the Chart canvas element we want to select
@@ -156,20 +156,17 @@ $(window).on("load", function () {
     },
     title: {
       display: true,
-      text: 'Biểu đồ thu nhập bình quân trong tháng'
+      text: 'Biểu đồ đơn hàng trong tháng'
     },
 
   };
 
   // Chart Data
   var barchartData = {
-    // labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
     labels: date,
     datasets: [{
       label: "Population (millions)",
-      // data: [2478, 5267, 734, 784, 433],
-      // data: ["6","3","7","9","3","4","3","5","6","7","2","2","5","1","1","4","5","9","1","5","4","7","8","12","11","3","5","7","8","17","8"],
-      data: amounts,
+      data: amount,
       backgroundColor: themeColors,
       borderColor: "transparent"
     }]
@@ -186,8 +183,6 @@ $(window).on("load", function () {
 
   // Create the chart
   var barChart = new Chart(barChartctx, barChartconfig);
-
-
 
   // Horizontal Chart
   // -------------------------------------

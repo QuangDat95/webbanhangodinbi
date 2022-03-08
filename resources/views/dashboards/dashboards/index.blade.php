@@ -8,7 +8,7 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Chartjs</h2>
+                        <h2 class="content-header-title float-left mb-0">Biểu đồ tổng hợp</h2>
                         <!-- <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a>
@@ -46,34 +46,52 @@
             <section id="chartjs-charts">
                 <!-- Line Chart -->
                 <div class="row">
-                    <!-- <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Line Chart</h4>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body pl-0">
-                                        <div class="height-300">
-                                            <canvas id="line-chart"></canvas>
-                                        </div>
+                    <div class="col-md-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Số lượng đơn hàng theo hãng trong năm</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body pl-0">
+                                    <div class="height-300">
+                                        <canvas id="line-chart"></canvas>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
-                    <!-- Bar Chart -->
-                    <div class="col-12">
-                        <!-- <div class="card"> -->
-                        <div class="card-header">
-                            <h4 class="card-title">Biểu đồ thu nhập</h4>
                         </div>
-                        <div class="card-content">
-                            <div class="card-body pl-0">
-                                <div class="height-300">
-                                    <canvas id="bar-chart"></canvas>
+                    </div>
+                    <!-- Bar Chart -->
+                    <div class="col-md-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Biểu đồ đơn hàng</h4>
+                                <div class="card-title" style="float:right">
+                            <select id="select_month">
+                                <option value="">-chọn tháng-</option>
+                                <option value="1">Tháng 1</option>
+                                <option value="2">Tháng 2</option>
+                                <option value="3">Tháng 3</option>
+                                <option value="4">Tháng 4</option>
+                                <option value="5">Tháng 5</option>
+                                <option value="6">Tháng 6</option>
+                                <option value="7">Tháng 7</option>
+                                <option value="8">Tháng 8</option>
+                                <option value="9">Tháng 9</option>
+                                <option value="10">Tháng 10</option>
+                                <option value="11">Tháng 11</option>
+                                <option value="12">Tháng 12</option>
+                            </select>
+                            </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="card-body pl-0 chart_once_month">
+                                    <div class="height-300">
+                                        <canvas id="bar-chart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- </div> -->
                     </div>
                 </div>
                 <div class="row">
@@ -195,12 +213,5 @@
         </div>
     </div>
 </div>
-@section('js')
-<script src="{{asset('app-assets/vendors/js/charts/chart.min.js')}}"></script>
-<script>
-    var date =  JSON.parse('{!!json_encode($dates)!!}');
-    var amounts = JSON.parse('{!!json_encode($amounts)!!}');
-</script>
-<script src="{{asset('app-assets/js/scripts/charts/chart-chartjs.js')}}"></script>
-@endsection
+@include('dashboards.dashboards.js')
 @endsection

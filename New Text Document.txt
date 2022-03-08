@@ -9,8 +9,27 @@ chỉnh lại tên route phù hợp
 tìm hiểu về bảo mật MA
 tìm hiểu thêm về ajax
 
-	 
-	  
+SELECT *
+FROM list_orders
+JOIN products ON list_orders.product_id=products.id
+JOIN categories ON products.category_id=categories.id;
+
+
+SELECT SUM(list_orders.amount),list_orders.created_at
+FROM list_orders
+INNER JOIN products ON list_orders.product_id=products.id
+INNER JOIN categories ON products.category_id=categories.id
+WHERE categories.name = 'DELL'
+GROUP BY DATE(list_orders.created_at);
+
+GROUP BY DATEPART(MONTH, DateOfJoining)
+
+SELECT SUM(list_orders.amount), MONTH(list_orders.created_at)
+FROM list_orders
+INNER JOIN products ON list_orders.product_id=products.id
+INNER JOIN categories ON products.category_id=categories.id
+WHERE categories.name = 'HP'
+GROUP BY MONTH(list_orders.created_at);
 
 
 
