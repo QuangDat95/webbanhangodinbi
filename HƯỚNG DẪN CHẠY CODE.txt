@@ -1,0 +1,6 @@
+Hướng dẫn chạy code:
++ Có file sql chứa cơ sở dữ liệu trong folder SQL, tạo database mới và import vào cơ sở dữ liệu
++ Đổi tên trong file .env theo tên mà bạn đã đặt
++ Mở terminal trong thư mục chương trình và chạy php artisan serve
++ Để đăng nhập vào admin: tên đăng nhập: nguoidung@gmail.com. Password: 123456
+  Chúc các bạn học tập thành công!

@@ -9,11 +9,13 @@ use App\Models\Feature;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','price','image','description_product','category_id'];
+    protected $fillable = ['name','price','image','description','category_id'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+
     public function features()
     {
         return $this->belongsToMany(Feature::class,'product_features');

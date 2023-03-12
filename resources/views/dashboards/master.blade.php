@@ -65,7 +65,7 @@
                 <li class="nav-item mr-auto"><a class="navbar-brand"
                         href="{{route('category.index')}}">
                         <div class="brand-logo"></div>
-                        <h3 class="brand-text mb-0">ODINBI</h3>
+                        <h3 class="brand-text mb-0">EASY</h3>
                     </a></li>
                 <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i
                             class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i

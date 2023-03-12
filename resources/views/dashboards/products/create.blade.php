@@ -118,12 +118,12 @@ Thêm thông tin sản phẩm
                                                         </div>
                                                         <div class="col-md-8">
                                                             <fieldset class="form-group">
-                                                                <textarea type="text" name="description_product"
+                                                                <textarea type="text" name="description"
                                                                     rows="3"
-                                                                    placeholder="Nhập mô tả">{{old('description_product')}}</textarea>
+                                                                    placeholder="Nhập mô tả">{{old('description')}}</textarea>
                                                             </fieldset>
                                                             <div style="color:red">
-                                                                {{ $errors->first('description_product') }}
+                                                                {{ $errors->first('description') }}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -147,6 +147,6 @@ Thêm thông tin sản phẩm
 </div>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
-CKEDITOR.replace('description_product');
+CKEDITOR.replace('description');
 </script>
 @endsection
